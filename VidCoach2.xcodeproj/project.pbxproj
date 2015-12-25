@@ -19,6 +19,8 @@
 		2CAF7C321C2CDC8200FC81E9 /* kerriGreeting.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C311C2CDC8200FC81E9 /* kerriGreeting.mp4 */; };
 		2CAF7C341C2CE19B00FC81E9 /* steveGreeting.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C331C2CE19B00FC81E9 /* steveGreeting.mp4 */; };
 		2CAF7C361C2CE1B500FC81E9 /* gillianGreeting.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C351C2CE1B500FC81E9 /* gillianGreeting.mp4 */; };
+		2CAF7C381C2D0B2A00FC81E9 /* InterviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */; };
+		2CAF7C3A1C2D0F5100FC81E9 /* interviews.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C391C2D0F5100FC81E9 /* interviews.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		2CAF7C311C2CDC8200FC81E9 /* kerriGreeting.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kerriGreeting.mp4; sourceTree = "<group>"; };
 		2CAF7C331C2CE19B00FC81E9 /* steveGreeting.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = steveGreeting.mp4; sourceTree = "<group>"; };
 		2CAF7C351C2CE1B500FC81E9 /* gillianGreeting.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gillianGreeting.mp4; sourceTree = "<group>"; };
+		2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewTableViewController.swift; sourceTree = "<group>"; };
+		2CAF7C391C2D0F5100FC81E9 /* interviews.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = interviews.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 				2CAF7C0E1C2C780200FC81E9 /* ViewController.swift */,
 				2CAF7C2F1C2CD14500FC81E9 /* Video.swift */,
 				2CAF7C101C2C780200FC81E9 /* Main.storyboard */,
+				2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */,
+				2CAF7C391C2D0F5100FC81E9 /* interviews.plist */,
 				2CAF7C2C1C2CA72F00FC81E9 /* interviewQuestion.swift */,
 				2CAF7C131C2C780200FC81E9 /* Assets.xcassets */,
 				2CAF7C151C2C780200FC81E9 /* LaunchScreen.storyboard */,
@@ -199,6 +205,7 @@
 				2CAF7C361C2CE1B500FC81E9 /* gillianGreeting.mp4 in Resources */,
 				2CAF7C341C2CE19B00FC81E9 /* steveGreeting.mp4 in Resources */,
 				2CAF7C121C2C780200FC81E9 /* Main.storyboard in Resources */,
+				2CAF7C3A1C2D0F5100FC81E9 /* interviews.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CAF7C381C2D0B2A00FC81E9 /* InterviewTableViewController.swift in Sources */,
 				2CAF7C0F1C2C780200FC81E9 /* ViewController.swift in Sources */,
 				2CAF7C301C2CD14500FC81E9 /* Video.swift in Sources */,
 				2CAF7C0D1C2C780200FC81E9 /* AppDelegate.swift in Sources */,

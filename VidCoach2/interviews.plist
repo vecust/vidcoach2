@@ -1,34 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<dict>
-		<key>Interview</key>
+<dict>
+	<key>Interviews</key>
+	<array>
 		<string>General</string>
-		<key>Questions</key>
-		<array/>
-	</dict>
-	<dict>
-		<key>Interview</key>
-		<string>Retail</string>
-		<key>Questions</key>
-		<array/>
-	</dict>
-	<dict>
-		<key>Interview</key>
 		<string>Hospitality</string>
-	</dict>
-	<dict>
-		<key>Interview</key>
-		<string>Title 4</string>
-	</dict>
-	<dict>
-		<key>Interview</key>
-		<string>Title 5</string>
-	</dict>
-	<dict>
-		<key>Interview</key>
-		<string>Title 6</string>
-	</dict>
-</array>
+		<string>Healthcare</string>
+		<string>Food Service</string>
+		<string>Retail Without Experience</string>
+		<string>Retail With Experience</string>
+	</array>
+	<key>General</key>
+	<array>
+		<string>Greeting</string>
+		<string>Resume</string>
+		<string>About Me</string>
+		<string>Strengths</string>
+		<string>Why Should We Hire You</string>
+		<string>Questions</string>
+		<string>Farewell</string>
+	</array>
+	<key>Hospitality</key>
+	<array>
+		<string>Greeting</string>
+		<string>Resume</string>
+		<string>About Me</string>
+		<string>Customer Service</string>
+		<string>Unhappy Customer</string>
+		<string>Positive Change</string>
+		<string>Why Should We Hire You</string>
+		<string>Any Questions</string>
+		<string>Farewell</string>
+	</array>
+	<key>Healthcare</key>
+	<array>
+		<string>Greeting</string>
+		<string>Resume</string>
+		<string>Experience</string>
+		<string>Previous Position</string>
+		<string>Leaving Previous Position</string>
+		<string>Coworkers</string>
+		<string>Why Healthcare</string>
+		<string>Helping While On Break</string>
+		<string>Tell Me a Time</string>
+		<string>Nights and Weekends</string>
+		<string>Dress Code</string>
+		<string>School Values</string>
+		<string>Why Should We Hire You</string>
+		<string>Any Questions</string>
+		<string>Farewell</string>
+	</array>
+	<key>Food Service</key>
+	<array>
+		<string>Greeting</string>
+		<string>Resume</string>
+		<string>About Me</string>
+		<string>Experience</string>
+		<string>Tell Me a Time</string>
+		<string>Are You A Team Player</string>
+		<string>Why Should We Hire You</string>
+		<string>Any Questions</string>
+		<string>Farewell</string>
+	</array>
+	<key>Retail Without Experience</key>
+	<array>
+		<string>Greeting</string>
+		<string>Resume</string>
+		<string>Experience</string>
+		<string>Why Retail</string>
+		<string>Customer Service</string>
+		<string>Upselling</string>
+		<string>School Values</string>
+		<string>Why Should We Hire You</string>
+		<string>Any Questions</string>
+		<string>Farewell</string>
+	</array>
+	<key>Retail With Experience</key>
+	<array>
+		<string>Greeting</string>
+		<string>Resume</string>
+		<string>Experience</string>
+		<string>What Did You Enjoy</string>
+		<string>Leaving Previous Position</string>
+		<string>Coworkers</string>
+		<string>What Do You Like About Retail</string>
+		<string>Customer Service</string>
+		<string>Upselling</string>
+		<string>Tell Me a Time</string>
+		<string>School Values</string>
+		<string>Why Should We Hire You</string>
+		<string>Any Questions</string>
+		<string>Farewell</string>
+	</array>
+</dict>
 </plist>

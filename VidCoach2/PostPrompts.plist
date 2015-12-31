@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>General Greeting</key>
+	<dict>
+		<key>Message</key>
+		<string>How long should you shake hands for?</string>
+		<key>Button1</key>
+		<string>30 seconds</string>
+		<key>Button2</key>
+		<string>2 seconds</string>
+		<key>Button3</key>
+		<string>3 minutes</string>
+	</dict>
+	<key>General Resume</key>
+	<dict>
+		<key>Message</key>
+		<string>You should remember to bring your resume. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>General About Me</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I once got in trouble for being late to school.</string>
+		<key>Button2</key>
+		<string>I like to help people and I am involved in community service.</string>
+		<key>Button3</key>
+		<string>I do not want to work here.</string>
+	</dict>
+	<key>General Strengths</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I am bad at working with others.</string>
+		<key>Button2</key>
+		<string>I get good grades in school, I work well with others, and I learn fast.</string>
+		<key>Button3</key>
+		<string>I ate spaghetti for dinner last night.</string>
+	</dict>
+	<key>General Why Should We Hire You</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I don&apos;t really want to work here.</string>
+		<key>Button2</key>
+		<string>I would learn a lot and gain a lot of skills. I also think I would be an asset to the team.</string>
+		<key>Button3</key>
+		<string>I don&apos;t know.</string>
+	</dict>
+	<key>General Questions</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate question to ask?</string>
+		<key>Button1</key>
+		<string>How much money would I make?</string>
+		<key>Button2</key>
+		<string>How many hours would I be expected to work per week?</string>
+		<key>Button3</key>
+		<string>Is it okay if I use my phone while at work?</string>
+	</dict>
+	<key>General Farewell</key>
+	<dict>
+		<key>Message</key>
+		<string>You should end the interview with a thank you. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Hospitality Greeting</key>
+	<dict>
+		<key>Message</key>
+		<string>How long should you shake hands for?</string>
+		<key>Button1</key>
+		<string>30 seconds</string>
+		<key>Button2</key>
+		<string>2 seconds</string>
+		<key>Button3</key>
+		<string>3 minutes</string>
+	</dict>
+	<key>Hospitality Resume</key>
+	<dict>
+		<key>Message</key>
+		<string>You should remember to bring your resume. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Hospitality About Me</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I once got in trouble for being late to school.</string>
+		<key>Button2</key>
+		<string>I like to help people and I am involved in community service.</string>
+		<key>Button3</key>
+		<string>I do not want to work here.</string>
+	</dict>
+	<key>Hospitality Customer Service</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>Customer service is about taking customer&apos;s money.</string>
+		<key>Button2</key>
+		<string>Customer service is about assisting the customer.</string>
+		<key>Button3</key>
+		<string>I don&apos;t know.</string>
+	</dict>
+	<key>Hospitality Unhappy Customer</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I never helped a customer.</string>
+		<key>Button2</key>
+		<string>When a customer needed another blanket in his room because he was cold, I got it for him.</string>
+		<key>Button3</key>
+		<string>I have a dog.</string>
+	</dict>
+	<key>Hospitality Positive Change</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I sat in the basement and listened to my iPod.</string>
+		<key>Button2</key>
+		<string>I suggested that they create a system for substitutions in case someone called in sick.</string>
+		<key>Button3</key>
+		<string>I don&apos;t know.</string>
+	</dict>
+	<key>Hospitality Why Should We Hire You</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I don&apos;t really want to work here.</string>
+		<key>Button2</key>
+		<string>I would learn a lot and gain a lot of skills. I also think I would be an asset to the team.</string>
+		<key>Button3</key>
+		<string>I don&apos;t know.</string>
+	</dict>
+	<key>Hospitality Any Questions</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an acceptable question?</string>
+		<key>Button1</key>
+		<string>How much do I get paid?</string>
+		<key>Button2</key>
+		<string>How many hours a week does the position require?</string>
+		<key>Button3</key>
+		<string>Can I arrive late to work?</string>
+	</dict>
+	<key>Hospitality Farewell</key>
+	<dict>
+		<key>Message</key>
+		<string>You should end the interview with a thank you. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Healthcare Greeting</key>
+	<dict>
+		<key>Message</key>
+		<string>How long should you shake hands for?</string>
+		<key>Button1</key>
+		<string>30 seconds</string>
+		<key>Button2</key>
+		<string>2 seconds</string>
+		<key>Button3</key>
+		<string>3 minutes</string>
+	</dict>
+	<key>Healthcare Resume</key>
+	<dict>
+		<key>Message</key>
+		<string>You should remember to bring your resume. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Healthcare Experience</key>
+	<dict>
+		<key>Message</key>
+		<string>If you haven’t worked in healthcare, its ok. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Healthcare Previous Position</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I hated my co­workers.</string>
+		<key>Button2</key>
+		<string>I enjoyed working with people.</string>
+		<key>Button3</key>
+		<string>I sat in the corner and listened to my iPod.</string>
+	</dict>
+	<key>Healthcare Leaving Previous Position</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>Everyone was mean.</string>
+		<key>Button2</key>
+		<string>I moved to another city.</string>
+		<key>Button3</key>
+		<string>I was bad at my job.</string>
+	</dict>
+	<key>Healthcare Coworkers</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>They would say I was mean to patients.</string>
+		<key>Button2</key>
+		<string>They would say I am a hard worker and friendly.</string>
+		<key>Button3</key>
+		<string>I like waffles.</string>
+	</dict>
+	<key>Healthcare Why Healthcare</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I hate going to work.</string>
+		<key>Button2</key>
+		<string>I like working with others.</string>
+		<key>Button3</key>
+		<string>I like going to school.</string>
+	</dict>
+	<key>Healthcare Helping While On Break</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I would go home.</string>
+		<key>Button2</key>
+		<string>I would help them as best as I could.</string>
+		<key>Button3</key>
+		<string>I like to dance.</string>
+	</dict>
+	<key>Healthcare Tell Me a Time</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I wouldn&apos;t go out of my way to help a patient.</string>
+		<key>Button2</key>
+		<string>The patient requested a nurse and I got one for them.</string>
+		<key>Button3</key>
+		<string>Hospital food is good.</string>
+	</dict>
+	<key>Healthcare Nights and Weekends</key>
+	<dict>
+		<key>Message</key>
+		<string>You should tell the interviewer if you have a small conflict. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Healthcare Dress Code</key>
+	<dict>
+		<key>Message</key>
+		<string>It is okay to wear casual clothing instead of a uniform. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Healthcare School Values</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I didn&apos;t learn anything in school.</string>
+		<key>Button2</key>
+		<string>It&apos;s important to be respectful to others.</string>
+		<key>Button3</key>
+		<string>It’s cold in here.</string>
+	</dict>
+	<key>Healthcare Why Should We Hire You</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I don&apos;t really want to work here.</string>
+		<key>Button2</key>
+		<string>I would learn a lot and gain a lot of skills. I also think I would be an asset to the team.</string>
+		<key>Button3</key>
+		<string>I don&apos;t know.</string>
+	</dict>
+	<key>Healthcare Any Questions</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an acceptable question?</string>
+		<key>Button1</key>
+		<string>How much do I get paid?</string>
+		<key>Button2</key>
+		<string>How many hours a week does the position require?</string>
+		<key>Button3</key>
+		<string>Can I arrive late to work?</string>
+	</dict>
+	<key>Healthcare Farewell</key>
+	<dict>
+		<key>Message</key>
+		<string>You should end the interview with a thank you. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Food Service Greeting</key>
+	<dict>
+		<key>Message</key>
+		<string>How long should you shake hands for?</string>
+		<key>Button1</key>
+		<string>30 seconds</string>
+		<key>Button2</key>
+		<string>2 seconds</string>
+		<key>Button3</key>
+		<string>3 minutes</string>
+	</dict>
+	<key>Food Service Resume</key>
+	<dict>
+		<key>Message</key>
+		<string>You should remember to bring your resume. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Food Service About Me</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I once got in trouble for being late to school.</string>
+		<key>Button2</key>
+		<string>I like to help people and I am involved in community service.</string>
+		<key>Button3</key>
+		<string>I do not want to work here.</string>
+	</dict>
+	<key>Food Service Experience</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>People were loud and mean.</string>
+		<key>Button2</key>
+		<string>I washed dishes and cleared tables.</string>
+		<key>Button3</key>
+		<string>I flew a kite yesterday.</string>
+	</dict>
+	<key>Food Service Tell Me a Time</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I yelled at a customer when they were mean to me.</string>
+		<key>Button2</key>
+		<string>When a customer didn’t like their food, I took it back and gave them a new plate.</string>
+		<key>Button3</key>
+		<string>I sat in the back and listened to my iPod.</string>
+	</dict>
+	<key>Food Service Are You A Team Player</key>
+	<dict>
+		<key>Message</key>
+		<string>You should tell the interviewer you hate working with others. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Food Service Why Should We Hire You</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I don&apos;t really want to work here.</string>
+		<key>Button2</key>
+		<string>I would learn a lot and gain a lot of skills. I also think I would be an asset to the team.</string>
+		<key>Button3</key>
+		<string>I don&apos;t know.</string>
+	</dict>
+	<key>Food Service Any Questions</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an acceptable question?</string>
+		<key>Button1</key>
+		<string>How much do I get paid?</string>
+		<key>Button2</key>
+		<string>How many hours a week does the position require?</string>
+		<key>Button3</key>
+		<string>Can I arrive late to work?</string>
+	</dict>
+	<key>Food Service Farewell</key>
+	<dict>
+		<key>Message</key>
+		<string>You should end the interview with a thank you. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Retail Without Experience Greeting</key>
+	<dict>
+		<key>Message</key>
+		<string>How long should you shake hands for?</string>
+		<key>Button1</key>
+		<string>30 seconds</string>
+		<key>Button2</key>
+		<string>2 seconds</string>
+		<key>Button3</key>
+		<string>3 minutes</string>
+	</dict>
+	<key>Retail Without Experience Resume</key>
+	<dict>
+		<key>Message</key>
+		<string>You should remember to bring your resume. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Retail Without Experience Experience</key>
+	<dict>
+		<key>Message</key>
+		<string>It&apos;s okay to not have any previous retail experience. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Retail Without Experience Why Retail</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I hate going to work.</string>
+		<key>Button2</key>
+		<string>I want to learn more about working in retail.</string>
+		<key>Button3</key>
+		<string>I like going to school.</string>
+	</dict>
+	<key>Retail Without Experience Customer Service</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>Customer service is about taking customer&apos;s money.</string>
+		<key>Button2</key>
+		<string>Customer service is about assisting the customer.</string>
+		<key>Button3</key>
+		<string>I&apos;m not sure.</string>
+	</dict>
+	<key>Retail Without Experience Upselling</key>
+	<dict>
+		<key>Message</key>
+		<string>If you don&apos;&apos;t know what upselling means, you should do which of the following?</string>
+		<key>Button1</key>
+		<string>Ignore the question.</string>
+		<key>Button2</key>
+		<string>Ask the interviewer what he means.</string>
+		<key>Button3</key>
+		<string>Pretend you know what upselling means.</string>
+	</dict>
+	<key>Retail Without Experience School Values</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I didn&apos;t learn anything in school.</string>
+		<key>Button2</key>
+		<string>It&apos;s important to be respectful to others.</string>
+		<key>Button3</key>
+		<string>It’s cold in here.</string>
+	</dict>
+	<key>Retail Without Experience Why Should We Hire You</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I don&apos;t really want to work here.</string>
+		<key>Button2</key>
+		<string>I would learn a lot and gain a lot of skills. I also think I would be an asset to the team.</string>
+		<key>Button3</key>
+		<string>I don&apos;t know.</string>
+	</dict>
+	<key>Retail Without Experience Any Questions</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an acceptable question?</string>
+		<key>Button1</key>
+		<string>How much do I get paid?</string>
+		<key>Button2</key>
+		<string>How many hours a week does the position require?</string>
+		<key>Button3</key>
+		<string>Can I arrive late to work?</string>
+	</dict>
+	<key>Retail Without Experience Farewell</key>
+	<dict>
+		<key>Message</key>
+		<string>You should end the interview with a thank you. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Retail With Experience Greeting</key>
+	<dict>
+		<key>Message</key>
+		<string>How long should you shake hands for?</string>
+		<key>Button1</key>
+		<string>30 seconds</string>
+		<key>Button2</key>
+		<string>2 seconds</string>
+		<key>Button3</key>
+		<string>3 minutes</string>
+	</dict>
+	<key>Retail With Experience Resume</key>
+	<dict>
+		<key>Message</key>
+		<string>You should remember to bring your resume. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Retail With Experience Experience</key>
+	<dict>
+		<key>Message</key>
+		<string>If you haven’t worked in retail, it&apos;&apos;s okay.</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+	<key>Retail With Experience What Did You Enjoy</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I hated my coworkers.</string>
+		<key>Button2</key>
+		<string>I enjoyed working with people.</string>
+		<key>Button3</key>
+		<string>I sat in the corner and listened to my iPod.</string>
+	</dict>
+	<key>Retail With Experience Leaving Previous Position</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>Everyone was mean.</string>
+		<key>Button2</key>
+		<string>I had to go back to school.</string>
+		<key>Button3</key>
+		<string>I was bad at my job.</string>
+	</dict>
+	<key>Retail With Experience Coworkers</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I don&apos;&apos;t know.</string>
+		<key>Button2</key>
+		<string>They would say I am a hard worker and friendly.</string>
+		<key>Button3</key>
+		<string>They would say I was mean to customers.</string>
+	</dict>
+	<key>Retail With Experience What Do You Like About Retail</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I hate going to work.</string>
+		<key>Button2</key>
+		<string>I like working with others.</string>
+		<key>Button3</key>
+		<string>I like going to school.</string>
+	</dict>
+	<key>Retail With Experience Customer Service</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>Customer service is about taking customer&apos;s money.</string>
+		<key>Button2</key>
+		<string>Customer service is about assisting the customer.</string>
+		<key>Button3</key>
+		<string>I&apos;m not sure.</string>
+	</dict>
+	<key>Retail With Experience Upselling</key>
+	<dict>
+		<key>Message</key>
+		<string>If you don&apos;&apos;t know what upselling means, you should do which of the following?</string>
+		<key>Button1</key>
+		<string>Ignore the question.</string>
+		<key>Button2</key>
+		<string>Ask the interviewer what he means.</string>
+		<key>Button3</key>
+		<string>Pretend you know what upselling means.</string>
+	</dict>
+	<key>Retail With Experience Tell Me a Time</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I never helped a customer.</string>
+		<key>Button2</key>
+		<string>When a customer couldn&apos;t find the size they wanted I looked to see if we had it in the back.</string>
+		<key>Button3</key>
+		<string>I have a dog.</string>
+	</dict>
+	<key>Retail With Experience School Values</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I didn&apos;t learn anything in school.</string>
+		<key>Button2</key>
+		<string>It&apos;s important to be respectful to others.</string>
+		<key>Button3</key>
+		<string>It’s cold in here.</string>
+	</dict>
+	<key>Retail With Experience Why Should We Hire You</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following responses is an appropriate answer?</string>
+		<key>Button1</key>
+		<string>I don&apos;t really want to work here.</string>
+		<key>Button2</key>
+		<string>I would learn a lot and gain a lot of skills. I also think I would be an asset to the team.</string>
+		<key>Button3</key>
+		<string>I don&apos;t know.</string>
+	</dict>
+	<key>Retail With Experience Any Questions</key>
+	<dict>
+		<key>Message</key>
+		<string>Which of the following is an acceptable question?</string>
+		<key>Button1</key>
+		<string>How much do I get paid?</string>
+		<key>Button2</key>
+		<string>How many hours a week does the position require?</string>
+		<key>Button3</key>
+		<string>Can I arrive late to work?</string>
+	</dict>
+	<key>Retail With Experience Farewell</key>
+	<dict>
+		<key>Message</key>
+		<string>You should end the interview with a thank you. True or false?</string>
+		<key>Button1</key>
+		<string>False</string>
+		<key>Button2</key>
+		<string>True</string>
+		<key>Button3</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>

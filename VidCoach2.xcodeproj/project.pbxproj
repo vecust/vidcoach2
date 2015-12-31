@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C256E7B1C34A6B800E4C306 /* GeneralGreetingAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C256E7A1C34A6B800E4C306 /* GeneralGreetingAnswer.mp4 */; };
+		2C367ADD1C3346ED007D67DB /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367ADC1C3346ED007D67DB /* QuestionTableViewCell.swift */; };
+		2C367ADF1C343660007D67DB /* PostPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367ADE1C343660007D67DB /* PostPrompt.swift */; };
+		2C367AE11C343A92007D67DB /* PrePrompts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C367AE01C343A91007D67DB /* PrePrompts.plist */; };
+		2C367AE31C344ECE007D67DB /* PostPrompts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C367AE21C344ECE007D67DB /* PostPrompts.plist */; };
+		2C367AE51C346AC5007D67DB /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367AE41C346AC5007D67DB /* SimpleAlert.swift */; };
+		2C367AE71C346AF1007D67DB /* SimpleAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C367AE61C346AF1007D67DB /* SimpleAlert.xib */; };
+		2C367B3A1C3497A0007D67DB /* AVQueuePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367B391C3497A0007D67DB /* AVQueuePlayerViewController.swift */; };
 		2CAF7C0D1C2C780200FC81E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C0C1C2C780200FC81E9 /* AppDelegate.swift */; };
-		2CAF7C0F1C2C780200FC81E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C0E1C2C780200FC81E9 /* ViewController.swift */; };
+		2CAF7C0F1C2C780200FC81E9 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C0E1C2C780200FC81E9 /* VideoViewController.swift */; };
 		2CAF7C121C2C780200FC81E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C101C2C780200FC81E9 /* Main.storyboard */; };
 		2CAF7C141C2C780200FC81E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C131C2C780200FC81E9 /* Assets.xcassets */; };
 		2CAF7C171C2C780200FC81E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C151C2C780200FC81E9 /* LaunchScreen.storyboard */; };
@@ -16,11 +24,14 @@
 		2CAF7C2D1C2CA73000FC81E9 /* interviewQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C2C1C2CA72F00FC81E9 /* interviewQuestion.swift */; };
 		2CAF7C2E1C2CA73000FC81E9 /* interviewQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C2C1C2CA72F00FC81E9 /* interviewQuestion.swift */; };
 		2CAF7C301C2CD14500FC81E9 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C2F1C2CD14500FC81E9 /* Video.swift */; };
-		2CAF7C321C2CDC8200FC81E9 /* kerriGreeting.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C311C2CDC8200FC81E9 /* kerriGreeting.mp4 */; };
+		2CAF7C321C2CDC8200FC81E9 /* GeneralGreetingQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C311C2CDC8200FC81E9 /* GeneralGreetingQuestion.mp4 */; };
 		2CAF7C341C2CE19B00FC81E9 /* steveGreeting.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C331C2CE19B00FC81E9 /* steveGreeting.mp4 */; };
 		2CAF7C361C2CE1B500FC81E9 /* gillianGreeting.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C351C2CE1B500FC81E9 /* gillianGreeting.mp4 */; };
 		2CAF7C381C2D0B2A00FC81E9 /* InterviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */; };
 		2CAF7C3A1C2D0F5100FC81E9 /* interviews.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C391C2D0F5100FC81E9 /* interviews.plist */; };
+		2CAF7C3C1C318EFC00FC81E9 /* QuestionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3B1C318EFC00FC81E9 /* QuestionTableViewController.swift */; };
+		2CAF7C3E1C31A78100FC81E9 /* InterviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3D1C31A78100FC81E9 /* InterviewTableViewCell.swift */; };
+		2CAF7C401C31B89600FC81E9 /* InterviewCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3F1C31B89600FC81E9 /* InterviewCellInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +45,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C256E7A1C34A6B800E4C306 /* GeneralGreetingAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeneralGreetingAnswer.mp4; sourceTree = "<group>"; };
+		2C367ADC1C3346ED007D67DB /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		2C367ADE1C343660007D67DB /* PostPrompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPrompt.swift; sourceTree = "<group>"; };
+		2C367AE01C343A91007D67DB /* PrePrompts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrePrompts.plist; sourceTree = "<group>"; };
+		2C367AE21C344ECE007D67DB /* PostPrompts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PostPrompts.plist; sourceTree = "<group>"; };
+		2C367AE41C346AC5007D67DB /* SimpleAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
+		2C367AE61C346AF1007D67DB /* SimpleAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleAlert.xib; sourceTree = "<group>"; };
+		2C367B391C3497A0007D67DB /* AVQueuePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVQueuePlayerViewController.swift; sourceTree = "<group>"; };
 		2CAF7C091C2C780200FC81E9 /* VidCoach2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidCoach2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAF7C0C1C2C780200FC81E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2CAF7C0E1C2C780200FC81E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2CAF7C0E1C2C780200FC81E9 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		2CAF7C111C2C780200FC81E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CAF7C131C2C780200FC81E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CAF7C161C2C780200FC81E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,11 +65,14 @@
 		2CAF7C231C2C780200FC81E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CAF7C2C1C2CA72F00FC81E9 /* interviewQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = interviewQuestion.swift; sourceTree = "<group>"; };
 		2CAF7C2F1C2CD14500FC81E9 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
-		2CAF7C311C2CDC8200FC81E9 /* kerriGreeting.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kerriGreeting.mp4; sourceTree = "<group>"; };
+		2CAF7C311C2CDC8200FC81E9 /* GeneralGreetingQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeneralGreetingQuestion.mp4; sourceTree = "<group>"; };
 		2CAF7C331C2CE19B00FC81E9 /* steveGreeting.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = steveGreeting.mp4; sourceTree = "<group>"; };
 		2CAF7C351C2CE1B500FC81E9 /* gillianGreeting.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gillianGreeting.mp4; sourceTree = "<group>"; };
 		2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewTableViewController.swift; sourceTree = "<group>"; };
 		2CAF7C391C2D0F5100FC81E9 /* interviews.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = interviews.plist; sourceTree = "<group>"; };
+		2CAF7C3B1C318EFC00FC81E9 /* QuestionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewController.swift; sourceTree = "<group>"; };
+		2CAF7C3D1C31A78100FC81E9 /* InterviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewTableViewCell.swift; sourceTree = "<group>"; };
+		2CAF7C3F1C31B89600FC81E9 /* InterviewCellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewCellInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +93,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C367ADB1C333650007D67DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2CAF7C391C2D0F5100FC81E9 /* interviews.plist */,
+				2CAF7C311C2CDC8200FC81E9 /* GeneralGreetingQuestion.mp4 */,
+				2C256E7A1C34A6B800E4C306 /* GeneralGreetingAnswer.mp4 */,
+				2CAF7C331C2CE19B00FC81E9 /* steveGreeting.mp4 */,
+				2CAF7C351C2CE1B500FC81E9 /* gillianGreeting.mp4 */,
+				2C367AE01C343A91007D67DB /* PrePrompts.plist */,
+				2C367AE21C344ECE007D67DB /* PostPrompts.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		2CAF7C001C2C780200FC81E9 = {
 			isa = PBXGroup;
 			children = (
@@ -92,15 +128,20 @@
 		2CAF7C0B1C2C780200FC81E9 /* VidCoach2 */ = {
 			isa = PBXGroup;
 			children = (
-				2CAF7C311C2CDC8200FC81E9 /* kerriGreeting.mp4 */,
-				2CAF7C331C2CE19B00FC81E9 /* steveGreeting.mp4 */,
-				2CAF7C351C2CE1B500FC81E9 /* gillianGreeting.mp4 */,
 				2CAF7C0C1C2C780200FC81E9 /* AppDelegate.swift */,
-				2CAF7C0E1C2C780200FC81E9 /* ViewController.swift */,
-				2CAF7C2F1C2CD14500FC81E9 /* Video.swift */,
+				2CAF7C3F1C31B89600FC81E9 /* InterviewCellInfo.swift */,
 				2CAF7C101C2C780200FC81E9 /* Main.storyboard */,
 				2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */,
-				2CAF7C391C2D0F5100FC81E9 /* interviews.plist */,
+				2CAF7C3D1C31A78100FC81E9 /* InterviewTableViewCell.swift */,
+				2CAF7C3B1C318EFC00FC81E9 /* QuestionTableViewController.swift */,
+				2C367ADC1C3346ED007D67DB /* QuestionTableViewCell.swift */,
+				2CAF7C0E1C2C780200FC81E9 /* VideoViewController.swift */,
+				2CAF7C2F1C2CD14500FC81E9 /* Video.swift */,
+				2C367ADE1C343660007D67DB /* PostPrompt.swift */,
+				2C367AE41C346AC5007D67DB /* SimpleAlert.swift */,
+				2C367AE61C346AF1007D67DB /* SimpleAlert.xib */,
+				2C367B391C3497A0007D67DB /* AVQueuePlayerViewController.swift */,
+				2C367ADB1C333650007D67DB /* Resources */,
 				2CAF7C2C1C2CA72F00FC81E9 /* interviewQuestion.swift */,
 				2CAF7C131C2C780200FC81E9 /* Assets.xcassets */,
 				2CAF7C151C2C780200FC81E9 /* LaunchScreen.storyboard */,
@@ -199,12 +240,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CAF7C321C2CDC8200FC81E9 /* kerriGreeting.mp4 in Resources */,
+				2CAF7C321C2CDC8200FC81E9 /* GeneralGreetingQuestion.mp4 in Resources */,
 				2CAF7C171C2C780200FC81E9 /* LaunchScreen.storyboard in Resources */,
+				2C367AE31C344ECE007D67DB /* PostPrompts.plist in Resources */,
+				2C256E7B1C34A6B800E4C306 /* GeneralGreetingAnswer.mp4 in Resources */,
 				2CAF7C141C2C780200FC81E9 /* Assets.xcassets in Resources */,
 				2CAF7C361C2CE1B500FC81E9 /* gillianGreeting.mp4 in Resources */,
+				2C367AE11C343A92007D67DB /* PrePrompts.plist in Resources */,
 				2CAF7C341C2CE19B00FC81E9 /* steveGreeting.mp4 in Resources */,
 				2CAF7C121C2C780200FC81E9 /* Main.storyboard in Resources */,
+				2C367AE71C346AF1007D67DB /* SimpleAlert.xib in Resources */,
 				2CAF7C3A1C2D0F5100FC81E9 /* interviews.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,11 +268,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C367B3A1C3497A0007D67DB /* AVQueuePlayerViewController.swift in Sources */,
 				2CAF7C381C2D0B2A00FC81E9 /* InterviewTableViewController.swift in Sources */,
-				2CAF7C0F1C2C780200FC81E9 /* ViewController.swift in Sources */,
+				2CAF7C3C1C318EFC00FC81E9 /* QuestionTableViewController.swift in Sources */,
+				2CAF7C0F1C2C780200FC81E9 /* VideoViewController.swift in Sources */,
 				2CAF7C301C2CD14500FC81E9 /* Video.swift in Sources */,
+				2CAF7C3E1C31A78100FC81E9 /* InterviewTableViewCell.swift in Sources */,
+				2C367AE51C346AC5007D67DB /* SimpleAlert.swift in Sources */,
 				2CAF7C0D1C2C780200FC81E9 /* AppDelegate.swift in Sources */,
+				2C367ADD1C3346ED007D67DB /* QuestionTableViewCell.swift in Sources */,
 				2CAF7C2D1C2CA73000FC81E9 /* interviewQuestion.swift in Sources */,
+				2CAF7C401C31B89600FC81E9 /* InterviewCellInfo.swift in Sources */,
+				2C367ADF1C343660007D67DB /* PostPrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +470,7 @@
 				2CAF7C281C2C780200FC81E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CAF7C291C2C780200FC81E9 /* Build configuration list for PBXNativeTarget "VidCoach2Tests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +479,7 @@
 				2CAF7C2B1C2C780200FC81E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,24 +9,27 @@
 import UIKit
 
 class InterviewTableViewController: UITableViewController {
-
+    
     // MARK: Properties
     let cellIdentifier = "InterviewTableViewCell"
-    var interviews = [AnyObject]()
+    var interviews = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // Get interview titles
         let filePath = NSBundle.mainBundle().pathForResource("interviews", ofType: "plist")
-        if let path = filePath {
-            interviews = NSArray(contentsOfFile: path) as! [AnyObject]
-        }
+        let dict = NSDictionary(contentsOfFile: filePath!)
         
-        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: cellIdentifier)
+        interviews = dict?.objectForKey("Interviews") as! [String]
+        
     }
     
-    // MARK: Table view data source
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Table view setup
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -39,12 +42,29 @@ class InterviewTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //Dequeue Reusable Cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! InterviewTableViewCell
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
-        if let interview = interviews[indexPath.row] as? [String: AnyObject], let name = interview["Interview"] as? String {
-            cell.textLabel?.text = name
-        }
+        //Set up cell
+        cell.interviewNameLabel.text = interviews[indexPath.row]
+        
+        
         return cell
     }
-
+    
+    //MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowQuestions" {
+            let destinationViewController = segue.destinationViewController as! QuestionTableViewController
+            
+            if let selectedInterviewCell = sender as? InterviewTableViewCell {
+                if let indexPath = tableView.indexPathForCell(selectedInterviewCell) {
+                    let interview = interviews[indexPath.row]
+                    //                    print(interview)
+                    destinationViewController.interview = interview
+                    
+                }
+            }
+        }
+    }
 }

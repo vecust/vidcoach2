@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>General Greeting</key>
+	<string>If the interviewer extends his/her hand to you, you should shake their hand for about two seconds.</string>
+	<key>General Resume</key>
+	<string>Hand your resume to the interviewer.</string>
+	<key>General About Me</key>
+	<string>Tell the interviewer about yourself! You can talk about school, your goals, interests, and hobbies.</string>
+	<key>General Strengths</key>
+	<string>Tell the interviewer about your strengths! You can talk about leadership skills, how you work with others, and awards that you have received.</string>
+	<key>General Why Should We Hire You</key>
+	<string>Tell the interviewer why you want to work for them and why you think you would be a good fit for the position.</string>
+	<key>General Questions</key>
+	<string>You should ask the interviewer a question. For example you can ask about job responsibilities or your work schedule.</string>
+	<key>General Farewell</key>
+	<string>Your interviewer should have answered all of your questions. Make sure to thank your interviewer and shake hands if they extend their hand to you.</string>
+	<key>Hospitality Greeting</key>
+	<string>If the interviewer extends his/her hand to you, you should shake their hand for about two seconds.</string>
+	<key>Hospitality Resume</key>
+	<string>Hand your resume to the interviewer.</string>
+	<key>Hospitality About Me</key>
+	<string>Tell the interviewer about yourself: You should talk about school, goals, interests, and hobbies.</string>
+	<key>Hospitality Customer Service</key>
+	<string>Tell the interviewer what customer service means to you.</string>
+	<key>Hospitality Unhappy Customer</key>
+	<string>Tell the interviewer about a personal experience when you helped a customer.</string>
+	<key>Hospitality Positive Change</key>
+	<string>Share an experience where you did something that improved your workplace.</string>
+	<key>Hospitality Why Should We Hire You</key>
+	<string>Tell the interviewer why you want to work for them and how you’d be a good fit for the position.</string>
+	<key>Hospitality Any Questions</key>
+	<string>Ask the interviewer a question.</string>
+	<key>Hospitality Farewell</key>
+	<string>Make sure you thank the interviewer and shake their hand if they extend their hand to you.</string>
+	<key>Healthcare Greeting</key>
+	<string>If the interviewer extends his/her hand to you, you should shake their hand for about two seconds.</string>
+	<key>Healthcare Resume</key>
+	<string>Hand your resume to the interviewer.</string>
+	<key>Healthcare Experience</key>
+	<string>Talk about where you have worked for a group in the healthcare industry (hospital, seniorcenter, rehabilitation center).</string>
+	<key>Healthcare Previous Position</key>
+	<string>Talk about a positive experience you had in your previous job.</string>
+	<key>Healthcare Leaving Previous Position</key>
+	<string>Tell the interviewer why you are looking for a new job.</string>
+	<key>Healthcare Coworkers</key>
+	<string>Think about the interactions you had with coworkers and what positive traits you displayed.</string>
+	<key>Healthcare Why Healthcare</key>
+	<string>Tell the interviewer about the positive parts of working in healthcare.</string>
+	<key>Healthcare Helping While On Break</key>
+	<string>Tell the interviewer how you would help a patient during your break.</string>
+	<key>Healthcare Tell Me a Time</key>
+	<string>Talk about a time you have helped a patient.</string>
+	<key>Healthcare Nights and Weekends</key>
+	<string>Tell the interviewer if there is any reason why you can’t work certain nights or weekends.</string>
+	<key>Healthcare Dress Code</key>
+	<string>Tell the interviewer if you have any concerns about wearing a uniform.</string>
+	<key>Healthcare School Values</key>
+	<string>Explain principles you learned that will help you in this job.</string>
+	<key>Healthcare Why Should We Hire You</key>
+	<string>Tell the interviewer why you want to work for them and how you’d be a good fit for the position.</string>
+	<key>Healthcare Any Questions</key>
+	<string>Ask the interviewer a question.</string>
+	<key>Healthcare Farewell</key>
+	<string>Make sure you thank the interviewer and shake their hand if they extend their hand to you.</string>
+	<key>Food Service Greeting</key>
+	<string>If the interviewer extends his/her hand to you, you should shake their hand for about two seconds.</string>
+	<key>Food Service Resume</key>
+	<string>Hand your resume to the interviewer.</string>
+	<key>Food Service About Me</key>
+	<string>Tell the interviewer about yourself: You should talk about school, goals, interests, and hobbies.</string>
+	<key>Food Service Experience</key>
+	<string>Tell the interviewer what experience you have in the restaurant industry if you have any.</string>
+	<key>Food Service Tell Me a Time</key>
+	<string>Talk about a time you helped a customer.</string>
+	<key>Food Service Are You A Team Player</key>
+	<string>Tell the interviewer about a time you were in a team and helped the group in a positive way.</string>
+	<key>Food Service Why Should We Hire You</key>
+	<string>Tell the interviewer why you want to work for them and how you’d be a good fit for the position.</string>
+	<key>Food Service Any Questions</key>
+	<string>Ask the interviewer a question.</string>
+	<key>Food Service Farewell</key>
+	<string>Make sure you thank the interviewer and shake their hand if they extend their hand to you.</string>
+	<key>Retail Without Experience Greeting</key>
+	<string>If the interviewer extends his/her hand to you, you should shake their hand for about two seconds.</string>
+	<key>Retail Without Experience Resume</key>
+	<string>Hand your resume to the interviewer.</string>
+	<key>Retail Without Experience Experience</key>
+	<string>Tell the interviewer about a time when you worked a retail job.</string>
+	<key>Retail Without Experience Why Retail</key>
+	<string>Tell the interviewer why you want to work in retail.</string>
+	<key>Retail Without Experience Customer Service</key>
+	<string>Tell the interviewer what customer service is.</string>
+	<key>Retail Without Experience Upselling</key>
+	<string>What does upselling mean to you?</string>
+	<key>Retail Without Experience School Values</key>
+	<string>Explain different principles you learned that will help you in this job.</string>
+	<key>Retail Without Experience Why Should We Hire You</key>
+	<string>Tell the interviewer why you want to work for them and how you would be a good fit for the position.</string>
+	<key>Retail Without Experience Any Questions</key>
+	<string>Ask the interviewer a question.</string>
+	<key>Retail Without Experience Farewell</key>
+	<string>Make sure you thank the interviewer and shake their hand if they extend their hand out to you.</string>
+	<key>Retail With Experience Greeting</key>
+	<string>If the interviewer extends his/her hand to you, you should shake their hand for about two seconds.</string>
+	<key>Retail With Experience Resume</key>
+	<string>Hand your resume to the interviewer.</string>
+	<key>Retail With Experience Experience</key>
+	<string>Talk about a time when you worked a retail job.</string>
+	<key>Retail With Experience What Did You Enjoy</key>
+	<string>Talk about a positive experience you had in your previous job.</string>
+	<key>Retail With Experience Leaving Previous Position</key>
+	<string>Tell the interviewer why you are looking for a new job.</string>
+	<key>Retail With Experience Coworkers</key>
+	<string>Think about the interactions you had with coworkers and what positive traits you displayed.</string>
+	<key>Retail With Experience What Do You Like About Retail</key>
+	<string>Tell the interviewer about the positive parts of working in retail.</string>
+	<key>Retail With Experience Customer Service</key>
+	<string>Tell the interviewer what customer service means to you.</string>
+	<key>Retail With Experience Upselling</key>
+	<string>Tell the interviewer what upselling, also known as basket sale, or add-on sale means.</string>
+	<key>Retail With Experience Tell Me a Time</key>
+	<string>Tell the interviewer about a personal experience when you helped a customer.</string>
+	<key>Retail With Experience School Values</key>
+	<string>Explain different principles you learned that will help you in this job.</string>
+	<key>Retail With Experience Why Should We Hire You</key>
+	<string>Tell the interviewer why you want to work for them and how you’d be a good fit for the position.</string>
+	<key>Retail With Experience Any Questions</key>
+	<string>Ask the interviewer a question.</string>
+	<key>Retail With Experience Farewell</key>
+	<string>Make sure you thank the interviewer and shake their hand if they extend their hand to you.</string>
+</dict>
+</plist>

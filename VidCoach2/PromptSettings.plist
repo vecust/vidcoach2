@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>PrePrompt</key>
-	<false/>
+	<true/>
 	<key>PostPrompt</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

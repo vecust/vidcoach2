@@ -1,5 +1,5 @@
 //
-//  AVQueuePlayerViewController.swift
+//  AVSegmentPlayerViewController.swift
 //  VidCoach2
 //
 //  Created by Erick Custodio on 12/30/15.
@@ -9,36 +9,30 @@
 import UIKit
 import AVKit
 import AVFoundation
+import MobileCoreServices
 //import SimpleAlert
 
-class AVQueuePlayerViewController: AVPlayerViewController {
+class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     //MARK: Properties
+    var selectedAction = String()
     var interview = String()
     var question = String()
-    var mode = String()
     var postPromptInfo = PostPrompt()
     var answerArray = [String]()
 //    var player = AVQueuePlayer()
-    var action = String()
     var url4Player = [NSURL()]
     var playerItems = [AVPlayerItem]()
     var prePromptON = Bool()
     var postPromptON = Bool()
-
+    
+    let imagePicker: UIImagePickerController! = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        //check prompt settings
-        let settingPath = NSBundle.mainBundle().pathForResource("PromptSettings", ofType: "plist")
-        let settingDict = NSDictionary(contentsOfFile: settingPath!)
-        
-        prePromptON = (settingDict?.objectForKey("PrePrompt") as? Bool)!
-        postPromptON = (settingDict?.objectForKey("PostPrompt") as? Bool)!
-        
+                
         playSegment()
     }
 
@@ -61,22 +55,39 @@ class AVQueuePlayerViewController: AVPlayerViewController {
     //MARK: Video Methods
     
     func loadVideos(url: String, selector: String){
-        let video1 = Video()
-        video1.title = "First Interview"
-        video1.url = NSBundle.mainBundle().URLForResource(url, withExtension: "mp4")!
-        url4Player.append(video1.url)
-        let queueVideo = AVPlayerItem(URL: video1.url)
-
+        if selector == "question" || selectedAction == "watchModel" {
+            let video1 = Video()
+            video1.title = "First Interview"
+            video1.url = NSBundle.mainBundle().URLForResource(url, withExtension: "mp4")!
+            url4Player.append(video1.url)
+            let queueVideo = AVPlayerItem(URL: video1.url)
+            
+            //Set notification to trigger appropriate selector function when question or answer video has ended.
+            let selectorFunc = Selector(selector+"VideoHasEnded:")
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: selectorFunc, name: AVPlayerItemDidPlayToEndTimeNotification, object: queueVideo)
+            
+            player = AVPlayer(playerItem: queueVideo)
+            player?.play()
+            
+        } else { //mode == "Watch Practice"
+            //Find the video in the document directory
+            let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+            let documentsDirectory: AnyObject = paths[0]
+            let dataPath = documentsDirectory.stringByAppendingPathComponent(interview+question+"Recording.mp4")
+            
+            let videoAsset = (AVAsset(URL: NSURL(fileURLWithPath: dataPath)))
+            let queueVideo = AVPlayerItem(asset: videoAsset)
+            
+            //Set notification to trigger appropriate selector function when question or answer video has ended.
+            let selectorFunc = Selector(selector+"VideoHasEnded:")
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: selectorFunc, name: AVPlayerItemDidPlayToEndTimeNotification, object: queueVideo)
+            
+            player = AVPlayer(playerItem: queueVideo)
+            player?.play()
+        }
         //Use array for playing all?
         //        playerItems.append(questionVideo)
         
-        //Set notification to trigger appropriate selector function when question or answer video has ended.
-        let selectorFunc = Selector(selector+"VideoHasEnded:")
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: selectorFunc, name: AVPlayerItemDidPlayToEndTimeNotification, object: queueVideo)
-        
-        player = AVPlayer(playerItem: queueVideo)
-
-        player?.play()
     }
     
     func playSegment() {
@@ -99,12 +110,20 @@ class AVQueuePlayerViewController: AVPlayerViewController {
         let testAlert = SimpleAlert.Controller(title: prePromptMessage, message: "", style: .Alert)
         testAlert.addAction(SimpleAlert.Action(title: "OK", style: SimpleAlert.Action.Style.Default, handler: {
             (action) -> Void in
-            self.loadVideos("GeneralGreetingAnswer", selector: "answer")
+            if self.selectedAction != "practice" {
+                self.loadVideos("GeneralGreetingAnswer", selector: "answer")
+            } else {
+                self.recordVideo()
+            }
         }))
         presentViewController(testAlert, animated: true, completion: nil)
             
         } else {
+            if self.selectedAction != "practice" {
             self.loadVideos("GeneralGreetingAnswer", selector: "answer")
+            } else {
+                self.recordVideo()
+            }
         }
         
     }
@@ -235,6 +254,53 @@ class AVQueuePlayerViewController: AVPlayerViewController {
         return array
     }
     
+    //MARK: Recorder Methods
+    
+    func recordVideo() {
+        if (UIImagePickerController.isSourceTypeAvailable(.Camera)){
+            imagePicker.sourceType = .Camera
+            imagePicker.cameraDevice = .Front
+            imagePicker.mediaTypes = [kUTTypeMovie as String]
+            imagePicker.allowsEditing = false
+            imagePicker.delegate = self
+            
+            presentViewController(imagePicker, animated: true, completion: nil)
+        } else {
+            let cameraAlert = SimpleAlert.Controller(title: "Camera inaccessable", message: "Application cannot access the camera.", style: .Alert)
+            presentViewController(cameraAlert, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedVideo:NSURL = (info[UIImagePickerControllerMediaURL] as? NSURL) {
+            //Save video to the app directory
+            let videoData = NSData(contentsOfURL: pickedVideo)
+            let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+            let documentsDirectory: AnyObject = paths[0]
+            let dataPath = documentsDirectory.stringByAppendingPathComponent(interview+question+"Recording.mp4")
+            videoData?.writeToFile(dataPath, atomically: false)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        imagePicker.dismissViewControllerAnimated(true, completion: {
+            //Save metadata for research
+            //TODO: Find a way to regiter a notification after recording is saved
+            //self.answerVideoHasEnded(NSNotification(name: AVPlayerItemDidPlayToEndTimeNotification, object: <#T##AnyObject?#>))
+            self.navigationController?.popViewControllerAnimated(true)
+        })
+    }
+    
+    func playRecording() {
+        //Find the video in the document directory
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let documentsDirectory: AnyObject = paths[0]
+        let dataPath = documentsDirectory.stringByAppendingPathComponent(interview+question+"Recording")
+        
+        let videoAsset = (AVAsset(URL: NSURL(fileURLWithPath: dataPath)))
+        let playerItem = AVPlayerItem(asset: videoAsset)
+        
+        player = AVPlayer(playerItem: playerItem)
+        
+    }
     
 
 }

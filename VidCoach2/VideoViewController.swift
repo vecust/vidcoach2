@@ -15,6 +15,7 @@ class VideoViewController: UIViewController {
 
     // MARK: Properties
     
+    @IBOutlet weak var watchPracticeButton: UIButton!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var interviewQuestion: UILabel!
     @IBOutlet weak var prePromptSwitch: UISwitch!
@@ -23,12 +24,28 @@ class VideoViewController: UIViewController {
     var playerItems = [AVPlayerItem]()
     var interview = String()
     var question = String()
-    var mode = String()
     var prePromptON = Bool()
     var postPromptON = Bool()
-    var settingDict = NSMutableDictionary()
-    var settingPath = String()
+    var settingDict:NSMutableDictionary!
+    var settingPath:String!
 
+    
+    override func viewWillAppear(animated: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        settingPath = appDelegate.settingPlistPath
+        let data:NSData = NSFileManager.defaultManager().contentsAtPath(settingPath)!
+        do{
+            self.saveSetting(prePromptON, key: "PrePrompt")
+            self.saveSetting(postPromptON, key: "PostPrompt")
+
+            settingDict = try NSPropertyListSerialization.propertyListWithData(data, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+            prePromptON = (settingDict.objectForKey("PrePrompt") as? Bool)!
+            postPromptON = (settingDict.objectForKey("PostPrompt") as? Bool)!
+
+        }catch{
+            print("Error occured while reading from the prompt setting plist file")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +53,6 @@ class VideoViewController: UIViewController {
         interviewQuestion.text = question
         image.image = UIImage(named: interview)
         title = question
-        
-        //check prompt settings
-        settingPath = NSBundle.mainBundle().pathForResource("PromptSettings", ofType: "plist")!
-        settingDict = NSMutableDictionary(contentsOfFile: settingPath)!
-        
-        prePromptON = (settingDict.objectForKey("PrePrompt") as? Bool)!
-        postPromptON = (settingDict.objectForKey("PostPrompt") as? Bool)!
         
         if prePromptON {
             self.prePromptSwitch.setOn(true, animated: false)
@@ -56,9 +66,35 @@ class VideoViewController: UIViewController {
             self.postPromptSwitch.setOn(false, animated: false)
         }
 
+        //See if recorded video exists in the document directory
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let documentsDirectory: AnyObject = paths[0]
+        let dataPath = documentsDirectory.stringByAppendingPathComponent(interview+question+"Recording")
+        if(NSFileManager.defaultManager().fileExistsAtPath(dataPath)) {
+            watchPracticeButton.enabled = true
+        } else {
+            watchPracticeButton.enabled = false
+        }
+        
+
         
     }
 
+    func saveSetting(setting:Bool,key:String){
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let pathForThePlistFile = appDelegate.settingPlistPath
+        
+        let data:NSData = NSFileManager.defaultManager().contentsAtPath(pathForThePlistFile)!
+        
+        do{
+            let settingsToBeSaved = try NSPropertyListSerialization.propertyListWithData(data, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+            settingsToBeSaved.setValue(setting, forKey: key)
+            settingsToBeSaved.writeToFile(pathForThePlistFile, atomically: true)
+        }catch{
+            print("An error occured while writing to prompt setting plist")
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -68,68 +104,71 @@ class VideoViewController: UIViewController {
     
     @IBAction func watchModel(sender: UIButton) {
 //        print("Tapped Watch Model")
-        mode = "Watch Model"
     }
     
     @IBAction func practice(sender: UIButton) {
 //        print("Tapped Practice")
-        mode = "Practice"
     }
     
     @IBAction func watchPractice(sender: UIButton) {
 //        print("Tapped Watch Practice")
-        mode = "Watch Practice"
     }
     
     @IBAction func prePromptSetting(sender: UISwitch) {
 //        print("Switched PrePrompt Setting")
         if sender.on {
-            prePromptON = true
-            settingDict.setValue(true, forKey: "PrePrompt")
+            self.prePromptON = true
+            self.saveSetting(true, key: "PrePrompt")
         } else {
-            prePromptON = false
-            settingDict.setValue(false, forKey: "PrePrompt")
+            self.prePromptON = false
+            self.saveSetting(false, key: "Preprompt")
         }
     }
     
     @IBAction func postPromptSetting(sender: UISwitch) {
         if sender.on {
-            postPromptON = true
-            settingDict.setValue(true, forKey: "PostPrompt")
+            self.postPromptON = true
+            self.saveSetting(true, key: "PostPrompt")
         } else {
-            postPromptON = false
-            settingDict.setValue(false, forKey: "PostPrompt")
+            self.postPromptON = false
+            self.saveSetting(false, key: "PostPrompt")
         }
     }
     
     // MARK: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destination = segue.destinationViewController as! AVQueuePlayerViewController
-        destination.action = mode
-        
-        //write prompt settings
-        settingDict.writeToFile(settingPath, atomically: false)
-        
-        if segue.identifier == "watchModel" {
+        if segue.identifier == "watchModel" || segue.identifier == "practice" || segue.identifier == "watchPractice" {
+            let destination = segue.destinationViewController as! AVSegmentPlayerViewController
+            destination.selectedAction = (segue.identifier)!
             destination.interview = interview
             destination.question = question
-        } else if segue.identifier == "practice" {
-//            let destination = segue.destinationViewController as! AVQueuePlayerViewController
-//            destination.player = AVPlayer(URL: url4Player[2])
-//            destination.player?.play()
-        } else if segue.identifier == "watchPractice" {
-//            let destination = segue.destinationViewController as! AVQueuePlayerViewController
-//            destination.player = AVPlayer(URL: url4Player[3])
-//            destination.player?.play()
+            destination.prePromptON = prePromptON
+            destination.postPromptON = postPromptON
+        
+        //write prompt settings
+            self.saveSetting(prePromptON, key: "PrePrompt")
+            self.saveSetting(postPromptON, key: "PostPrompt")
         }
+//        if segue.identifier == "watchModel" {
+//            destination.interview = interview
+//            destination.question = question
+//        } else if segue.identifier == "practice" {
+////            let destination = segue.destinationViewController as! AVQueuePlayerViewController
+////            destination.player = AVPlayer(URL: url4Player[2])
+////            destination.player?.play()
+//        } else if segue.identifier == "watchPractice" {
+////            let destination = segue.destinationViewController as! AVQueuePlayerViewController
+////            destination.player = AVPlayer(URL: url4Player[3])
+////            destination.player?.play()
+//        }
     }
     
     override func viewWillDisappear(animated: Bool) {
         //write prompt settings
-        settingDict.writeToFile(settingPath, atomically: false)
+        self.saveSetting(prePromptON, key: "PrePrompt")
+        self.saveSetting(postPromptON, key: "PostPrompt")
     }
-    
     
 
 }

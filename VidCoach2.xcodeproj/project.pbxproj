@@ -14,7 +14,7 @@
 		2C367AE31C344ECE007D67DB /* PostPrompts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C367AE21C344ECE007D67DB /* PostPrompts.plist */; };
 		2C367AE51C346AC5007D67DB /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367AE41C346AC5007D67DB /* SimpleAlert.swift */; };
 		2C367AE71C346AF1007D67DB /* SimpleAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C367AE61C346AF1007D67DB /* SimpleAlert.xib */; };
-		2C367B3A1C3497A0007D67DB /* AVQueuePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367B391C3497A0007D67DB /* AVQueuePlayerViewController.swift */; };
+		2C367B3A1C3497A0007D67DB /* AVSegmentPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367B391C3497A0007D67DB /* AVSegmentPlayerViewController.swift */; };
 		2C4FB6BD1C35B2E500643273 /* PromptSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C4FB6BC1C35B2E500643273 /* PromptSettings.plist */; };
 		2CAF7C0D1C2C780200FC81E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C0C1C2C780200FC81E9 /* AppDelegate.swift */; };
 		2CAF7C0F1C2C780200FC81E9 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C0E1C2C780200FC81E9 /* VideoViewController.swift */; };
@@ -53,7 +53,7 @@
 		2C367AE21C344ECE007D67DB /* PostPrompts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PostPrompts.plist; sourceTree = "<group>"; };
 		2C367AE41C346AC5007D67DB /* SimpleAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		2C367AE61C346AF1007D67DB /* SimpleAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleAlert.xib; sourceTree = "<group>"; };
-		2C367B391C3497A0007D67DB /* AVQueuePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVQueuePlayerViewController.swift; sourceTree = "<group>"; };
+		2C367B391C3497A0007D67DB /* AVSegmentPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVSegmentPlayerViewController.swift; sourceTree = "<group>"; };
 		2C4FB6BC1C35B2E500643273 /* PromptSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PromptSettings.plist; sourceTree = "<group>"; };
 		2CAF7C091C2C780200FC81E9 /* VidCoach2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidCoach2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAF7C0C1C2C780200FC81E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 				2C367ADE1C343660007D67DB /* PostPrompt.swift */,
 				2C367AE41C346AC5007D67DB /* SimpleAlert.swift */,
 				2C367AE61C346AF1007D67DB /* SimpleAlert.xib */,
-				2C367B391C3497A0007D67DB /* AVQueuePlayerViewController.swift */,
+				2C367B391C3497A0007D67DB /* AVSegmentPlayerViewController.swift */,
 				2C367ADB1C333650007D67DB /* Resources */,
 				2CAF7C2C1C2CA72F00FC81E9 /* interviewQuestion.swift */,
 				2CAF7C131C2C780200FC81E9 /* Assets.xcassets */,
@@ -212,6 +212,7 @@
 				TargetAttributes = {
 					2CAF7C081C2C780200FC81E9 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = KE5PZJ4KVG;
 					};
 					2CAF7C1C1C2C780200FC81E9 = {
 						CreatedOnToolsVersion = 7.2;
@@ -272,7 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C367B3A1C3497A0007D67DB /* AVQueuePlayerViewController.swift in Sources */,
+				2C367B3A1C3497A0007D67DB /* AVSegmentPlayerViewController.swift in Sources */,
 				2CAF7C381C2D0B2A00FC81E9 /* InterviewTableViewController.swift in Sources */,
 				2CAF7C3C1C318EFC00FC81E9 /* QuestionTableViewController.swift in Sources */,
 				2CAF7C0F1C2C780200FC81E9 /* VideoViewController.swift in Sources */,
@@ -413,10 +414,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VidCoach2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vanerickcustodio.VidCoach2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -424,10 +428,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VidCoach2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vanerickcustodio.VidCoach2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

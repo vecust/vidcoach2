@@ -115,7 +115,19 @@ class QuestionTableViewController: UITableViewController {
                     destinationViewController.interview = interview
                 }
             }
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let pathForThePlistFile = appDelegate.settingPlistPath
             
+            let data:NSData = NSFileManager.defaultManager().contentsAtPath(pathForThePlistFile)!
+            
+            do{
+                let settingsToBeSaved = try NSPropertyListSerialization.propertyListWithData(data, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+                    destinationViewController.prePromptON = (settingsToBeSaved.objectForKey("PrePrompt") as? Bool)!
+                    destinationViewController.postPromptON = (settingsToBeSaved.objectForKey("PostPrompt") as? Bool)!
+            }catch{
+                print("An error occured while writing to prompt setting plist")
+            }
+   
             
         }
     }

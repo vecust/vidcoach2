@@ -12,15 +12,26 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var settingPlistPath:String = String()
 
-
+    //get and set prompt setting plist file
+    func preparePlistForUse(){
+        let rootPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, .UserDomainMask, true)[0]
+        
+        settingPlistPath = rootPath.stringByAppendingString("/PromptSettings.plist")
+        if !NSFileManager.defaultManager().fileExistsAtPath(settingPlistPath){
+            let settingPlistInBundle = NSBundle.mainBundle().pathForResource("PromptSettings", ofType: "plist") as String!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(settingPlistInBundle, toPath: settingPlistPath)
+            }catch{
+                print("Error occured while copying file to document \(error)")
+            }
+        }
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        //Instantiate Prompts
-        
-        
-        //Instantiate Videos
+        self.preparePlistForUse()
         return true
     }
 
@@ -40,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        self.preparePlistForUse()
     }
 
     func applicationWillTerminate(application: UIApplication) {

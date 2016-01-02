@@ -73,7 +73,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
             //Find the video in the document directory
             let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
             let documentsDirectory: AnyObject = paths[0]
-            let dataPath = documentsDirectory.stringByAppendingPathComponent(interview+question+"Recording.mp4")
+            let dataPath = documentsDirectory.stringByAppendingPathComponent("/"+interview+question+"Recording.mp4")
             
             let videoAsset = (AVAsset(URL: NSURL(fileURLWithPath: dataPath)))
             let queueVideo = AVPlayerItem(asset: videoAsset)
@@ -159,7 +159,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
         
         //Set up alert buttons
         let buttonOne = SimpleAlert.Action(title: shuffledAnswerArray[0], style: .Default, handler: { (action) -> Void in
-            //TODO: Add conditional if PostPrompt setting is on
             self.checkAnswer(shuffledAnswerArray[0])
         })
         postPrompt.addAction(buttonOne)
@@ -272,21 +271,51 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedVideo:NSURL = (info[UIImagePickerControllerMediaURL] as? NSURL) {
-            //Save video to the app directory
-            let videoData = NSData(contentsOfURL: pickedVideo)
-            let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-            let documentsDirectory: AnyObject = paths[0]
-            let dataPath = documentsDirectory.stringByAppendingPathComponent(interview+question+"Recording.mp4")
-            videoData?.writeToFile(dataPath, atomically: false)
-            self.dismissViewControllerAnimated(true, completion: nil)
+        print("Got a video")
+        
+        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        if mediaType == kUTTypeMovie as String {
+            let path = (info[UIImagePickerControllerMediaURL] as! NSURL).path
+            if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path!) {
+                UISaveVideoAtPathToSavedPhotosAlbum(path!, self, "videoWasSavedSuccessfully:didFinishSavingWithError:context:", nil)
+                
+                //Save video to the app directory
+                let pickedVideo:NSURL = (info[UIImagePickerControllerMediaURL] as? NSURL)!
+                let videoData = NSData(contentsOfURL: pickedVideo)
+                let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+                let documentsDirectory: AnyObject = paths[0]
+                let dataPath = documentsDirectory.stringByAppendingPathComponent("/"+interview+question+"Recording.mp4")
+                videoData?.writeToFile(dataPath, atomically: false)
+
+            }
         }
-        imagePicker.dismissViewControllerAnimated(true, completion: {
-            //Save metadata for research
-            //TODO: Find a way to regiter a notification after recording is saved
-            //self.answerVideoHasEnded(NSNotification(name: AVPlayerItemDidPlayToEndTimeNotification, object: <#T##AnyObject?#>))
+        
+    }
+    
+    func videoWasSavedSuccessfully(videoPath: String, didFinishSavingWithError error: NSError!, context: UnsafeMutablePointer<()>) {
+        print("Video saved")
+        var title = "Practice Complete!"
+        var message = "Video was saved"
+        
+        if let saveError = error {
+            title = "Error"
+            message = "Video failed to save: \(saveError)"
+            print(saveError)
+        } else {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                //Whatever else you want to happen
+            })
+        }
+        
+        let alert = SimpleAlert.Controller(title: title, message: message, style: .Alert)
+        alert.addAction(SimpleAlert.Action(title: "OK", style: .Default, handler: { (action) -> Void in
             self.navigationController?.popViewControllerAnimated(true)
-        })
+        }))
+
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func playRecording() {

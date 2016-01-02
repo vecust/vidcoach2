@@ -69,7 +69,7 @@ class VideoViewController: UIViewController {
         //See if recorded video exists in the document directory
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
         let documentsDirectory: AnyObject = paths[0]
-        let dataPath = documentsDirectory.stringByAppendingPathComponent(interview+question+"Recording")
+        let dataPath = documentsDirectory.stringByAppendingPathComponent("/"+interview+question+"Recording.mp4")
         if(NSFileManager.defaultManager().fileExistsAtPath(dataPath)) {
             watchPracticeButton.enabled = true
         } else {
@@ -150,18 +150,7 @@ class VideoViewController: UIViewController {
             self.saveSetting(prePromptON, key: "PrePrompt")
             self.saveSetting(postPromptON, key: "PostPrompt")
         }
-//        if segue.identifier == "watchModel" {
-//            destination.interview = interview
-//            destination.question = question
-//        } else if segue.identifier == "practice" {
-////            let destination = segue.destinationViewController as! AVQueuePlayerViewController
-////            destination.player = AVPlayer(URL: url4Player[2])
-////            destination.player?.play()
-//        } else if segue.identifier == "watchPractice" {
-////            let destination = segue.destinationViewController as! AVQueuePlayerViewController
-////            destination.player = AVPlayer(URL: url4Player[3])
-////            destination.player?.play()
-//        }
+
     }
     
     override func viewWillDisappear(animated: Bool) {

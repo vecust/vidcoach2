@@ -91,8 +91,8 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
     }
     
     func playSegment() {
-//        loadVideos(interview+question+"Question","question")
-        loadVideos("GeneralGreetingQuestion",selector: "question") //Just for testing. Use previous line for real.
+        loadVideos(interview+question+"Question",selector: "question")
+//        loadVideos("GeneralGreetingQuestion",selector: "question") //Just for testing. Use previous line for real.
 
     }
     
@@ -111,7 +111,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
         testAlert.addAction(SimpleAlert.Action(title: "OK", style: SimpleAlert.Action.Style.Default, handler: {
             (action) -> Void in
             if self.selectedAction != "practice" {
-                self.loadVideos("GeneralGreetingAnswer", selector: "answer")
+                self.loadVideos(self.interview+self.question+"Answer", selector: "answer")
             } else {
                 self.recordVideo()
             }
@@ -120,7 +120,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
             
         } else {
             if self.selectedAction != "practice" {
-            self.loadVideos("GeneralGreetingAnswer", selector: "answer")
+            self.loadVideos(self.interview+self.question+"Answer", selector: "answer")
             } else {
                 self.recordVideo()
             }

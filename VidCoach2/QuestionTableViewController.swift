@@ -42,12 +42,17 @@ class QuestionTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return questions.count
+        if (section == 0) {
+            return 1
+        } else if (section == 1) {
+            return questions.count
+        }
+        return 0
     }
     
     
@@ -56,7 +61,11 @@ class QuestionTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! QuestionTableViewCell
         
         // Configure the cell...
-        cell.questionNameLabel.text = questions[indexPath.row]
+        if (indexPath.section == 0) {
+            cell.questionNameLabel.text = "All Questions"
+        } else if (indexPath.section == 1) {
+            cell.questionNameLabel.text = questions[indexPath.row]
+        }
         
         return cell
     }
@@ -109,10 +118,17 @@ class QuestionTableViewController: UITableViewController {
             // Pass the selected object to the new view controller.
             if let selectedQuestionCell = sender as? QuestionTableViewCell {
                 if let indexPath = tableView.indexPathForCell(selectedQuestionCell) {
-                    let question = questions[indexPath.row]
-                    //                    print(interview)
-                    destinationViewController.question = question
                     destinationViewController.interview = interview
+
+                    if indexPath.section == 1 {
+                        let question = questions[indexPath.row]
+                        destinationViewController.question = question
+                        destinationViewController.playAll = false
+                    } else if indexPath.section == 0 {
+                        destinationViewController.question = "All Questions"
+                        destinationViewController.playAll = true
+                        destinationViewController.questions = questions
+                    }
                 }
             }
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

@@ -45,8 +45,8 @@
 		2C4B7E041C38ACA100359FD4 /* GeneralStrengthsQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B7D841C38ACA100359FD4 /* GeneralStrengthsQuestion.mp4 */; };
 		2C4B7E051C38ACA100359FD4 /* GeneralWhy Should We Hire YouAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B7D851C38ACA100359FD4 /* GeneralWhy Should We Hire YouAnswer.mp4 */; };
 		2C4B7E061C38ACA100359FD4 /* GeneralWhy Should We Hire YouQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B7D861C38ACA100359FD4 /* GeneralWhy Should We Hire YouQuestion.mp4 */; };
-		2C4B7E071C38ACA100359FD4 /* GreetingFarewellAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B7D871C38ACA100359FD4 /* GreetingFarewellAnswer.mp4 */; };
-		2C4B7E081C38ACA100359FD4 /* GreetingFarewellQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B7D881C38ACA100359FD4 /* GreetingFarewellQuestion.mp4 */; };
+		2C4B7E071C38ACA100359FD4 /* GeneralFarewellAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B7D871C38ACA100359FD4 /* GeneralFarewellAnswer.mp4 */; };
+		2C4B7E081C38ACA100359FD4 /* GeneralFarewellQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B7D881C38ACA100359FD4 /* GeneralFarewellQuestion.mp4 */; };
 		2C4B7E091C38ACA100359FD4 /* HealthcareCoworkersAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B7D891C38ACA100359FD4 /* HealthcareCoworkersAnswer.mp4 */; };
 		2C4B7E0A1C38ACA100359FD4 /* HealthcareCoworkersQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B7D8A1C38ACA100359FD4 /* HealthcareCoworkersQuestion.mp4 */; };
 		2C4B7E0B1C38ACA100359FD4 /* HealthcareLeaving Previous PositionAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B7D8B1C38ACA100359FD4 /* HealthcareLeaving Previous PositionAnswer.mp4 */; };
@@ -208,8 +208,8 @@
 		2C4B7D841C38ACA100359FD4 /* GeneralStrengthsQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeneralStrengthsQuestion.mp4; sourceTree = "<group>"; };
 		2C4B7D851C38ACA100359FD4 /* GeneralWhy Should We Hire YouAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeneralWhy Should We Hire YouAnswer.mp4"; sourceTree = "<group>"; };
 		2C4B7D861C38ACA100359FD4 /* GeneralWhy Should We Hire YouQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeneralWhy Should We Hire YouQuestion.mp4"; sourceTree = "<group>"; };
-		2C4B7D871C38ACA100359FD4 /* GreetingFarewellAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = GreetingFarewellAnswer.mp4; sourceTree = "<group>"; };
-		2C4B7D881C38ACA100359FD4 /* GreetingFarewellQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = GreetingFarewellQuestion.mp4; sourceTree = "<group>"; };
+		2C4B7D871C38ACA100359FD4 /* GeneralFarewellAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeneralFarewellAnswer.mp4; sourceTree = "<group>"; };
+		2C4B7D881C38ACA100359FD4 /* GeneralFarewellQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeneralFarewellQuestion.mp4; sourceTree = "<group>"; };
 		2C4B7D891C38ACA100359FD4 /* HealthcareCoworkersAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = HealthcareCoworkersAnswer.mp4; sourceTree = "<group>"; };
 		2C4B7D8A1C38ACA100359FD4 /* HealthcareCoworkersQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = HealthcareCoworkersQuestion.mp4; sourceTree = "<group>"; };
 		2C4B7D8B1C38ACA100359FD4 /* HealthcareLeaving Previous PositionAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HealthcareLeaving Previous PositionAnswer.mp4"; sourceTree = "<group>"; };
@@ -389,8 +389,8 @@
 				2C4B7D841C38ACA100359FD4 /* GeneralStrengthsQuestion.mp4 */,
 				2C4B7D851C38ACA100359FD4 /* GeneralWhy Should We Hire YouAnswer.mp4 */,
 				2C4B7D861C38ACA100359FD4 /* GeneralWhy Should We Hire YouQuestion.mp4 */,
-				2C4B7D871C38ACA100359FD4 /* GreetingFarewellAnswer.mp4 */,
-				2C4B7D881C38ACA100359FD4 /* GreetingFarewellQuestion.mp4 */,
+				2C4B7D871C38ACA100359FD4 /* GeneralFarewellAnswer.mp4 */,
+				2C4B7D881C38ACA100359FD4 /* GeneralFarewellQuestion.mp4 */,
 				2C4B7D891C38ACA100359FD4 /* HealthcareCoworkersAnswer.mp4 */,
 				2C4B7D8A1C38ACA100359FD4 /* HealthcareCoworkersQuestion.mp4 */,
 				2C4B7D8B1C38ACA100359FD4 /* HealthcareLeaving Previous PositionAnswer.mp4 */,
@@ -663,7 +663,7 @@
 				2C4B7DFB1C38ACA100359FD4 /* Food ServiceAre You A Team PlayerAnswer.mp4 in Resources */,
 				2C4B7E2F1C38ACA100359FD4 /* GeneralGreetingQuestion.mp4 in Resources */,
 				2C4B7E161C38ACA100359FD4 /* Retail With ExperienceCoworkersAnswer.mp4 in Resources */,
-				2C4B7E081C38ACA100359FD4 /* GreetingFarewellQuestion.mp4 in Resources */,
+				2C4B7E081C38ACA100359FD4 /* GeneralFarewellQuestion.mp4 in Resources */,
 				2C4B7E651C38ACA100359FD4 /* Retail With ExperienceTell Me a TimeQuesiton.mp4 in Resources */,
 				2C4B7E5B1C38ACA100359FD4 /* Retail Without ExperienceResumeQuestion.mp4 in Resources */,
 				2C4B7E311C38ACA100359FD4 /* GeneralResumeQuestion.mp4 in Resources */,
@@ -699,7 +699,7 @@
 				2C4B7E0B1C38ACA100359FD4 /* HealthcareLeaving Previous PositionAnswer.mp4 in Resources */,
 				2C4FB6BD1C35B2E500643273 /* PromptSettings.plist in Resources */,
 				2C4B7E0D1C38ACA100359FD4 /* HealthcareWhy HealthcareAnswer.mp4 in Resources */,
-				2C4B7E071C38ACA100359FD4 /* GreetingFarewellAnswer.mp4 in Resources */,
+				2C4B7E071C38ACA100359FD4 /* GeneralFarewellAnswer.mp4 in Resources */,
 				2C4B7E5D1C38ACA100359FD4 /* HealthcareDress CodeQuestion.mp4 in Resources */,
 				2C4B7E5F1C38ACA100359FD4 /* HealthcareNights and WeekendsQuestion.mp4 in Resources */,
 				2C4B7DEF1C38ACA100359FD4 /* HospitalityAny QuestionsQuestion.mp4 in Resources */,

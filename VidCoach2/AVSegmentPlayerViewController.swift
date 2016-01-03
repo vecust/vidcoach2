@@ -12,27 +12,28 @@ import AVFoundation
 import MobileCoreServices
 //import SimpleAlert
 
-class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     //MARK: Properties
     var selectedAction = String()
     var interview = String()
     var question = String()
-    var postPromptInfo = PostPrompt()
-    var answerArray = [String]()
-//    var player = AVQueuePlayer()
+    var postPromptAnswer = String()
+    var queuePlayer = AVQueuePlayer()
     var url4Player = [NSURL()]
     var playerItems = [AVPlayerItem]()
     var prePromptON = Bool()
     var postPromptON = Bool()
-    
+    var playAll = Bool()
+    var questions = [String]()
+    var videoIndex = Int()
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-                
+        videoIndex = 0
         playSegment()
     }
 
@@ -65,9 +66,15 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
             //Set notification to trigger appropriate selector function when question or answer video has ended.
             let selectorFunc = Selector(selector+"VideoHasEnded:")
             NSNotificationCenter.defaultCenter().addObserver(self, selector: selectorFunc, name: AVPlayerItemDidPlayToEndTimeNotification, object: queueVideo)
-            
+
             player = AVPlayer(playerItem: queueVideo)
+            
+//           print("Playing: "+url)
+            if self.playAll {
+                question = questions[videoIndex]
+            }
             player?.play()
+            
             
         } else { //mode == "Watch Practice"
             //Find the video in the document directory
@@ -85,14 +92,16 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
             player = AVPlayer(playerItem: queueVideo)
             player?.play()
         }
-        //Use array for playing all?
-        //        playerItems.append(questionVideo)
-        
     }
     
     func playSegment() {
-        loadVideos(interview+question+"Question",selector: "question")
-//        loadVideos("GeneralGreetingQuestion",selector: "question") //Just for testing. Use previous line for real.
+        if !playAll {
+            loadVideos(interview+question+"Question",selector: "question")
+        } else if playAll {
+            loadVideos(interview+questions[videoIndex]+"Question", selector: "question")
+        }
+        
+        
 
     }
     
@@ -111,7 +120,11 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
         testAlert.addAction(SimpleAlert.Action(title: "OK", style: SimpleAlert.Action.Style.Default, handler: {
             (action) -> Void in
             if self.selectedAction != "practice" {
-                self.loadVideos(self.interview+self.question+"Answer", selector: "answer")
+                if !self.playAll {
+                    self.loadVideos(self.interview+self.question+"Answer", selector: "answer")
+                } else {
+                    self.loadVideos(self.interview+self.questions[self.videoIndex]+"Answer", selector: "answer")
+                }
             } else {
                 self.recordVideo()
             }
@@ -120,7 +133,12 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
             
         } else {
             if self.selectedAction != "practice" {
-            self.loadVideos(self.interview+self.question+"Answer", selector: "answer")
+                if !self.playAll {
+                    self.loadVideos(self.interview+self.question+"Answer", selector: "answer")
+                } else {
+                    self.loadVideos(self.interview+self.questions[self.videoIndex]+"Answer", selector: "answer")
+                }
+                
             } else {
                 self.recordVideo()
             }
@@ -130,7 +148,9 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
 
     func answerVideoHasEnded(notification: NSNotification) {
         if postPromptON {
-        
+        let postPromptInfo = PostPrompt()
+        var answerArray = [String]()
+
         // Get PostPrompt from plist file
         let postPromptFilePath = NSBundle.mainBundle().pathForResource("PostPrompts", ofType: "plist")
         let dict = NSDictionary(contentsOfFile: postPromptFilePath!)
@@ -140,6 +160,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
         postPromptInfo.message = postPromptDict?.objectForKey("Message") as? String
         postPromptInfo.button1 = postPromptDict?.objectForKey("Button1") as? String
         postPromptInfo.button2 = postPromptDict?.objectForKey("Button2") as? String
+        self.postPromptAnswer = postPromptInfo.button2
         postPromptInfo.button3 = postPromptDict?.objectForKey("Button3") as? String
 
         answerArray.append(postPromptInfo.button1)
@@ -188,34 +209,58 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
         presentViewController(postPrompt, animated: true, completion: nil)
         
         } else {
-            self.replay()
+            if !self.playAll {
+                self.replay()
+            } else {
+                if self.videoIndex == questions.count-1 {
+                    self.replay()
+                } else {
+                    videoIndex++
+                    loadVideos(interview+questions[videoIndex]+"Question", selector: "question")
+                }
+            }
         }
     }
     
     func checkAnswer(answer: String) {
         //Initial set up of alert
-        let answerAlert = SimpleAlert.Controller(title: "", message: "Want to Replay the Video?", style: .Alert)
+        var answerAlert = SimpleAlert.Controller(title: "", message: "Want to Replay the Video?", style: .Alert)
 
-        let yesAction = SimpleAlert.Action(title: "Yes", style: .Default, handler: { (action) -> Void in
-            self.playSegment()
-        })
+        if self.playAll && videoIndex != questions.count-1 {
+            answerAlert = SimpleAlert.Controller(title: "", message: "", style: .Alert)
+            let okAction = SimpleAlert.Action(title: "OK", style: .Default, handler: { (action) -> Void in
+                self.videoIndex++
+                self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
+            })
+            answerAlert.addAction(okAction)
+        } else {
+            
+            
+            let yesAction = SimpleAlert.Action(title: "Yes", style: .Default, handler: { (action) -> Void in
+                if self.playAll {
+                    self.videoIndex = 0
+                }
+                self.playSegment()
+
+            })
+            
+            let noAction = SimpleAlert.Action(title: "No", style: .Default, handler: { (action) -> Void in
+                self.navigationController?.popViewControllerAnimated(true)
+            })
         
-        let noAction = SimpleAlert.Action(title: "No", style: .Default, handler: { (action) -> Void in
-            self.navigationController?.popViewControllerAnimated(true)
-        })
-        
-        answerAlert.addAction(yesAction)
-        answerAlert.addAction(noAction)
+            answerAlert.addAction(yesAction)
+            answerAlert.addAction(noAction)
+        }
         
         //button2 is always the right answer
-        if answer == postPromptInfo.button2 {
+        if answer == postPromptAnswer {
             //Change alert
             answerAlert.title = "Correct!"
             answerAlert.configContentView = { view in
                 view.backgroundColor = UIColor.greenColor()
             }
         } else {
-            answerAlert.title = "Nice Try. The correct answer is "+postPromptInfo.button2
+            answerAlert.title = "Nice Try. The correct answer is "+postPromptAnswer
             answerAlert.configContentView = { view in
                 view.backgroundColor = UIColor.redColor()
             }
@@ -227,7 +272,8 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
     func replay() {
         let replayAlert = SimpleAlert.Controller(title: "Want to Replay the Video?", message: "", style: .Alert)
         let yesAction = SimpleAlert.Action(title: "Yes", style: .Default, handler: { (action) -> Void in
-                self.playSegment()
+            self.videoIndex = 0
+            self.playSegment()
         })
         let noAction = SimpleAlert.Action(title: "No", style: .Default, handler: { (action) -> Void in
                 self.navigationController?.popViewControllerAnimated(true)
@@ -312,25 +358,16 @@ class AVSegmentPlayerViewController: AVPlayerViewController, UIImagePickerContro
         
         let alert = SimpleAlert.Controller(title: title, message: message, style: .Alert)
         alert.addAction(SimpleAlert.Action(title: "OK", style: .Default, handler: { (action) -> Void in
-            self.navigationController?.popViewControllerAnimated(true)
+            if !self.playAll {
+                self.navigationController?.popViewControllerAnimated(true)
+            } else {
+                self.videoIndex++
+                self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
+            }
         }))
 
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
-    func playRecording() {
-        //Find the video in the document directory
-        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        let documentsDirectory: AnyObject = paths[0]
-        let dataPath = documentsDirectory.stringByAppendingPathComponent(interview+question+"Recording")
-        
-        let videoAsset = (AVAsset(URL: NSURL(fileURLWithPath: dataPath)))
-        let playerItem = AVPlayerItem(asset: videoAsset)
-        
-        player = AVPlayer(playerItem: playerItem)
-        
-    }
-    
 
 }
 

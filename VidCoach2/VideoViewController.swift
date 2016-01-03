@@ -28,6 +28,8 @@ class VideoViewController: UIViewController {
     var postPromptON = Bool()
     var settingDict:NSMutableDictionary!
     var settingPath:String!
+    var playAll = Bool()
+    var questions = [String]()
 
     
     override func viewWillAppear(animated: Bool) {
@@ -145,6 +147,8 @@ class VideoViewController: UIViewController {
             destination.question = question
             destination.prePromptON = prePromptON
             destination.postPromptON = postPromptON
+            destination.playAll = playAll
+            destination.questions = questions
         
         //write prompt settings
             self.saveSetting(prePromptON, key: "PrePrompt")

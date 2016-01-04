@@ -289,15 +289,11 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     
     func shuffleArray<T>(var array: Array<T>) -> Array<T>
     {
-        for var index = array.count - 1; index > 0; index--
-        {
-            // Random int from 0 to index-1
-            let j = Int(arc4random_uniform(UInt32(index-1)))
-            
-            // Swap two array elements
-            // Notice '&' required as swap uses 'inout' parameters
-            swap(&array[index], &array[j])
-        }
+        for i in 0..<array.count-1 {
+            let j = Int(arc4random_uniform(UInt32(array.count-i))) + i
+            guard i != j else { continue }
+            swap(&array[i], &array[j])
+        }        
         return array
     }
     

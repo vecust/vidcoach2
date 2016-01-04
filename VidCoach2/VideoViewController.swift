@@ -71,11 +71,29 @@ class VideoViewController: UIViewController {
         //See if recorded video exists in the document directory
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
         let documentsDirectory: AnyObject = paths[0]
-        let dataPath = documentsDirectory.stringByAppendingPathComponent("/"+interview+question+"Recording.mp4")
-        if(NSFileManager.defaultManager().fileExistsAtPath(dataPath)) {
-            watchPracticeButton.enabled = true
+        if self.question != "All Questions" {
+            let dataPath = documentsDirectory.stringByAppendingPathComponent("/"+interview+question+"Recording.mp4")
+            if(NSFileManager.defaultManager().fileExistsAtPath(dataPath)) {
+                watchPracticeButton.enabled = true
+            } else {
+                watchPracticeButton.enabled = false
+            }
         } else {
-            watchPracticeButton.enabled = false
+            var questionPracticed = false
+            
+            for question in questions {
+                let dataPath = documentsDirectory.stringByAppendingPathComponent("/"+interview+question+"Recording.mp4")
+                if(NSFileManager.defaultManager().fileExistsAtPath(dataPath)) {
+                    questionPracticed = true
+                } else {
+                    watchPracticeButton.enabled = false
+                    questionPracticed = false
+                    break
+                }
+            }
+            if questionPracticed {
+                watchPracticeButton.enabled = true
+            }
         }
         
 

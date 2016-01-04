@@ -19,7 +19,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     var interview = String()
     var question = String()
     var postPromptAnswer = String()
-    var queuePlayer = AVQueuePlayer()
     var url4Player = [NSURL()]
     var playerItems = [AVPlayerItem]()
     var prePromptON = Bool()
@@ -90,6 +89,9 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             NSNotificationCenter.defaultCenter().addObserver(self, selector: selectorFunc, name: AVPlayerItemDidPlayToEndTimeNotification, object: queueVideo)
             
             player = AVPlayer(playerItem: queueVideo)
+            if self.playAll {
+                question = questions[videoIndex]
+            }
             player?.play()
         }
     }
@@ -317,7 +319,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        print("Got a video")
+//        print("Got a video")
         
         let mediaType = info[UIImagePickerControllerMediaType] as! String
         
@@ -342,7 +344,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     }
     
     func videoWasSavedSuccessfully(videoPath: String, didFinishSavingWithError error: NSError!, context: UnsafeMutablePointer<()>) {
-        print("Video saved")
+//        print("Video saved")
         var title = "Practice Complete!"
         var message = "Video was saved"
         
@@ -362,11 +364,22 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
                 self.navigationController?.popViewControllerAnimated(true)
             } else {
                 self.videoIndex++
-                self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
+                if self.videoIndex != self.questions.count-1 {
+                    self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
+                } else {
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
             }
         }))
-
-        self.presentViewController(alert, animated: true, completion: nil)
+        
+        if self.selectedAction != "practice" || (self.selectedAction == "practice" && self.videoIndex == questions.count-1) {
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
+            self.videoIndex++
+            if self.videoIndex != self.questions.count-1 {
+                self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
+            }
+        }
     }
 
 }

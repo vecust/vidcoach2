@@ -54,7 +54,6 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         interviewQuestion.text = question
         image.image = UIImage(named: interview)
-        title = question
         
         if prePromptON {
             self.prePromptSwitch.setOn(true, animated: false)

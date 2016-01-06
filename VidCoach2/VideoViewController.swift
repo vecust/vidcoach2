@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 
 
-class VideoViewController: UIViewController {
+class VideoViewController: UIViewController, UINavigationControllerDelegate {
 
     // MARK: Properties
     

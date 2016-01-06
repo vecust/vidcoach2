@@ -114,6 +114,9 @@ class QuestionTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         if segue.identifier == "ShowDetail" {
             let destinationViewController = segue.destinationViewController as! VideoViewController
+            let backItem = UIBarButtonItem()
+            backItem.title = "Segment List"
+            navigationItem.backBarButtonItem = backItem
             
             // Pass the selected object to the new view controller.
             if let selectedQuestionCell = sender as? QuestionTableViewCell {

@@ -13,5 +13,5 @@ class PostPrompt: NSObject {
     var button1: String!
     var button2: String!
     var button3: String!
-
+    
 }

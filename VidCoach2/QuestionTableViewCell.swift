@@ -2,6 +2,8 @@
 //  QuestionTableViewCell.swift
 //  VidCoach2
 //
+//  This class handles the custom view of the list of questions.
+//
 //  Created by Erick Custodio on 12/29/15.
 //  Copyright © 2015 Erick Custodio. All rights reserved.
 //
@@ -11,7 +13,7 @@ import UIKit
 class QuestionTableViewCell: UITableViewCell {
     //MARK: Properties
     @IBOutlet weak var questionNameLabel: UILabel!
-    
+    //TODO: Add properties and outlets for progress tracking
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -2,6 +2,8 @@
 //  SimpleAlert.swift
 //  SimpleAlert
 //
+//  This is a custom alert view class I found on the internet. It allows changing of the dimensions, colors, and corner roundness of the alerts.
+//
 //  Created by Kyohei Ito on 2015/01/09.
 //  Copyright (c) 2015年 kyohei_ito. All rights reserved.
 //

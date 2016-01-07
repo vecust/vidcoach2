@@ -2,6 +2,10 @@
 //  QuestionTableViewController.swift
 //  VidCoach2
 //
+//  This view handles listing the quesitons based on the interview selected in the previous view.
+//  Depending on whether "All Questions" or one question was selected, either an array of all the questions
+//  or the title of the individually selected question will be passed on to the next view.
+//
 //  Created by Erick Custodio on 12/28/15.
 //  Copyright © 2015 Erick Custodio. All rights reserved.
 //
@@ -60,7 +64,7 @@ class QuestionTableViewController: UITableViewController {
         //Dequeue Reusable Cell
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! QuestionTableViewCell
         
-        // Configure the cell...
+        // Configure the cell: the first section has one cell for "All Questions" the second section lists all the questions individually
         if (indexPath.section == 0) {
             cell.questionNameLabel.text = "All Questions"
         } else if (indexPath.section == 1) {
@@ -114,26 +118,31 @@ class QuestionTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         if segue.identifier == "ShowDetail" {
             let destinationViewController = segue.destinationViewController as! VideoViewController
+            
+            //Customize the title of the navigation back button to say "Segment List"
             let backItem = UIBarButtonItem()
             backItem.title = "Segment List"
             navigationItem.backBarButtonItem = backItem
             
-            // Pass the selected object to the new view controller.
+            // Pass the selected question to the video view controller.
             if let selectedQuestionCell = sender as? QuestionTableViewCell {
                 if let indexPath = tableView.indexPathForCell(selectedQuestionCell) {
                     destinationViewController.interview = interview
 
-                    if indexPath.section == 1 {
+                    //Set property values of VideoViewController based on selected cell
+                    if indexPath.section == 1 { //Individual quesiton selected
                         let question = questions[indexPath.row]
                         destinationViewController.question = question
                         destinationViewController.playAll = false
-                    } else if indexPath.section == 0 {
+                    } else if indexPath.section == 0 { //All Questions selected
                         destinationViewController.question = "All Questions"
                         destinationViewController.playAll = true
                         destinationViewController.questions = questions
                     }
                 }
             }
+            
+            //Handle prompt setting retrieval from plist file. See preparePlistForUse() in AppDelegate.swift
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let pathForThePlistFile = appDelegate.settingPlistPath
             

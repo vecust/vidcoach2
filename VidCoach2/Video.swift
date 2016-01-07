@@ -12,7 +12,6 @@ class Video: NSObject {
     //Variables for testing
     var title: String!
     var url: NSURL!
-    
     //Real Variables
     var question: String!
     var answer: String!

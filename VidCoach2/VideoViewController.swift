@@ -2,6 +2,10 @@
 //  ViewController.swift
 //  VidCoach2
 //
+//  This view shows the details of the question(s) selected. Here the user has the option to choose one of three actions:
+//  Watch a model answer the question, record themselves practicing their answers to questions, or watch their recordings.
+//  The user also can set the post prompts and pre prompts on or off at this point.
+//
 //  Created by Erick Custodio on 12/24/15.
 //  Copyright © 2015 Erick Custodio. All rights reserved.
 //
@@ -20,8 +24,6 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var interviewQuestion: UILabel!
     @IBOutlet weak var prePromptSwitch: UISwitch!
     @IBOutlet weak var postPromptSwitch: UISwitch!
-    var url4Player = [NSURL()]
-    var playerItems = [AVPlayerItem]()
     var interview = String()
     var question = String()
     var prePromptON = Bool()
@@ -33,6 +35,7 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
 
     
     override func viewWillAppear(animated: Bool) {
+        //Get prompt settings from plist file PromptSettings.plist
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         settingPath = appDelegate.settingPlistPath
         let data:NSData = NSFileManager.defaultManager().contentsAtPath(settingPath)!
@@ -47,27 +50,10 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
         }catch{
             print("Error occured while reading from the prompt setting plist file")
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        interviewQuestion.text = question
-        image.image = UIImage(named: interview)
         
-        if prePromptON {
-            self.prePromptSwitch.setOn(true, animated: false)
-        } else {
-            self.prePromptSwitch.setOn(false, animated: false)
-        }
-        
-        if postPromptON {
-            self.postPromptSwitch.setOn(true, animated: false)
-        } else {
-            self.postPromptSwitch.setOn(false, animated: false)
-        }
-
-        //See if recorded video exists in the document directory
+        //See if recorded video exists in the document directory. If the user selected "All Questions" in the previous view,
+        //iterate over all questions to see if they all have a record. This check determines if the "Watch Practice" button
+        //should be enabled or not.
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
         let documentsDirectory: AnyObject = paths[0]
         if self.question != "All Questions" {
@@ -94,11 +80,36 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
                 watchPracticeButton.enabled = true
             }
         }
-        
 
-        
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        //Set question label
+        interviewQuestion.text = question
+        
+        //Set image based on interview selected
+        image.image = UIImage(named: interview)
+        
+        //Set the prompt setting switches based on settings retrieved from plist file
+        if prePromptON {
+            self.prePromptSwitch.setOn(true, animated: false)
+        } else {
+            self.prePromptSwitch.setOn(false, animated: false)
+        }
+        
+        if postPromptON {
+            self.postPromptSwitch.setOn(true, animated: false)
+        } else {
+            self.postPromptSwitch.setOn(false, animated: false)
+        }
 
+    }
+    
+    //This function saves the setting set by the user on the interface. It is called from the prePromptSetting and postPromptSetting IBAction functions
+    //It is also called from the prepareForSegue and viewWillDisappear functions
     func saveSetting(setting:Bool,key:String){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let pathForThePlistFile = appDelegate.settingPlistPath

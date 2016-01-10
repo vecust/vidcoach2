@@ -54,7 +54,7 @@
 		0C937B361C3D8BD0008327FD /* HealthcareHelping While On BreakAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AB61C3D8BD0008327FD /* HealthcareHelping While On BreakAnswer.mp4 */; };
 		0C937B371C3D8BD0008327FD /* HealthcareHelping While On BreakQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AB71C3D8BD0008327FD /* HealthcareHelping While On BreakQuestion.mp4 */; };
 		0C937B381C3D8BD0008327FD /* HealthcareLeaving Previous PositionAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AB81C3D8BD0008327FD /* HealthcareLeaving Previous PositionAnswer.mp4 */; };
-		0C937B391C3D8BD0008327FD /* HealthcareLeaving Previous PositionQuesiton.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AB91C3D8BD0008327FD /* HealthcareLeaving Previous PositionQuesiton.mp4 */; };
+		0C937B391C3D8BD0008327FD /* HealthcareLeaving Previous PositionQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AB91C3D8BD0008327FD /* HealthcareLeaving Previous PositionQuestion.mp4 */; };
 		0C937B3A1C3D8BD0008327FD /* HealthcareNights and WeekendsAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937ABA1C3D8BD0008327FD /* HealthcareNights and WeekendsAnswer.mp4 */; };
 		0C937B3B1C3D8BD0008327FD /* HealthcareNights and WeekendsQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937ABB1C3D8BD0008327FD /* HealthcareNights and WeekendsQuestion.mp4 */; };
 		0C937B3C1C3D8BD0008327FD /* HealthcarePrevious PositionAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937ABC1C3D8BD0008327FD /* HealthcarePrevious PositionAnswer.mp4 */; };
@@ -149,8 +149,6 @@
 		2CAF7C141C2C780200FC81E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C131C2C780200FC81E9 /* Assets.xcassets */; };
 		2CAF7C171C2C780200FC81E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C151C2C780200FC81E9 /* LaunchScreen.storyboard */; };
 		2CAF7C221C2C780200FC81E9 /* VidCoach2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C211C2C780200FC81E9 /* VidCoach2Tests.swift */; };
-		2CAF7C2D1C2CA73000FC81E9 /* interviewQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C2C1C2CA72F00FC81E9 /* interviewQuestion.swift */; };
-		2CAF7C2E1C2CA73000FC81E9 /* interviewQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C2C1C2CA72F00FC81E9 /* interviewQuestion.swift */; };
 		2CAF7C301C2CD14500FC81E9 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C2F1C2CD14500FC81E9 /* Video.swift */; };
 		2CAF7C381C2D0B2A00FC81E9 /* InterviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */; };
 		2CAF7C3A1C2D0F5100FC81E9 /* interviews.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C391C2D0F5100FC81E9 /* interviews.plist */; };
@@ -218,7 +216,7 @@
 		0C937AB61C3D8BD0008327FD /* HealthcareHelping While On BreakAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HealthcareHelping While On BreakAnswer.mp4"; path = "videos/HealthcareHelping While On BreakAnswer.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937AB71C3D8BD0008327FD /* HealthcareHelping While On BreakQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HealthcareHelping While On BreakQuestion.mp4"; path = "videos/HealthcareHelping While On BreakQuestion.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937AB81C3D8BD0008327FD /* HealthcareLeaving Previous PositionAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HealthcareLeaving Previous PositionAnswer.mp4"; path = "videos/HealthcareLeaving Previous PositionAnswer.mp4"; sourceTree = SOURCE_ROOT; };
-		0C937AB91C3D8BD0008327FD /* HealthcareLeaving Previous PositionQuesiton.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HealthcareLeaving Previous PositionQuesiton.mp4"; path = "videos/HealthcareLeaving Previous PositionQuesiton.mp4"; sourceTree = SOURCE_ROOT; };
+		0C937AB91C3D8BD0008327FD /* HealthcareLeaving Previous PositionQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HealthcareLeaving Previous PositionQuestion.mp4"; path = "videos/HealthcareLeaving Previous PositionQuestion.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937ABA1C3D8BD0008327FD /* HealthcareNights and WeekendsAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HealthcareNights and WeekendsAnswer.mp4"; path = "videos/HealthcareNights and WeekendsAnswer.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937ABB1C3D8BD0008327FD /* HealthcareNights and WeekendsQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HealthcareNights and WeekendsQuestion.mp4"; path = "videos/HealthcareNights and WeekendsQuestion.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937ABC1C3D8BD0008327FD /* HealthcarePrevious PositionAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HealthcarePrevious PositionAnswer.mp4"; path = "videos/HealthcarePrevious PositionAnswer.mp4"; sourceTree = SOURCE_ROOT; };
@@ -318,7 +316,6 @@
 		2CAF7C1D1C2C780200FC81E9 /* VidCoach2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VidCoach2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAF7C211C2C780200FC81E9 /* VidCoach2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VidCoach2Tests.swift; sourceTree = "<group>"; };
 		2CAF7C231C2C780200FC81E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2CAF7C2C1C2CA72F00FC81E9 /* interviewQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = interviewQuestion.swift; sourceTree = "<group>"; };
 		2CAF7C2F1C2CD14500FC81E9 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewTableViewController.swift; sourceTree = "<group>"; };
 		2CAF7C391C2D0F5100FC81E9 /* interviews.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = interviews.plist; sourceTree = "<group>"; };
@@ -411,7 +408,7 @@
 				0C937AB61C3D8BD0008327FD /* HealthcareHelping While On BreakAnswer.mp4 */,
 				0C937AB71C3D8BD0008327FD /* HealthcareHelping While On BreakQuestion.mp4 */,
 				0C937AB81C3D8BD0008327FD /* HealthcareLeaving Previous PositionAnswer.mp4 */,
-				0C937AB91C3D8BD0008327FD /* HealthcareLeaving Previous PositionQuesiton.mp4 */,
+				0C937AB91C3D8BD0008327FD /* HealthcareLeaving Previous PositionQuestion.mp4 */,
 				0C937ABA1C3D8BD0008327FD /* HealthcareNights and WeekendsAnswer.mp4 */,
 				0C937ABB1C3D8BD0008327FD /* HealthcareNights and WeekendsQuestion.mp4 */,
 				0C937ABC1C3D8BD0008327FD /* HealthcarePrevious PositionAnswer.mp4 */,
@@ -534,7 +531,6 @@
 				2C367AE61C346AF1007D67DB /* SimpleAlert.xib */,
 				2C367B391C3497A0007D67DB /* AVSegmentPlayerViewController.swift */,
 				2C367ADB1C333650007D67DB /* Resources */,
-				2CAF7C2C1C2CA72F00FC81E9 /* interviewQuestion.swift */,
 				2CAF7C131C2C780200FC81E9 /* Assets.xcassets */,
 				2CAF7C151C2C780200FC81E9 /* LaunchScreen.storyboard */,
 				2CAF7C181C2C780200FC81E9 /* Info.plist */,
@@ -694,7 +690,7 @@
 				0C937B441C3D8BD0008327FD /* HealthcareWhy HealthcareAnswer.mp4 in Resources */,
 				0C937B7F1C3D8BD1008327FD /* Retail Without ExperienceGreetingQuestion.mp4 in Resources */,
 				0C937B731C3D8BD1008327FD /* Retail With ExperienceWhat Do You Like About RetailQuestion.mp4 in Resources */,
-				0C937B391C3D8BD0008327FD /* HealthcareLeaving Previous PositionQuesiton.mp4 in Resources */,
+				0C937B391C3D8BD0008327FD /* HealthcareLeaving Previous PositionQuestion.mp4 in Resources */,
 				0C937B121C3D8BD0008327FD /* Food ServiceFarewellAnswer.mp4 in Resources */,
 				0C937B371C3D8BD0008327FD /* HealthcareHelping While On BreakQuestion.mp4 in Resources */,
 				0C937B361C3D8BD0008327FD /* HealthcareHelping While On BreakAnswer.mp4 in Resources */,
@@ -863,7 +859,6 @@
 				2C367AE51C346AC5007D67DB /* SimpleAlert.swift in Sources */,
 				2CAF7C0D1C2C780200FC81E9 /* AppDelegate.swift in Sources */,
 				2C367ADD1C3346ED007D67DB /* QuestionTableViewCell.swift in Sources */,
-				2CAF7C2D1C2CA73000FC81E9 /* interviewQuestion.swift in Sources */,
 				2CAF7C401C31B89600FC81E9 /* InterviewCellInfo.swift in Sources */,
 				2C367ADF1C343660007D67DB /* PostPrompt.swift in Sources */,
 			);
@@ -874,7 +869,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CAF7C221C2C780200FC81E9 /* VidCoach2Tests.swift in Sources */,
-				2CAF7C2E1C2CA73000FC81E9 /* interviewQuestion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -253,7 +253,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
                 if self.videoIndex == questions.count-1 { //If the last video of the interview has been played, call the replay function.
                     self.replay()
                 } else { //Increment the counter and based off of that index, load the video for the next interview question.
-                    self.logActivity(questions[videoIndex], type: "Answer")
                     videoIndex++
                     loadVideos(interview+questions[videoIndex]+"Question", selector: "question")
                 }
@@ -422,7 +421,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         //Set up OK button of alert
         alert.addAction(SimpleAlert.Action(title: "OK", style: .Default, handler: { (action) -> Void in
             if !self.playAll { //Condition: practicing only one interview question.
-                self.logActivity(self.question, type: "MadeRecording")
                 self.navigationController?.popViewControllerAnimated(true)
             } else { //Condition: Practicing all questions.
                 //Increment counter
@@ -438,6 +436,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         
         //Only present alert if in practice mode and practicing one interview question or practicing all questions and the last video has been played.
         if self.selectedAction == "practice" && (!self.playAll || self.videoIndex == questions.count-1) {
+            self.logActivity(self.question, type: "MadeRecording")
             self.presentViewController(alert, animated: true, completion: nil)
         } else {
             self.logActivity(self.questions[self.videoIndex], type: "MadeRecording")

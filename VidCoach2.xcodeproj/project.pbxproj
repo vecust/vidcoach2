@@ -157,6 +157,7 @@
 		2CAF7C3C1C318EFC00FC81E9 /* QuestionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3B1C318EFC00FC81E9 /* QuestionTableViewController.swift */; };
 		2CAF7C3E1C31A78100FC81E9 /* InterviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3D1C31A78100FC81E9 /* InterviewTableViewCell.swift */; };
 		2CAF7C401C31B89600FC81E9 /* InterviewCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3F1C31B89600FC81E9 /* InterviewCellInfo.swift */; };
+		5EB8FDFF213ED9D886DD8E9E /* Pods_VidCoach2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA72EE8BC78C225A710B1D6 /* Pods_VidCoach2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,6 +299,7 @@
 		0C937B071C3D8BD0008327FD /* Retail Without ExperienceWhy RetailQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail Without ExperienceWhy RetailQuestion.mp4"; path = "videos/Retail Without ExperienceWhy RetailQuestion.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937B081C3D8BD0008327FD /* Retail Without ExperienceWhy Should We Hire YouAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail Without ExperienceWhy Should We Hire YouAnswer.mp4"; path = "videos/Retail Without ExperienceWhy Should We Hire YouAnswer.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937B091C3D8BD0008327FD /* Retail Without ExperienceWhy Should We Hire YouQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail Without ExperienceWhy Should We Hire YouQuestion.mp4"; path = "videos/Retail Without ExperienceWhy Should We Hire YouQuestion.mp4"; sourceTree = SOURCE_ROOT; };
+		0FA72EE8BC78C225A710B1D6 /* Pods_VidCoach2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VidCoach2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C367ADC1C3346ED007D67DB /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		2C367ADE1C343660007D67DB /* PostPrompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPrompt.swift; sourceTree = "<group>"; };
 		2C367AE01C343A91007D67DB /* PrePrompts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrePrompts.plist; sourceTree = "<group>"; };
@@ -323,6 +325,9 @@
 		2CAF7C3B1C318EFC00FC81E9 /* QuestionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewController.swift; sourceTree = "<group>"; };
 		2CAF7C3D1C31A78100FC81E9 /* InterviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewTableViewCell.swift; sourceTree = "<group>"; };
 		2CAF7C3F1C31B89600FC81E9 /* InterviewCellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewCellInfo.swift; sourceTree = "<group>"; };
+		2CBA1CC91C421FF900943B1C /* VidCoach2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VidCoach2-Bridging-Header.h"; sourceTree = "<group>"; };
+		7B043CEE2DDC1CB01B649EC4 /* Pods-VidCoach2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidCoach2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VidCoach2/Pods-VidCoach2.debug.xcconfig"; sourceTree = "<group>"; };
+		9E6DB15BA6A97A5FB9FCDBC8 /* Pods-VidCoach2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidCoach2.release.xcconfig"; path = "Pods/Target Support Files/Pods-VidCoach2/Pods-VidCoach2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +335,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EB8FDFF213ED9D886DD8E9E /* Pods_VidCoach2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +502,9 @@
 				2CAF7C0B1C2C780200FC81E9 /* VidCoach2 */,
 				2CAF7C201C2C780200FC81E9 /* VidCoach2Tests */,
 				2CAF7C0A1C2C780200FC81E9 /* Products */,
+				C5FCE581791581F8E9EB7078 /* Pods */,
+				9AE4CCC5D177141EEF57A615 /* Frameworks */,
+				2CBA1CC91C421FF900943B1C /* VidCoach2-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -542,6 +551,23 @@
 			path = VidCoach2Tests;
 			sourceTree = "<group>";
 		};
+		9AE4CCC5D177141EEF57A615 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FA72EE8BC78C225A710B1D6 /* Pods_VidCoach2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5FCE581791581F8E9EB7078 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B043CEE2DDC1CB01B649EC4 /* Pods-VidCoach2.debug.xcconfig */,
+				9E6DB15BA6A97A5FB9FCDBC8 /* Pods-VidCoach2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -549,9 +575,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CAF7C261C2C780200FC81E9 /* Build configuration list for PBXNativeTarget "VidCoach2" */;
 			buildPhases = (
+				CAF3B8DEB62B3BC9A7C48DFB /* Check Pods Manifest.lock */,
 				2CAF7C051C2C780200FC81E9 /* Sources */,
 				2CAF7C061C2C780200FC81E9 /* Frameworks */,
 				2CAF7C071C2C780200FC81E9 /* Resources */,
+				80E4C20635D8ED91959552B9 /* Embed Pods Frameworks */,
+				A9D71672D718404019203F07 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -772,6 +801,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		80E4C20635D8ED91959552B9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VidCoach2/Pods-VidCoach2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9D71672D718404019203F07 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VidCoach2/Pods-VidCoach2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAF3B8DEB62B3BC9A7C48DFB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2CAF7C051C2C780200FC81E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -916,8 +993,10 @@
 		};
 		2CAF7C271C2C780200FC81E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B043CEE2DDC1CB01B649EC4 /* Pods-VidCoach2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VidCoach2/Info.plist;
@@ -925,13 +1004,17 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vanerickcustodio.VidCoach2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "VidCoach2-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		2CAF7C281C2C780200FC81E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E6DB15BA6A97A5FB9FCDBC8 /* Pods-VidCoach2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VidCoach2/Info.plist;
@@ -939,6 +1022,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vanerickcustodio.VidCoach2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "VidCoach2-Bridging-Header.h";
 			};
 			name = Release;
 		};

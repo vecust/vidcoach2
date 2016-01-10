@@ -12,6 +12,7 @@ import UIKit
 import AVKit
 import AVFoundation
 import MobileCoreServices
+import Firebase
 
 class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -26,11 +27,14 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     var questions = [String]()
     var videoIndex = Int() //This is a counter to help determine if you reached the end of "All Questions"
     let imagePicker: UIImagePickerController! = UIImagePickerController()
+    var deviceID = UIDevice.currentDevice().identifierForVendor!.UUIDString
+    var videoLogReference = Firebase(url: "https://vidcoach2.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         
         //Set counter to zero
         videoIndex = 0
@@ -72,7 +76,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             NSNotificationCenter.defaultCenter().addObserver(self, selector: selectorFunc, name: AVPlayerItemDidPlayToEndTimeNotification, object: queueVideo)
 
             //Set view controller's player to new AVPlayer with local AVPlayerItem
-            player = AVPlayer(playerItem: queueVideo)
+            self.player = AVPlayer(playerItem: queueVideo)
             
             //print("Playing: "+url)
             
@@ -81,7 +85,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             if self.playAll {
                 question = questions[videoIndex]
             }
-            player?.play()
+            self.player?.play()
             
             
         } else { //selectedAction == "Practice" || "Watch Practice"
@@ -102,7 +106,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             if self.playAll {
                 question = questions[videoIndex]
             }
-            player?.play()
+            self.player?.play()
         }
     }
     
@@ -120,7 +124,13 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     
     //This function gets called when a question video has ended (This is the one with the interviewer)
     func questionVideoHasEnded(notification: NSNotification) {
-        
+        //Log Activity
+        if self.playAll {
+            self.logActivity(self.questions[self.videoIndex], type: "Question")
+        } else {
+            self.logActivity(self.question, type: "Question")
+        }
+
         if prePromptON { //If the pre prompt setting is on, load the alert and present it.
         
         // Get PrePrompt from plist file
@@ -134,7 +144,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         testAlert.addAction(SimpleAlert.Action(title: "OK", style: SimpleAlert.Action.Style.Default, handler: {
             (action) -> Void in
             
-            //TODO: upload metadata (video name and timestamp) to database. Will have to implement userID to differeniate users.
             //TODO: save metadata locally to track progress and determine awards.
             
             //When the "OK" button is tapped the following code executes
@@ -167,7 +176,13 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
 
     //This function gets called when an answer video has ended.
     func answerVideoHasEnded(notification: NSNotification) {
-        
+        //Log activity
+        if self.playAll {
+            self.logActivity(self.questions[self.videoIndex], type: "Answer")
+        } else {
+            self.logActivity(self.question, type: "Answer")
+        }
+
         if postPromptON { //If the post prompt setting is on, load the alert with the question and answer choices and present it.
         let postPromptInfo = PostPrompt()
         var answerArray = [String]()
@@ -238,6 +253,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
                 if self.videoIndex == questions.count-1 { //If the last video of the interview has been played, call the replay function.
                     self.replay()
                 } else { //Increment the counter and based off of that index, load the video for the next interview question.
+                    self.logActivity(questions[videoIndex], type: "Answer")
                     videoIndex++
                     loadVideos(interview+questions[videoIndex]+"Question", selector: "question")
                 }
@@ -262,10 +278,14 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             
             //Set button to respond yes to replaying the video
             let yesAction = SimpleAlert.Action(title: "Yes", style: .Default, handler: { (action) -> Void in
-                if self.playAll {
+                if self.playAll { //Log activity at this point
+                    self.logActivity(self.questions[self.videoIndex], type: "ReplayAll")
                     //Reset the counter if "All Questions" to start from the beginning of questions array.
                     self.videoIndex = 0
+                } else {
+                    self.logActivity(self.question, type: "ReplayOne")
                 }
+                
                 self.playSegment() //This call starts everything all over again.
 
             })
@@ -303,11 +323,17 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     func replay() {
         let replayAlert = SimpleAlert.Controller(title: "Want to Replay the Video?", message: "", style: .Alert)
         let yesAction = SimpleAlert.Action(title: "Yes", style: .Default, handler: { (action) -> Void in
+            //Log Activity
+            if self.playAll {
+                self.logActivity(self.questions[self.videoIndex], type: "ReplayAll")
+            } else {
+                self.logActivity(self.question, type: "ReplayOne")
+            }
             self.videoIndex = 0
             self.playSegment()
         })
         let noAction = SimpleAlert.Action(title: "No", style: .Default, handler: { (action) -> Void in
-                self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popViewControllerAnimated(true)
                 //Maybe call unwindToVideoView() here...
         })
         
@@ -387,7 +413,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             print(saveError)
         } else {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                //TODO: upload metadata (video name and timestamp) to database. Will have to implement userID to differeniate users.
             })
         }
         
@@ -397,6 +422,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         //Set up OK button of alert
         alert.addAction(SimpleAlert.Action(title: "OK", style: .Default, handler: { (action) -> Void in
             if !self.playAll { //Condition: practicing only one interview question.
+                self.logActivity(self.question, type: "MadeRecording")
                 self.navigationController?.popViewControllerAnimated(true)
             } else { //Condition: Practicing all questions.
                 //Increment counter
@@ -414,11 +440,24 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         if self.selectedAction == "practice" && (!self.playAll || self.videoIndex == questions.count-1) {
             self.presentViewController(alert, animated: true, completion: nil)
         } else {
+            self.logActivity(self.questions[self.videoIndex], type: "MadeRecording")
             self.videoIndex++
             if self.videoIndex != self.questions.count-1 {
                 self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
             }
         }
+    }
+    
+    //MARK: Logging Methods
+    
+    //This function formats current date to a string and sends timestamp, deviceID, and video to Firebase database
+    func logActivity(question: String, type: String){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM.dd.yyyy ' ' HH:mm:ss zzz"
+        let timeStamp = dateFormatter.stringFromDate(NSDate())
+        let post = ["device": deviceID, "timestamp": timeStamp, "mode": selectedAction, "video": interview+question+type]
+        let postRef = self.videoLogReference.childByAutoId()
+        postRef.setValue(post)
     }
 
 }

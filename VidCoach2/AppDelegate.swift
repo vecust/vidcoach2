@@ -14,12 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var settingPlistPath:String = String()
-    var rewardsAndProgressPlistPath:String = String()
+    var rewardsPlistPath:String = String()
+    var progressPlistPath:String = String()
 
-    //get and set prompt setting plist file
+    //get and set plist files
     func preparePlistForUse(){
         let rootPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, .UserDomainMask, true)[0]
         
+        //
         settingPlistPath = rootPath.stringByAppendingString("/PromptSettings.plist")
         if !NSFileManager.defaultManager().fileExistsAtPath(settingPlistPath){
             let settingPlistInBundle = NSBundle.mainBundle().pathForResource("PromptSettings", ofType: "plist") as String!
@@ -30,11 +32,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        rewardsAndProgressPlistPath = rootPath.stringByAppendingString("/RewardsAndProgress.plist")
-        if !NSFileManager.defaultManager().fileExistsAtPath(rewardsAndProgressPlistPath){
-            let rewardPlistInBundle = NSBundle.mainBundle().pathForResource("RewardsAndProgress", ofType: "plist") as String!
+        rewardsPlistPath = rootPath.stringByAppendingString("/Rewards.plist")
+        if !NSFileManager.defaultManager().fileExistsAtPath(rewardsPlistPath){
+            let rewardPlistInBundle = NSBundle.mainBundle().pathForResource("Rewards", ofType: "plist") as String!
             do {
-                try NSFileManager.defaultManager().copyItemAtPath(rewardPlistInBundle, toPath: rewardsAndProgressPlistPath)
+                try NSFileManager.defaultManager().copyItemAtPath(rewardPlistInBundle, toPath: rewardsPlistPath)
+            }catch{
+                print("Error occured while copying file to document \(error)")
+            }
+        }
+
+        progressPlistPath = rootPath.stringByAppendingString("/Progress.plist")
+        if !NSFileManager.defaultManager().fileExistsAtPath(progressPlistPath){
+            let progressPlistInBundle = NSBundle.mainBundle().pathForResource("Progress", ofType: "plist") as String!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(progressPlistInBundle, toPath: progressPlistPath)
             }catch{
                 print("Error occured while copying file to document \(error)")
             }

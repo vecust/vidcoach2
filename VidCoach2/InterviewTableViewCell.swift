@@ -14,8 +14,7 @@ class InterviewTableViewCell: UITableViewCell {
 
     //MARK: Properties
     @IBOutlet weak var interviewNameLabel: UILabel!
-    @IBOutlet weak var testBadges: UIView!
-    var badge = UIImageView()
+    @IBOutlet weak var interviewProgress: UILabel!
     
     //These badges for testing
     @IBOutlet weak var yellowBadge: UIImageView!

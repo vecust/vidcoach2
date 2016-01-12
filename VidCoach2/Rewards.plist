@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GeneralFire Badge</key>
+	<array>
+		<date>2016-01-12T00:30:40Z</date>
+		<date>2016-01-12T00:30:40Z</date>
+		<date>2016-01-12T00:30:40Z</date>
+		<date>2016-01-12T00:30:40Z</date>
+		<date>2016-01-12T00:30:40Z</date>
+		<date>2016-01-12T00:30:40Z</date>
+		<date>2016-01-12T00:30:40Z</date>
+		<date>2016-01-12T00:30:40Z</date>
+		<date>2016-01-12T00:30:40Z</date>
+		<date>2016-01-12T00:30:40Z</date>
+	</array>
+	<key>HospitalityFire Badge</key>
+	<array/>
+	<key>HealthcareFire Badge</key>
+	<array/>
+	<key>Food ServiceFire Badge</key>
+	<array/>
+	<key>Retail Without ExperienceFire Badge</key>
+	<array/>
+	<key>Retail With ExperienceFire Badge</key>
+	<array/>
+	<key>GeneralTV Badge</key>
+	<array/>
+	<key>HospitalityTV Badge</key>
+	<array/>
+	<key>HealthcareTV Badge</key>
+	<array/>
+	<key>Food ServiceTV Badge</key>
+	<array/>
+	<key>Retail Without ExperienceTV Badge</key>
+	<array/>
+	<key>Retail With ExperienceTV Badge</key>
+	<array>
+		<date>2016-01-12T02:18:44Z</date>
+		<date>2016-01-12T02:18:44Z</date>
+		<date>2016-01-12T02:18:44Z</date>
+		<date>2016-01-12T02:18:44Z</date>
+		<date>2016-01-12T02:18:44Z</date>
+		<date>2016-01-12T02:18:44Z</date>
+		<date>2016-01-12T02:18:44Z</date>
+		<date>2016-01-12T02:18:44Z</date>
+		<date>2016-01-12T02:18:44Z</date>
+		<date>2016-01-12T02:18:44Z</date>
+	</array>
+	<key>GeneralFinish Badge</key>
+	<false/>
+	<key>HospitalityFinish Badge</key>
+	<false/>
+	<key>HealthcareFinish Badge</key>
+	<false/>
+	<key>Food ServiceFinish Badge</key>
+	<false/>
+	<key>Retail Without ExperienceFinish Badge</key>
+	<false/>
+	<key>Retail With ExperienceFinish Badge</key>
+	<false/>
+	<key>GeneralCamera Badge</key>
+	<false/>
+	<key>HospitalityCamera Badge</key>
+	<false/>
+	<key>HealthcareCamera Badge</key>
+	<false/>
+	<key>Food ServiceCamera Badge</key>
+	<false/>
+	<key>Retail Without ExperienceCamera Badge</key>
+	<false/>
+	<key>Retail With ExperienceCamera Badge</key>
+	<false/>
+</dict>
+</plist>

@@ -135,7 +135,7 @@
 		0C937B871C3D8BD1008327FD /* Retail Without ExperienceWhy RetailQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937B071C3D8BD0008327FD /* Retail Without ExperienceWhy RetailQuestion.mp4 */; };
 		0C937B881C3D8BD1008327FD /* Retail Without ExperienceWhy Should We Hire YouAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937B081C3D8BD0008327FD /* Retail Without ExperienceWhy Should We Hire YouAnswer.mp4 */; };
 		0C937B891C3D8BD1008327FD /* Retail Without ExperienceWhy Should We Hire YouQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937B091C3D8BD0008327FD /* Retail Without ExperienceWhy Should We Hire YouQuestion.mp4 */; };
-		0C9CD4761C44808B00C0B4E5 /* RewardsAndProgress.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9CD4751C44808B00C0B4E5 /* RewardsAndProgress.plist */; };
+		0C9CD4761C44808B00C0B4E5 /* Rewards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9CD4751C44808B00C0B4E5 /* Rewards.plist */; };
 		2C367ADD1C3346ED007D67DB /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367ADC1C3346ED007D67DB /* QuestionTableViewCell.swift */; };
 		2C367ADF1C343660007D67DB /* PostPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367ADE1C343660007D67DB /* PostPrompt.swift */; };
 		2C367AE11C343A92007D67DB /* PrePrompts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C367AE01C343A91007D67DB /* PrePrompts.plist */; };
@@ -152,10 +152,11 @@
 		2CAF7C221C2C780200FC81E9 /* VidCoach2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C211C2C780200FC81E9 /* VidCoach2Tests.swift */; };
 		2CAF7C301C2CD14500FC81E9 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C2F1C2CD14500FC81E9 /* Video.swift */; };
 		2CAF7C381C2D0B2A00FC81E9 /* InterviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */; };
-		2CAF7C3A1C2D0F5100FC81E9 /* interviews.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C391C2D0F5100FC81E9 /* interviews.plist */; };
+		2CAF7C3A1C2D0F5100FC81E9 /* Progress.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C391C2D0F5100FC81E9 /* Progress.plist */; };
 		2CAF7C3C1C318EFC00FC81E9 /* QuestionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3B1C318EFC00FC81E9 /* QuestionTableViewController.swift */; };
 		2CAF7C3E1C31A78100FC81E9 /* InterviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3D1C31A78100FC81E9 /* InterviewTableViewCell.swift */; };
 		2CAF7C401C31B89600FC81E9 /* InterviewCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3F1C31B89600FC81E9 /* InterviewCellInfo.swift */; };
+		2CF85FF41C44A567006B2D3A /* interviews.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF85FF31C44A567006B2D3A /* interviews.plist */; };
 		5EB8FDFF213ED9D886DD8E9E /* Pods_VidCoach2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA72EE8BC78C225A710B1D6 /* Pods_VidCoach2.framework */; };
 /* End PBXBuildFile section */
 
@@ -298,7 +299,7 @@
 		0C937B071C3D8BD0008327FD /* Retail Without ExperienceWhy RetailQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail Without ExperienceWhy RetailQuestion.mp4"; path = "videos/Retail Without ExperienceWhy RetailQuestion.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937B081C3D8BD0008327FD /* Retail Without ExperienceWhy Should We Hire YouAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail Without ExperienceWhy Should We Hire YouAnswer.mp4"; path = "videos/Retail Without ExperienceWhy Should We Hire YouAnswer.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937B091C3D8BD0008327FD /* Retail Without ExperienceWhy Should We Hire YouQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail Without ExperienceWhy Should We Hire YouQuestion.mp4"; path = "videos/Retail Without ExperienceWhy Should We Hire YouQuestion.mp4"; sourceTree = SOURCE_ROOT; };
-		0C9CD4751C44808B00C0B4E5 /* RewardsAndProgress.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RewardsAndProgress.plist; sourceTree = "<group>"; };
+		0C9CD4751C44808B00C0B4E5 /* Rewards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Rewards.plist; sourceTree = "<group>"; };
 		0FA72EE8BC78C225A710B1D6 /* Pods_VidCoach2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VidCoach2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C367ADC1C3346ED007D67DB /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		2C367ADE1C343660007D67DB /* PostPrompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPrompt.swift; sourceTree = "<group>"; };
@@ -320,11 +321,12 @@
 		2CAF7C231C2C780200FC81E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CAF7C2F1C2CD14500FC81E9 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewTableViewController.swift; sourceTree = "<group>"; };
-		2CAF7C391C2D0F5100FC81E9 /* interviews.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = interviews.plist; sourceTree = "<group>"; };
+		2CAF7C391C2D0F5100FC81E9 /* Progress.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Progress.plist; sourceTree = "<group>"; };
 		2CAF7C3B1C318EFC00FC81E9 /* QuestionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewController.swift; sourceTree = "<group>"; };
 		2CAF7C3D1C31A78100FC81E9 /* InterviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewTableViewCell.swift; sourceTree = "<group>"; };
 		2CAF7C3F1C31B89600FC81E9 /* InterviewCellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewCellInfo.swift; sourceTree = "<group>"; };
 		2CBA1CC91C421FF900943B1C /* VidCoach2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VidCoach2-Bridging-Header.h"; sourceTree = "<group>"; };
+		2CF85FF31C44A567006B2D3A /* interviews.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = interviews.plist; sourceTree = "<group>"; };
 		7B043CEE2DDC1CB01B649EC4 /* Pods-VidCoach2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidCoach2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VidCoach2/Pods-VidCoach2.debug.xcconfig"; sourceTree = "<group>"; };
 		9E6DB15BA6A97A5FB9FCDBC8 /* Pods-VidCoach2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidCoach2.release.xcconfig"; path = "Pods/Target Support Files/Pods-VidCoach2/Pods-VidCoach2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -352,11 +354,12 @@
 			isa = PBXGroup;
 			children = (
 				2C757EF21C38AB6800DC9928 /* Videos */,
-				2CAF7C391C2D0F5100FC81E9 /* interviews.plist */,
+				2CAF7C391C2D0F5100FC81E9 /* Progress.plist */,
+				2CF85FF31C44A567006B2D3A /* interviews.plist */,
 				2C367AE01C343A91007D67DB /* PrePrompts.plist */,
 				2C367AE21C344ECE007D67DB /* PostPrompts.plist */,
 				2C4FB6BC1C35B2E500643273 /* PromptSettings.plist */,
-				0C9CD4751C44808B00C0B4E5 /* RewardsAndProgress.plist */,
+				0C9CD4751C44808B00C0B4E5 /* Rewards.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				0C937B241C3D8BD0008327FD /* GeneralResumeAnswer.mp4 in Resources */,
 				0C937B7C1C3D8BD1008327FD /* Retail Without ExperienceFarewellAnswer.mp4 in Resources */,
 				0C937B531C3D8BD0008327FD /* HospitalityPositive ChangeQuestion.mp4 in Resources */,
+				2CF85FF41C44A567006B2D3A /* interviews.plist in Resources */,
 				0C937B231C3D8BD0008327FD /* GeneralQuestionsQuestion.mp4 in Resources */,
 				0C937B6F1C3D8BD1008327FD /* Retail With ExperienceUpsellingQuestion.mp4 in Resources */,
 				0C937B1F1C3D8BD0008327FD /* GeneralFarewellQuestion.mp4 in Resources */,
@@ -768,7 +772,7 @@
 				0C937B541C3D8BD0008327FD /* HospitalityResumeAnswer.mp4 in Resources */,
 				0C937B771C3D8BD1008327FD /* Retail Without ExperienceAny QuestionsQuestion.mp4 in Resources */,
 				0C937B751C3D8BD1008327FD /* Retail With ExperienceWhy Should We Hire YouQuestion.mp4 in Resources */,
-				0C9CD4761C44808B00C0B4E5 /* RewardsAndProgress.plist in Resources */,
+				0C9CD4761C44808B00C0B4E5 /* Rewards.plist in Resources */,
 				0C937B1B1C3D8BD0008327FD /* Food ServiceWhy Should We Hire YouQuestion.mp4 in Resources */,
 				0C937B421C3D8BD0008327FD /* HealthcareTell Me a TimeAnswer.mp4 in Resources */,
 				0C937B6D1C3D8BD1008327FD /* Retail With ExperienceTell Me a TimeQuesiton.mp4 in Resources */,
@@ -784,7 +788,7 @@
 				0C937B7E1C3D8BD1008327FD /* Retail Without ExperienceGreetingAnswer.mp4 in Resources */,
 				0C937B281C3D8BD0008327FD /* GeneralWhy Should We Hire YouAnswer.mp4 in Resources */,
 				0C937B461C3D8BD0008327FD /* HealthcareWhy Should We Hire YouAnswer.mp4 in Resources */,
-				2CAF7C3A1C2D0F5100FC81E9 /* interviews.plist in Resources */,
+				2CAF7C3A1C2D0F5100FC81E9 /* Progress.plist in Resources */,
 				0C937B4E1C3D8BD0008327FD /* HospitalityFarewellAnswer.mp4 in Resources */,
 				0C937B5E1C3D8BD1008327FD /* Retail With ExperienceCustomer ServiceAnswer.mp4 in Resources */,
 				0C937B591C3D8BD0008327FD /* HospitalityWhy Should We Hire YouQuestion.mp4 in Resources */,

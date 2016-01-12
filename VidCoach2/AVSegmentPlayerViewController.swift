@@ -29,6 +29,41 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     var deviceID = UIDevice.currentDevice().identifierForVendor!.UUIDString
     var videoLogReference = Firebase(url: "https://vidcoach2.firebaseio.com/")
+    var rewardsDict:NSMutableDictionary!
+    var progressDict:NSMutableDictionary!
+    var rewardsData:NSData!
+    var progressData:NSData!
+    var pathForRewardsPlistFile:String!
+    var pathForProgressPlistFile:String!
+
+    override func viewWillAppear(animated: Bool) {
+        //Handle reward & progress retrieval from plist file. See preparePlistForUse() in AppDelegate.swift
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        //Get rewards data
+        pathForRewardsPlistFile = appDelegate.rewardsPlistPath
+        
+        rewardsData = NSFileManager.defaultManager().contentsAtPath(pathForRewardsPlistFile)!
+        
+        do{
+            rewardsDict = try NSPropertyListSerialization.propertyListWithData(rewardsData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+        }catch{
+            print("An error occured while reading rewards and progress plist")
+        }
+        
+        //Get progress data
+        pathForProgressPlistFile = appDelegate.progressPlistPath
+        
+        progressData = NSFileManager.defaultManager().contentsAtPath(pathForProgressPlistFile)!
+        
+        do{
+            progressDict = try NSPropertyListSerialization.propertyListWithData(progressData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+        }catch{
+            print("An error occured while reading rewards and progress plist")
+        }
+        
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,7 +159,8 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     
     //This function gets called when a question video has ended (This is the one with the interviewer)
     func questionVideoHasEnded(notification: NSNotification) {
-        //Log Activity
+        
+        //Log Activity to Firebase
         if self.playAll {
             self.logActivity(self.questions[self.videoIndex], type: "Question")
         } else {
@@ -143,8 +179,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         let testAlert = SimpleAlert.Controller(title: prePromptMessage, message: "", style: .Alert)
         testAlert.addAction(SimpleAlert.Action(title: "OK", style: SimpleAlert.Action.Style.Default, handler: {
             (action) -> Void in
-            
-            //TODO: save metadata locally to track progress and determine awards.
             
             //When the "OK" button is tapped the following code executes
             if self.selectedAction != "practice" { //This condition checks to see if the next thing to be loaded is an answer video or the camera recorder
@@ -176,6 +210,9 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
 
     //This function gets called when an answer video has ended.
     func answerVideoHasEnded(notification: NSNotification) {
+        //Log Progress
+        logProgress()
+        
         //Log activity
         if self.playAll {
             self.logActivity(self.questions[self.videoIndex], type: "Answer")
@@ -300,7 +337,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         }
         
         //Change alert title and color based on right or wrong answer.
-        //TODO: Implement tracking of prompts answered correctly for rewards.
         if answer == postPromptAnswer {
             //button2 is always the right answer
             answerAlert.title = "Correct!"
@@ -420,29 +456,38 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         
         //Set up OK button of alert
         alert.addAction(SimpleAlert.Action(title: "OK", style: .Default, handler: { (action) -> Void in
-            if !self.playAll { //Condition: practicing only one interview question.
-                self.navigationController?.popViewControllerAnimated(true)
-            } else { //Condition: Practicing all questions.
-                //Increment counter
-                self.videoIndex++
-                if self.videoIndex != self.questions.count-1 {  //If we haven't reached the end, load next question to practice.
-                                                                //Otherwise pop back to VideoViewController
-                    self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
-                } else {
-                    self.navigationController?.popViewControllerAnimated(true)
-                }
-            }
+
+            self.navigationController?.popViewControllerAnimated(true)
+
+            
+//            if !self.playAll { //Condition: practicing only one interview question.
+//                self.navigationController?.popViewControllerAnimated(true)
+//            } else { //Condition: Practicing all questions.
+//                //Increment counter
+//                self.videoIndex++
+//                if self.videoIndex != self.questions.count-1 {  //If we haven't reached the end, load next question to practice.
+//                                                                //Otherwise pop back to VideoViewController
+//                    self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
+//                } else {
+//                    self.navigationController?.popViewControllerAnimated(true)
+//                }
+//            }
         }))
         
+        //Log Progress
+        logProgress()
+        
         //Only present alert if in practice mode and practicing one interview question or practicing all questions and the last video has been played.
-        if self.selectedAction == "practice" && (!self.playAll || self.videoIndex == questions.count-1) {
+        if self.selectedAction == "practice" && (!self.playAll || self.videoIndex == questions.count) {
             self.logActivity(self.question, type: "MadeRecording")
             self.presentViewController(alert, animated: true, completion: nil)
         } else {
             self.logActivity(self.questions[self.videoIndex], type: "MadeRecording")
             self.videoIndex++
-            if self.videoIndex != self.questions.count-1 {
+            if self.videoIndex != self.questions.count {
                 self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
+            } else {
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }
     }
@@ -459,5 +504,48 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         postRef.setValue(post)
     }
 
+    func logProgress() {
+        //Log Activity for progress tracker to plist file
+        let interviewProgress = progressDict.objectForKey(interview) as? NSMutableDictionary
+        var progressCount = interviewProgress?.objectForKey(question+" "+self.selectedAction) as! Int
+        progressCount++
+        interviewProgress![question+" "+self.selectedAction] = progressCount
+        
+        do {
+            let progressToBeSaved = try NSPropertyListSerialization.propertyListWithData(progressData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+            progressToBeSaved.setValue(interviewProgress, forKey: interview)
+            progressToBeSaved.writeToFile(pathForProgressPlistFile, atomically: true)
+        } catch {
+            print("An error occurred while writing to progress plist")
+        }
+
+    }
+    //TODO: Test logFinishBadge
+    func logFinishBadge() {
+        //Log to rewards when an interview has been completely viewed
+        var interviewComplete = rewardsDict.objectForKey(interview+"Finish Badge") as! Bool
+        interviewComplete = true
+        
+        do {
+            let finishBadgeToBeSaved = try NSPropertyListSerialization.propertyListWithData(rewardsData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+            finishBadgeToBeSaved.setValue(interviewComplete, forKey: interview+"Finish Badge")
+        } catch {
+            print("An error occurred while writing finish badge to reward plist")
+        }
+    }
+    
+    //TODO: Test logCameraBadge
+    func logCameraBadge() {
+        //Log to rewards when an interview has been completely viewed
+        var interviewComplete = rewardsDict.objectForKey(interview+"Camera Badge") as! Bool
+        interviewComplete = true
+        
+        do {
+            let finishBadgeToBeSaved = try NSPropertyListSerialization.propertyListWithData(rewardsData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+            finishBadgeToBeSaved.setValue(interviewComplete, forKey: interview+"Camera Badge")
+        } catch {
+            print("An error occurred while writing camera badge to reward plist")
+        }
+    }
 }
 

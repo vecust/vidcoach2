@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>General</key>
+	<dict>
+		<key>Greeting watchModel</key>
+		<integer>0</integer>
+		<key>Greeting practice</key>
+		<integer>0</integer>
+		<key>Resume watchModel</key>
+		<integer>0</integer>
+		<key>Resume practice</key>
+		<integer>0</integer>
+		<key>About Me watchModel</key>
+		<integer>0</integer>
+		<key>About Me practice</key>
+		<integer>0</integer>
+		<key>Strengths watchModel</key>
+		<integer>0</integer>
+		<key>Strengths practice</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You watchModel</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You practice</key>
+		<integer>0</integer>
+		<key>Questions watchModel</key>
+		<integer>0</integer>
+		<key>Questions practice</key>
+		<integer>0</integer>
+		<key>Farewell watchModel</key>
+		<integer>0</integer>
+		<key>Farewell practice</key>
+		<integer>0</integer>
+	</dict>
+	<key>Hospitality</key>
+	<dict>
+		<key>Greeting watchModel</key>
+		<integer>0</integer>
+		<key>Greeting practice</key>
+		<integer>0</integer>
+		<key>Resume watchModel</key>
+		<integer>0</integer>
+		<key>Resume practice</key>
+		<integer>0</integer>
+		<key>About Me watchModel</key>
+		<integer>0</integer>
+		<key>About Me practice</key>
+		<integer>0</integer>
+		<key>Customer Service watchModel</key>
+		<integer>0</integer>
+		<key>Customer Service practice</key>
+		<integer>0</integer>
+		<key>Unhappy Customer watchModel</key>
+		<integer>0</integer>
+		<key>Unhappy Customer practice</key>
+		<integer>0</integer>
+		<key>Positive Change watchModel</key>
+		<integer>0</integer>
+		<key>Positive Change practice</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You watchModel</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You practice</key>
+		<integer>0</integer>
+		<key>Any Questions watchModel</key>
+		<integer>0</integer>
+		<key>Any Questions practice</key>
+		<integer>0</integer>
+		<key>Farewell watchModel</key>
+		<integer>0</integer>
+		<key>Farewell practice</key>
+		<integer>0</integer>
+	</dict>
+	<key>Healthcare</key>
+	<dict>
+		<key>Greeting watchModel</key>
+		<integer>0</integer>
+		<key>Greeting practice</key>
+		<integer>0</integer>
+		<key>Resume watchModel</key>
+		<integer>0</integer>
+		<key>Resume practice</key>
+		<integer>0</integer>
+		<key>Experience watchModel</key>
+		<integer>0</integer>
+		<key>Experience practice</key>
+		<integer>0</integer>
+		<key>Previous Position watchModel</key>
+		<integer>0</integer>
+		<key>Previous Position practice</key>
+		<integer>0</integer>
+		<key>Leaving Previous Position watchModel</key>
+		<integer>0</integer>
+		<key>Leaving Previous Position practice</key>
+		<integer>0</integer>
+		<key>Coworkers watchModel</key>
+		<integer>0</integer>
+		<key>Coworkers practice</key>
+		<integer>0</integer>
+		<key>Why Healthcare watchModel</key>
+		<integer>0</integer>
+		<key>Why Healthcare practice</key>
+		<integer>0</integer>
+		<key>Helping While On Break watchModel</key>
+		<integer>0</integer>
+		<key>Helping While On Break practice</key>
+		<integer>0</integer>
+		<key>Tell Me a Time watchModel</key>
+		<integer>0</integer>
+		<key>Tell Me a Time practice</key>
+		<integer>0</integer>
+		<key>Nights and Weekends watchModel</key>
+		<integer>0</integer>
+		<key>Nights and Weekends practice</key>
+		<integer>0</integer>
+		<key>Dress Code watchModel</key>
+		<integer>0</integer>
+		<key>Dress Code practice</key>
+		<integer>0</integer>
+		<key>School Values watchModel</key>
+		<integer>0</integer>
+		<key>School Values practice</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You watchModel</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You practice</key>
+		<integer>0</integer>
+		<key>Any Questions watchModel</key>
+		<integer>0</integer>
+		<key>Any Questions practice</key>
+		<integer>0</integer>
+		<key>Farewell watchModel</key>
+		<integer>0</integer>
+		<key>Farewell practice</key>
+		<integer>0</integer>
+	</dict>
+	<key>Food Service</key>
+	<dict>
+		<key>Greeting watchModel</key>
+		<integer>0</integer>
+		<key>Greeting practice</key>
+		<integer>0</integer>
+		<key>Resume watchModel</key>
+		<integer>0</integer>
+		<key>Resume practice</key>
+		<integer>0</integer>
+		<key>About Me watchModel</key>
+		<integer>0</integer>
+		<key>About Me practice</key>
+		<integer>0</integer>
+		<key>Experience watchModel</key>
+		<integer>0</integer>
+		<key>Experience practice</key>
+		<integer>0</integer>
+		<key>Tell Me a Time watchModel</key>
+		<integer>0</integer>
+		<key>Tell Me a Time practice</key>
+		<integer>0</integer>
+		<key>Are You A Team Player watchModel</key>
+		<integer>0</integer>
+		<key>Are You A Team Player practice</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You watchModel</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You practice</key>
+		<integer>0</integer>
+		<key>Any Questions watchModel</key>
+		<integer>0</integer>
+		<key>Any Questions practice</key>
+		<integer>0</integer>
+		<key>Farewell watchModel</key>
+		<integer>0</integer>
+		<key>Farewell practice</key>
+		<integer>0</integer>
+	</dict>
+	<key>Retail Without Experience</key>
+	<dict>
+		<key>Greeting watchModel</key>
+		<integer>0</integer>
+		<key>Greeting practice</key>
+		<integer>0</integer>
+		<key>Resume watchModel</key>
+		<integer>0</integer>
+		<key>Resume practice</key>
+		<integer>0</integer>
+		<key>Experience watchModel</key>
+		<integer>0</integer>
+		<key>Experience practice</key>
+		<integer>0</integer>
+		<key>Why Retail watchModel</key>
+		<integer>0</integer>
+		<key>Why Retail practice</key>
+		<integer>0</integer>
+		<key>Customer Service watchModel</key>
+		<integer>0</integer>
+		<key>Customer Service practice</key>
+		<integer>0</integer>
+		<key>Upselling watchModel</key>
+		<integer>0</integer>
+		<key>Upselling practice</key>
+		<integer>0</integer>
+		<key>School Values watchModel</key>
+		<integer>0</integer>
+		<key>School Values practice</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You watchModel</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You practice</key>
+		<integer>0</integer>
+		<key>Any Questions watchModel</key>
+		<integer>0</integer>
+		<key>Any Questions practice</key>
+		<integer>0</integer>
+		<key>Farewell watchModel</key>
+		<integer>0</integer>
+		<key>Farewell practice</key>
+		<integer>0</integer>
+	</dict>
+	<key>Retail With Experience</key>
+	<dict>
+		<key>Greeting watchModel</key>
+		<integer>0</integer>
+		<key>Greeting practice</key>
+		<real>0</real>
+		<key>Resume watchModel</key>
+		<real>0</real>
+		<key>Resume practice</key>
+		<real>0</real>
+		<key>Experience watchModel</key>
+		<real>0</real>
+		<key>Experience practice</key>
+		<real>0</real>
+		<key>What Did You Enjoy watchModel</key>
+		<real>0</real>
+		<key>What Did You Enjoy practice</key>
+		<real>0</real>
+		<key>Leaving Previous Position watchModel</key>
+		<real>0</real>
+		<key>Leaving Previous Position practice</key>
+		<real>0</real>
+		<key>Coworkers watchModel</key>
+		<real>0</real>
+		<key>Coworkers practice</key>
+		<real>0</real>
+		<key>What Do You Like About Retail watchModel</key>
+		<real>0</real>
+		<key>What Do You Like About Retail practice</key>
+		<real>0</real>
+		<key>Customer Service watchModel</key>
+		<real>0</real>
+		<key>Customer Service practice</key>
+		<real>0</real>
+		<key>Upselling watchModel</key>
+		<real>0</real>
+		<key>Upselling practice</key>
+		<real>0</real>
+		<key>Tell Me a Time watchModel</key>
+		<real>0</real>
+		<key>Tell Me a Time practice</key>
+		<real>0</real>
+		<key>School Values watchModel</key>
+		<real>0</real>
+		<key>School Values practice</key>
+		<real>0</real>
+		<key>Why Should We Hire You watchModel</key>
+		<integer>0</integer>
+		<key>Why Should We Hire You practice</key>
+		<real>0</real>
+		<key>Any Questions watchModel</key>
+		<real>0</real>
+		<key>Any Questions practice</key>
+		<real>0</real>
+		<key>Farewell watchModel</key>
+		<real>0</real>
+		<key>Farewell practice</key>
+		<real>0</real>
+	</dict>
+</dict>
+</plist>

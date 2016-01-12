@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var settingPlistPath:String = String()
+    var rewardsAndProgressPlistPath:String = String()
 
     //get and set prompt setting plist file
     func preparePlistForUse(){
@@ -28,6 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Error occured while copying file to document \(error)")
             }
         }
+        
+        rewardsAndProgressPlistPath = rootPath.stringByAppendingString("/RewardsAndProgress.plist")
+        if !NSFileManager.defaultManager().fileExistsAtPath(rewardsAndProgressPlistPath){
+            let rewardPlistInBundle = NSBundle.mainBundle().pathForResource("RewardsAndProgress", ofType: "plist") as String!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(rewardPlistInBundle, toPath: rewardsAndProgressPlistPath)
+            }catch{
+                print("Error occured while copying file to document \(error)")
+            }
+        }
+
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

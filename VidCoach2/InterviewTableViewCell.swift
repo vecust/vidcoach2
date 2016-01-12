@@ -13,12 +13,27 @@ import UIKit
 class InterviewTableViewCell: UITableViewCell {
 
     //MARK: Properties
-    //TODO: Add properties and outlets for awards and tracking
     @IBOutlet weak var interviewNameLabel: UILabel!
+    @IBOutlet weak var testBadges: UIView!
+    var badge = UIImageView()
+    
+    //These badges for testing
+    @IBOutlet weak var yellowBadge: UIImageView!
+    @IBOutlet weak var purpleBadge: UIImageView!
+    @IBOutlet weak var greenBadge: UIImageView!
+    @IBOutlet weak var redBadge: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        //Initially Hide Badges
+        yellowBadge.hidden = true
+        purpleBadge.hidden = true
+        greenBadge.hidden = true
+        redBadge.hidden = true
+
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

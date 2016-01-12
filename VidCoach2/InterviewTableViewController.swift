@@ -16,6 +16,7 @@ class InterviewTableViewController: UITableViewController {
     // MARK: Properties
     let cellIdentifier = "InterviewTableViewCell"
     var interviews = [String]()
+    var rewardsAndProgressDict:NSMutableDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,20 @@ class InterviewTableViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        //Handle reward & progress retrieval from plist file. See preparePlistForUse() in AppDelegate.swift
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let pathForThePlistFile = appDelegate.rewardsAndProgressPlistPath
+        
+        let data:NSData = NSFileManager.defaultManager().contentsAtPath(pathForThePlistFile)!
+        
+        do{
+            rewardsAndProgressDict = try NSPropertyListSerialization.propertyListWithData(data, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+        }catch{
+            print("An error occured while reading rewards and progress plist")
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -51,6 +66,20 @@ class InterviewTableViewController: UITableViewController {
         //Set up cell
         cell.interviewNameLabel.text = interviews[indexPath.row]
         //TODO: Add awards and progress setup here
+        if cell.interviewNameLabel.text == "General" {
+            cell.greenBadge.hidden = false
+        }
+        
+        if cell.interviewNameLabel.text == "Food Service" {
+            cell.purpleBadge.hidden = false
+        }
+        
+        let fireKey = interviews[indexPath.row]+"Fire Badge"
+        if let fireArray = rewardsAndProgressDict.objectForKey(fireKey) {
+            if fireArray.count == 10 {
+                cell.yellowBadge.hidden = false
+            }
+        }
         
         return cell
     }

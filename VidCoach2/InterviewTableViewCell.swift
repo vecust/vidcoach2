@@ -29,13 +29,6 @@ class InterviewTableViewCell: UITableViewCell {
         
         //Nice to have: circle image behind label.
         // interviewProgress.backgroundColor = UIColor(patternImage: UIImage(named: "circle")!)
-        
-        //Initially Hide Badges
-//        yellowBadge.hidden = true
-//        purpleBadge.hidden = true
-//        greenBadge.hidden = true
-//        redBadge.hidden = true
-
 
     }
 

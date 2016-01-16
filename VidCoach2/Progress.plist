@@ -4,37 +4,45 @@
 <dict>
 	<key>General</key>
 	<dict>
+		<key>watchModel</key>
+		<integer>100</integer>
+		<key>practice</key>
+		<integer>100</integer>
 		<key>Greeting watchModel</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>Greeting practice</key>
-		<integer>0</integer>
+		<integer>2</integer>
 		<key>Resume watchModel</key>
-		<integer>0</integer>
+		<integer>3</integer>
 		<key>Resume practice</key>
-		<integer>0</integer>
+		<integer>4</integer>
 		<key>About Me watchModel</key>
-		<integer>0</integer>
+		<integer>5</integer>
 		<key>About Me practice</key>
-		<integer>0</integer>
+		<integer>6</integer>
 		<key>Strengths watchModel</key>
-		<integer>0</integer>
+		<integer>7</integer>
 		<key>Strengths practice</key>
-		<integer>0</integer>
+		<integer>8</integer>
 		<key>Why Should We Hire You watchModel</key>
-		<integer>0</integer>
+		<integer>9</integer>
 		<key>Why Should We Hire You practice</key>
-		<integer>0</integer>
+		<integer>8</integer>
 		<key>Questions watchModel</key>
-		<integer>0</integer>
+		<integer>7</integer>
 		<key>Questions practice</key>
-		<integer>0</integer>
+		<integer>6</integer>
 		<key>Farewell watchModel</key>
-		<integer>0</integer>
+		<integer>5</integer>
 		<key>Farewell practice</key>
-		<integer>0</integer>
+		<integer>4</integer>
 	</dict>
 	<key>Hospitality</key>
 	<dict>
+		<key>watchModel</key>
+		<integer>2</integer>
+		<key>practice</key>
+		<integer>2</integer>
 		<key>Greeting watchModel</key>
 		<integer>0</integer>
 		<key>Greeting practice</key>
@@ -74,6 +82,10 @@
 	</dict>
 	<key>Healthcare</key>
 	<dict>
+		<key>watchModel</key>
+		<integer>3</integer>
+		<key>practice</key>
+		<integer>3</integer>
 		<key>Greeting watchModel</key>
 		<integer>0</integer>
 		<key>Greeting practice</key>
@@ -137,6 +149,10 @@
 	</dict>
 	<key>Food Service</key>
 	<dict>
+		<key>watchModel</key>
+		<integer>4</integer>
+		<key>practice</key>
+		<integer>4</integer>
 		<key>Greeting watchModel</key>
 		<integer>0</integer>
 		<key>Greeting practice</key>
@@ -176,6 +192,10 @@
 	</dict>
 	<key>Retail Without Experience</key>
 	<dict>
+		<key>watchModel</key>
+		<integer>5</integer>
+		<key>practice</key>
+		<integer>5</integer>
 		<key>Greeting watchModel</key>
 		<integer>0</integer>
 		<key>Greeting practice</key>
@@ -219,6 +239,10 @@
 	</dict>
 	<key>Retail With Experience</key>
 	<dict>
+		<key>watchModel</key>
+		<integer>6</integer>
+		<key>practice</key>
+		<integer>6</integer>
 		<key>Greeting watchModel</key>
 		<integer>0</integer>
 		<key>Greeting practice</key>

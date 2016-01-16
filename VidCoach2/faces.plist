@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>General</key>
+	<dict>
+		<key>All Questions</key>
+		<string>meh</string>
+		<key>Greeting</key>
+		<string>smile</string>
+		<key>Resume</key>
+		<string>sad</string>
+		<key>About Me</key>
+		<string>meh</string>
+		<key>Strengths</key>
+		<string>smile</string>
+		<key>Why Should We Hire You</key>
+		<string>sad</string>
+		<key>Questions</key>
+		<string>meh</string>
+		<key>Farewell</key>
+		<string>smile</string>
+	</dict>
+	<key>Hospitality</key>
+	<dict>
+		<key>All Questions</key>
+		<string>smile</string>
+		<key>Greeting</key>
+		<string>meh</string>
+		<key>Resume</key>
+		<string>sad</string>
+		<key>About Me</key>
+		<string>smile</string>
+		<key>Customer Service</key>
+		<string>meh</string>
+		<key>Unhappy Customer</key>
+		<string>sad</string>
+		<key>Positive Change</key>
+		<string>smile</string>
+		<key>Why Should We Hire You</key>
+		<string>meh</string>
+		<key>Any Questions</key>
+		<string>sad</string>
+		<key>Farewell</key>
+		<string>smile</string>
+	</dict>
+	<key>Healthcare</key>
+	<dict>
+		<key>All Questions</key>
+		<string></string>
+		<key>Greeting</key>
+		<string></string>
+		<key>Resume</key>
+		<string></string>
+		<key>Experience</key>
+		<string></string>
+		<key>Previous Position</key>
+		<string></string>
+		<key>Leaving Previous Position</key>
+		<string></string>
+		<key>Coworkers</key>
+		<string></string>
+		<key>Why Healthcare</key>
+		<string></string>
+		<key>Helping While On Break</key>
+		<string></string>
+		<key>Tell Me a Time</key>
+		<string></string>
+		<key>Nights and Weekends</key>
+		<string></string>
+		<key>Dress Code</key>
+		<string></string>
+		<key>School Values</key>
+		<string></string>
+		<key>Why Should We Hire You</key>
+		<string></string>
+		<key>Any Questions</key>
+		<string></string>
+		<key>Farewell</key>
+		<string></string>
+	</dict>
+	<key>Food Service</key>
+	<dict>
+		<key>All Questions</key>
+		<string></string>
+		<key>Greeting</key>
+		<string></string>
+		<key>Resume</key>
+		<string></string>
+		<key>About Me</key>
+		<string></string>
+		<key>Experience</key>
+		<string></string>
+		<key>Tell Me a Time</key>
+		<string></string>
+		<key>Are You A Team Player</key>
+		<string></string>
+		<key>Why Should We Hire You</key>
+		<string></string>
+		<key>Any Questions</key>
+		<string></string>
+		<key>Farewell</key>
+		<string></string>
+	</dict>
+	<key>Retail Without Experience</key>
+	<dict>
+		<key>All Questions</key>
+		<string></string>
+		<key>Greeting</key>
+		<string></string>
+		<key>Resume</key>
+		<string></string>
+		<key>Experience</key>
+		<string></string>
+		<key>Why Retail</key>
+		<string></string>
+		<key>Customer Service</key>
+		<string></string>
+		<key>Upselling</key>
+		<string></string>
+		<key>School Values</key>
+		<string></string>
+		<key>Why Should We Hire You</key>
+		<string></string>
+		<key>Any Questions</key>
+		<string></string>
+		<key>Farewell</key>
+		<string></string>
+	</dict>
+	<key>Retail With Experience</key>
+	<dict>
+		<key>All Questions</key>
+		<string></string>
+		<key>Greeting</key>
+		<string></string>
+		<key>Resume</key>
+		<string></string>
+		<key>Experience</key>
+		<string></string>
+		<key>What Did You Enjoy</key>
+		<string></string>
+		<key>Leaving Previous Position</key>
+		<string></string>
+		<key>Coworkers</key>
+		<string></string>
+		<key>What Do You Like About Retail</key>
+		<string></string>
+		<key>Customer Service</key>
+		<string></string>
+		<key>Upselling</key>
+		<string></string>
+		<key>Tell Me a Time</key>
+		<string></string>
+		<key>School Values</key>
+		<string></string>
+		<key>Why Should We Hire You</key>
+		<string></string>
+		<key>Any Questions</key>
+		<string></string>
+		<key>Farewell</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>

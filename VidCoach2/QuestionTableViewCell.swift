@@ -15,6 +15,9 @@ class QuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var questionNameLabel: UILabel!
     //TODO: Add properties and outlets for progress tracking
     
+    @IBOutlet weak var face: UIImageView!
+    @IBOutlet weak var practiceProgress: UILabel!
+    @IBOutlet weak var viewProgress: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var settingPlistPath:String = String()
     var rewardsPlistPath:String = String()
     var progressPlistPath:String = String()
+    var facesPlistPath:String = String()
 
     //get and set plist files
     func preparePlistForUse(){
@@ -51,6 +52,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Error occured while copying file to document \(error)")
             }
         }
+        
+        facesPlistPath = rootPath.stringByAppendingString("/faces.plist")
+        if !NSFileManager.defaultManager().fileExistsAtPath(facesPlistPath){
+            let facesPlistInBundle = NSBundle.mainBundle().pathForResource("faces", ofType: "plist") as String!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(facesPlistInBundle, toPath: facesPlistPath)
+            }catch{
+                print("Error occured while copying file to document \(error)")
+            }
+        }
+
 
     }
     

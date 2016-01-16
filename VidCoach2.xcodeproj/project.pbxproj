@@ -144,6 +144,7 @@
 		2C367AE71C346AF1007D67DB /* SimpleAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C367AE61C346AF1007D67DB /* SimpleAlert.xib */; };
 		2C367B3A1C3497A0007D67DB /* AVSegmentPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367B391C3497A0007D67DB /* AVSegmentPlayerViewController.swift */; };
 		2C4FB6BD1C35B2E500643273 /* PromptSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C4FB6BC1C35B2E500643273 /* PromptSettings.plist */; };
+		2C74EE911C4A1A4200E47C5B /* faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C74EE901C4A1A4200E47C5B /* faces.plist */; };
 		2CAF7C0D1C2C780200FC81E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C0C1C2C780200FC81E9 /* AppDelegate.swift */; };
 		2CAF7C0F1C2C780200FC81E9 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C0E1C2C780200FC81E9 /* VideoViewController.swift */; };
 		2CAF7C121C2C780200FC81E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAF7C101C2C780200FC81E9 /* Main.storyboard */; };
@@ -309,6 +310,7 @@
 		2C367AE61C346AF1007D67DB /* SimpleAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleAlert.xib; sourceTree = "<group>"; };
 		2C367B391C3497A0007D67DB /* AVSegmentPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVSegmentPlayerViewController.swift; sourceTree = "<group>"; };
 		2C4FB6BC1C35B2E500643273 /* PromptSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PromptSettings.plist; sourceTree = "<group>"; };
+		2C74EE901C4A1A4200E47C5B /* faces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = faces.plist; sourceTree = "<group>"; };
 		2CAF7C091C2C780200FC81E9 /* VidCoach2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidCoach2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAF7C0C1C2C780200FC81E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CAF7C0E1C2C780200FC81E9 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				2C757EF21C38AB6800DC9928 /* Videos */,
 				2CAF7C391C2D0F5100FC81E9 /* Progress.plist */,
 				2CF85FF31C44A567006B2D3A /* interviews.plist */,
+				2C74EE901C4A1A4200E47C5B /* faces.plist */,
 				2C367AE01C343A91007D67DB /* PrePrompts.plist */,
 				2C367AE21C344ECE007D67DB /* PostPrompts.plist */,
 				2C4FB6BC1C35B2E500643273 /* PromptSettings.plist */,
@@ -789,6 +792,7 @@
 				0C937B281C3D8BD0008327FD /* GeneralWhy Should We Hire YouAnswer.mp4 in Resources */,
 				0C937B461C3D8BD0008327FD /* HealthcareWhy Should We Hire YouAnswer.mp4 in Resources */,
 				2CAF7C3A1C2D0F5100FC81E9 /* Progress.plist in Resources */,
+				2C74EE911C4A1A4200E47C5B /* faces.plist in Resources */,
 				0C937B4E1C3D8BD0008327FD /* HospitalityFarewellAnswer.mp4 in Resources */,
 				0C937B5E1C3D8BD1008327FD /* Retail With ExperienceCustomer ServiceAnswer.mp4 in Resources */,
 				0C937B591C3D8BD0008327FD /* HospitalityWhy Should We Hire YouQuestion.mp4 in Resources */,

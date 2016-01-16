@@ -81,7 +81,6 @@ class InterviewTableViewController: UITableViewController {
         
         //Set up cell
         cell.interviewNameLabel.text = interviews[indexPath.row]
-        //TODO: Replace badges with real badges
         //TODO: Setup Info Pop Ups for tapping badges
         
         //Set up fire badge - practiced for 10 days straight
@@ -212,22 +211,14 @@ class InterviewTableViewController: UITableViewController {
                 }
         }
         
-        //Set up progress label - shows percentage of watching and practicing interview
-//        let progressKey = interviews[indexPath.row]
-//        if let progressData = progressDict.objectForKey(progressKey) as? NSDictionary {
-//            let countArray = progressData.allValues
-//            var count = 0
-//            for i in 0..<countArray.count {
-//                if Int(countArray[i] as! NSNumber) != 0 {
-//                    count++
-//                }
-//            }
-//            let formatter = NSNumberFormatter()
-//            formatter.maximumFractionDigits = 0
-//            let percentage = (Double(count)/Double(countArray.count))*100.00
-//            let formattedNumber = formatter.stringFromNumber(percentage)
-//            cell.interviewProgress.text = formattedNumber!+"%"
-//        }
+        //Set up progress labels - shows number of times viewed and practiced
+        let progressKey = interviews[indexPath.row]
+        if let progressData = progressDict.objectForKey(progressKey) as? NSDictionary {
+            let views = progressData.objectForKey("watchModel") as! Int!
+            let practices = progressData.objectForKey("practice") as! Int!
+            cell.viewProgress.text = String(views)
+            cell.practiceProgress.text = String(practices)
+        }
         return cell
     }
     

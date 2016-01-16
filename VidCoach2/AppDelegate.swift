@@ -14,11 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var settingPlistPath:String = String()
+    var rewardsPlistPath:String = String()
+    var progressPlistPath:String = String()
+    var facesPlistPath:String = String()
 
-    //get and set prompt setting plist file
+    //get and set plist files
     func preparePlistForUse(){
         let rootPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, .UserDomainMask, true)[0]
         
+        //
         settingPlistPath = rootPath.stringByAppendingString("/PromptSettings.plist")
         if !NSFileManager.defaultManager().fileExistsAtPath(settingPlistPath){
             let settingPlistInBundle = NSBundle.mainBundle().pathForResource("PromptSettings", ofType: "plist") as String!
@@ -28,6 +32,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Error occured while copying file to document \(error)")
             }
         }
+        
+        rewardsPlistPath = rootPath.stringByAppendingString("/Rewards.plist")
+        if !NSFileManager.defaultManager().fileExistsAtPath(rewardsPlistPath){
+            let rewardPlistInBundle = NSBundle.mainBundle().pathForResource("Rewards", ofType: "plist") as String!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(rewardPlistInBundle, toPath: rewardsPlistPath)
+            }catch{
+                print("Error occured while copying file to document \(error)")
+            }
+        }
+
+        progressPlistPath = rootPath.stringByAppendingString("/Progress.plist")
+        if !NSFileManager.defaultManager().fileExistsAtPath(progressPlistPath){
+            let progressPlistInBundle = NSBundle.mainBundle().pathForResource("Progress", ofType: "plist") as String!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(progressPlistInBundle, toPath: progressPlistPath)
+            }catch{
+                print("Error occured while copying file to document \(error)")
+            }
+        }
+        
+        facesPlistPath = rootPath.stringByAppendingString("/faces.plist")
+        if !NSFileManager.defaultManager().fileExistsAtPath(facesPlistPath){
+            let facesPlistInBundle = NSBundle.mainBundle().pathForResource("faces", ofType: "plist") as String!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(facesPlistInBundle, toPath: facesPlistPath)
+            }catch{
+                print("Error occured while copying file to document \(error)")
+            }
+        }
+
+
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

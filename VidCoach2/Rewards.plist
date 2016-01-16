@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GeneralFire Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-12T00:30:40Z</date>
+		<key>Count</key>
+		<integer>1</integer>
+	</dict>
+	<key>HospitalityFire Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:00:55Z</date>
+		<key>Count</key>
+		<integer>5</integer>
+	</dict>
+	<key>HealthcareFire Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:01:42Z</date>
+		<key>Count</key>
+		<integer>10</integer>
+	</dict>
+	<key>Food ServiceFire Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:31:20Z</date>
+		<key>Count</key>
+		<integer>15</integer>
+	</dict>
+	<key>Retail Without ExperienceFire Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:32:00Z</date>
+		<key>Count</key>
+		<integer>20</integer>
+	</dict>
+	<key>Retail With ExperienceFire Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:32:07Z</date>
+		<key>Count</key>
+		<integer>0</integer>
+	</dict>
+	<key>GeneralTV Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:32:15Z</date>
+		<key>Count</key>
+		<integer>0</integer>
+	</dict>
+	<key>HospitalityTV Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:32:25Z</date>
+		<key>Count</key>
+		<integer>20</integer>
+	</dict>
+	<key>HealthcareTV Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:32:33Z</date>
+		<key>Count</key>
+		<integer>15</integer>
+	</dict>
+	<key>Food ServiceTV Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:32:36Z</date>
+		<key>Count</key>
+		<integer>10</integer>
+	</dict>
+	<key>Retail Without ExperienceTV Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:32:53Z</date>
+		<key>Count</key>
+		<integer>5</integer>
+	</dict>
+	<key>Retail With ExperienceTV Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-12T02:18:44Z</date>
+		<key>Count</key>
+		<integer>1</integer>
+	</dict>
+	<key>GeneralFinish Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:34:38Z</date>
+		<key>Count</key>
+		<integer>15</integer>
+	</dict>
+	<key>HospitalityFinish Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:34:49Z</date>
+		<key>Count</key>
+		<integer>5</integer>
+	</dict>
+	<key>HealthcareFinish Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:34:58Z</date>
+		<key>Count</key>
+		<integer>10</integer>
+	</dict>
+	<key>Food ServiceFinish Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:35:12Z</date>
+		<key>Count</key>
+		<integer>1</integer>
+	</dict>
+	<key>Retail Without ExperienceFinish Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:35:20Z</date>
+		<key>Count</key>
+		<integer>0</integer>
+	</dict>
+	<key>Retail With ExperienceFinish Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:35:31Z</date>
+		<key>Count</key>
+		<integer>20</integer>
+	</dict>
+	<key>GeneralCamera Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:35:43Z</date>
+		<key>Count</key>
+		<integer>20</integer>
+	</dict>
+	<key>HospitalityCamera Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:36:05Z</date>
+		<key>Count</key>
+		<integer>1</integer>
+	</dict>
+	<key>HealthcareCamera Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:36:17Z</date>
+		<key>Count</key>
+		<integer>10</integer>
+	</dict>
+	<key>Food ServiceCamera Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:36:29Z</date>
+		<key>Count</key>
+		<integer>0</integer>
+	</dict>
+	<key>Retail Without ExperienceCamera Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:36:40Z</date>
+		<key>Count</key>
+		<integer>5</integer>
+	</dict>
+	<key>Retail With ExperienceCamera Badge</key>
+	<dict>
+		<key>Date</key>
+		<date>2016-01-16T01:36:51Z</date>
+		<key>Count</key>
+		<integer>15</integer>
+	</dict>
+</dict>
+</plist>

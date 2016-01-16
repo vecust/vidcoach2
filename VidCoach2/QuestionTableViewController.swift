@@ -18,6 +18,8 @@ class QuestionTableViewController: UITableViewController {
     let cellIdentifier = "QuestionTableViewCell"
     var interview = String()
     var questions = [String]()
+    var progressDict:NSMutableDictionary!
+    var facesDict:NSMutableDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,38 @@ class QuestionTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        //This call checks if there are any changes to the cells such as badges and progress
+        self.tableView.reloadData()
+        
+        //Handle progress retrieval from plist file. See preparePlistForUse() in AppDelegate.swift
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        //Get progress data
+        let pathForProgressPlistFile = appDelegate.progressPlistPath
+        
+        let progressData:NSData = NSFileManager.defaultManager().contentsAtPath(pathForProgressPlistFile)!
+        
+        do{
+            progressDict = try NSPropertyListSerialization.propertyListWithData(progressData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+        }catch{
+            print("An error occured while reading progress plist")
+        }
+        
+        //Get faces data
+        let pathForFacesPlistFile = appDelegate.facesPlistPath
+        
+        let facesData:NSData = NSFileManager.defaultManager().contentsAtPath(pathForFacesPlistFile)!
+        
+        do{
+            facesDict = try NSPropertyListSerialization.propertyListWithData(facesData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+        }catch{
+            print("An error occured while reading progress plist")
+        }
+
+        
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -67,10 +101,64 @@ class QuestionTableViewController: UITableViewController {
         // Configure the cell: the first section has one cell for "All Questions" the second section lists all the questions individually
         if (indexPath.section == 0) {
             cell.questionNameLabel.text = "All Questions"
+            
+            //Set up progress labels - shows number of times viewed and practiced
+            let progressKey = interview
+            if let progressData = progressDict.objectForKey(progressKey) as? NSDictionary {
+                let views = progressData.objectForKey("watchModel") as! Int!
+                let practices = progressData.objectForKey("practice") as! Int!
+                cell.viewProgress.text = String(views)
+                cell.practiceProgress.text = String(practices)
+            }
+            
+            //Set up faces labels
+            let facesKey = interview
+            if let facesData = facesDict.objectForKey(facesKey) as? NSDictionary {
+                let feeling = facesData.objectForKey("All Questions") as! String!
+                switch feeling {
+                    case "smile":
+                        cell.face.image = UIImage(named: "smile")
+                    case "sad":
+                        cell.face.image = UIImage(named: "sad")
+                    case "meh":
+                        cell.face.image = UIImage(named: "meh")
+                default:
+                    cell.face.image = UIImage(named: "circle")
+                }
+            }
+
+            
         } else if (indexPath.section == 1) {
             cell.questionNameLabel.text = questions[indexPath.row]
+            
+            //Set up progress labels - shows number of times viewed and practiced
+            let progressKey = questions[indexPath.row]
+            if let progressData = progressDict.objectForKey(interview) as? NSDictionary {
+                let views = progressData.objectForKey(progressKey+" watchModel") as! Int!
+                let practices = progressData.objectForKey(progressKey+" practice") as! Int!
+                cell.viewProgress.text = String(views)
+                cell.practiceProgress.text = String(practices)
+            }
+            
+            //Set up faces labels
+            let facesKey = questions[indexPath.row]
+            if let facesData = facesDict.objectForKey(interview) as? NSDictionary {
+                let feeling = facesData.objectForKey(facesKey) as! String!
+                switch feeling {
+                case "smile":
+                    cell.face.image = UIImage(named: "smile")
+                case "sad":
+                    cell.face.image = UIImage(named: "sad")
+                case "meh":
+                    cell.face.image = UIImage(named: "meh")
+                default:
+                    cell.face.image = UIImage(named: "circle")
+                }
+
+
         }
-        
+        }
+
         return cell
     }
     

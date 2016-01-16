@@ -13,12 +13,23 @@ import UIKit
 class InterviewTableViewCell: UITableViewCell {
 
     //MARK: Properties
-    //TODO: Add properties and outlets for awards and tracking
     @IBOutlet weak var interviewNameLabel: UILabel!
+    @IBOutlet weak var viewProgress: UILabel!
+    @IBOutlet weak var practiceProgress: UILabel!
+    
+    //These badges for testing
+    @IBOutlet weak var fireBadge: UIImageView!
+    @IBOutlet weak var tvBadge: UIImageView!
+    @IBOutlet weak var finishBadge: UIImageView!
+    @IBOutlet weak var cameraBadge: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        //Nice to have: circle image behind label.
+        // interviewProgress.backgroundColor = UIColor(patternImage: UIImage(named: "circle")!)
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

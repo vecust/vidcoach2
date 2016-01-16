@@ -14,23 +14,27 @@ class InterviewTableViewCell: UITableViewCell {
 
     //MARK: Properties
     @IBOutlet weak var interviewNameLabel: UILabel!
-    @IBOutlet weak var interviewProgress: UILabel!
+    @IBOutlet weak var viewProgress: UILabel!
+    @IBOutlet weak var practiceProgress: UILabel!
     
     //These badges for testing
-    @IBOutlet weak var yellowBadge: UIImageView!
-    @IBOutlet weak var purpleBadge: UIImageView!
-    @IBOutlet weak var greenBadge: UIImageView!
-    @IBOutlet weak var redBadge: UIImageView!
+    @IBOutlet weak var fireBadge: UIImageView!
+    @IBOutlet weak var tvBadge: UIImageView!
+    @IBOutlet weak var finishBadge: UIImageView!
+    @IBOutlet weak var cameraBadge: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
+        //Nice to have: circle image behind label.
+        // interviewProgress.backgroundColor = UIColor(patternImage: UIImage(named: "circle")!)
+        
         //Initially Hide Badges
-        yellowBadge.hidden = true
-        purpleBadge.hidden = true
-        greenBadge.hidden = true
-        redBadge.hidden = true
+//        yellowBadge.hidden = true
+//        purpleBadge.hidden = true
+//        greenBadge.hidden = true
+//        redBadge.hidden = true
 
 
     }

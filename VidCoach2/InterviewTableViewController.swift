@@ -121,7 +121,7 @@ class InterviewTableViewController: UITableViewController {
     
     //This method helps set the badge type
     func setBadge(badge: String, indexPath: NSIndexPath) -> String {
-        let metals = ["Bronze","Silver","Gold","Platinum","Diamond"]
+        let metals = ["Diamond","Platinum","Gold","Silver","Bronze"]
         let interview = interviews[indexPath.row]
         var setToBadge = String()
 

@@ -12,9 +12,7 @@ import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
     //MARK: Properties
-    @IBOutlet weak var questionNameLabel: UILabel!
-    //TODO: Add properties and outlets for progress tracking
-    
+    @IBOutlet weak var questionNameLabel: UILabel!    
     @IBOutlet weak var face: UIImageView!
     @IBOutlet weak var practiceProgress: UILabel!
     @IBOutlet weak var viewProgress: UILabel!

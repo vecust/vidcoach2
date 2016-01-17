@@ -194,9 +194,12 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         
         let prePromptMessage = prePromptDict?.objectForKey(interview+" "+question) as? String
         
-        //TODO: Customize alert so that it is more presentable. See here for documentation: https://github.com/KyoheiG3/SimpleAlert
         let testAlert = SimpleAlert.Controller(title: prePromptMessage, message: "", style: .Alert)
-        testAlert.addAction(SimpleAlert.Action(title: "OK", style: SimpleAlert.Action.Style.Default, handler: {
+            testAlert.configContainerCornerRadius = {
+                return 20
+            }
+            
+            testAlert.addAction(SimpleAlert.Action(title: "OK", style: SimpleAlert.Action.Style.Default, handler: {
             (action) -> Void in
             
             //When the "OK" button is tapped the following code executes
@@ -299,8 +302,28 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             
             //Widen alert to fit longer answers. This is done in this statement so that True/False alerts are not unnecessarily large.
             postPrompt.configContainerWidth = {
-                return 600
+                return 300
             }
+            
+            buttonOne.button.frame.size.height = 100
+            buttonTwo.button.frame.size.height = 100
+            buttonThree.button.frame.size.height = 100
+
+            buttonOne.button.titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            buttonOne.button.titleLabel?.textAlignment = NSTextAlignment.Center
+            buttonOne.button.titleEdgeInsets.left = 15.0
+            buttonOne.button.titleEdgeInsets.right = 15.0
+            
+            buttonTwo.button.titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            buttonTwo.button.titleLabel?.textAlignment = NSTextAlignment.Center
+            buttonTwo.button.titleEdgeInsets.left = 15.0
+            buttonTwo.button.titleEdgeInsets.right = 15.0
+
+            buttonThree.button.titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            buttonThree.button.titleLabel?.textAlignment = NSTextAlignment.Center
+            buttonThree.button.titleEdgeInsets.left = 15.0
+            buttonThree.button.titleEdgeInsets.right = 15.0
+
         }
         
         //Configure custom look of alert. Round the corners
@@ -368,14 +391,17 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             //button2 is always the right answer
             answerAlert.title = "Correct!"
             answerAlert.configContentView = { view in
-                view.backgroundColor = UIColor.greenColor() //TODO: Customize the alert to make it consistent with other alerts.
-                                                            //And make it look better. See here for documentation: https://github.com/KyoheiG3/SimpleAlert
+                view.backgroundColor = UIColor(red: 161.0/255.0, green: 212.0/255.0, blue: 144.0/255.0, alpha: 1.0)
             }
         } else {
             answerAlert.title = "Nice Try. The correct answer is: "+postPromptAnswer
             answerAlert.configContentView = { view in
-                view.backgroundColor = UIColor.redColor()
+                view.backgroundColor = UIColor(red: 212.0/255.0, green: 144.0/255.0, blue: 144.0/255.0, alpha: 1.0)
             }
+        }
+        
+        answerAlert.configContainerCornerRadius = {
+            return 20
         }
         
         presentViewController(answerAlert, animated: true, completion: nil)
@@ -400,6 +426,10 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         
         replayAlert.addAction(yesAction)
         replayAlert.addAction(noAction)
+        
+        replayAlert.configContainerCornerRadius = {
+            return 20
+        }
         
         presentViewController(replayAlert, animated: true, completion: nil)
     }
@@ -475,6 +505,10 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         
         //Present alert validating that video was saved.
         let alert = SimpleAlert.Controller(title: title, message: message, style: .Alert)
+        
+        alert.configContainerCornerRadius = {
+            return 20
+        }
         
         alert.addAction(SimpleAlert.Action(title: "😀", style: .Default, handler: { (action) -> Void in
             self.alertActionFaceButton("smile")

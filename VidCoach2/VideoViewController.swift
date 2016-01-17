@@ -148,19 +148,15 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: Actions
     
     @IBAction func watchModel(sender: UIButton) {
-//        print("Tapped Watch Model")
     }
     
     @IBAction func practice(sender: UIButton) {
-//        print("Tapped Practice")
     }
     
     @IBAction func watchPractice(sender: UIButton) {
-//        print("Tapped Watch Practice")
     }
     
     @IBAction func prePromptSetting(sender: UISwitch) {
-//        print("Switched PrePrompt Setting")
         if sender.on {
             self.prePromptON = true
             self.saveSetting(true, key: "PrePrompt")
@@ -269,6 +265,10 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
         let okAction = SimpleAlert.Action(title: "OK", style: SimpleAlert.Action.Style.Default)
         alert.addAction(okAction)
         
+            alert.configContainerCornerRadius = {
+                return 20
+            }
+            
         presentViewController(alert, animated: true, completion: nil)
         }
     }

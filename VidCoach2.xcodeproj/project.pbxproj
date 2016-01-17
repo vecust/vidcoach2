@@ -629,7 +629,7 @@
 				TargetAttributes = {
 					2CAF7C081C2C780200FC81E9 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = KE5PZJ4KVG;
+						DevelopmentTeam = Y5UBVWXR8K;
 					};
 					2CAF7C1C1C2C780200FC81E9 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1012,7 +1012,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VidCoach2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanerickcustodio.VidCoach2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwahetech.VidCoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "VidCoach2-Bridging-Header.h";
@@ -1031,7 +1031,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VidCoach2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanerickcustodio.VidCoach2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiwahetech.VidCoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "VidCoach2-Bridging-Header.h";

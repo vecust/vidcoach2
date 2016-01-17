@@ -213,35 +213,35 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
         for type in types {
             count = getBadgeCount(type)
             switch count {
-            case 1:
+            case 1..<5:
                 if checkEarned(type, metal: "Bronze") == 1 {
                     number++
                     earned += "Bronze "+type+" "
                 } else {
                     print("Already earned "+self.interview+" Bronze "+type+" badge")
                 }
-            case 5:
+            case 5..<10:
                 if checkEarned(type, metal: "Silver") == 1 {
                     number++
                     earned += "Silver "+type+" "
                 } else {
                     print("Already earned "+self.interview+" Silver "+type+" badge")
                 }
-            case 10:
+            case 10..<15:
                 if checkEarned(type, metal: "Gold") == 1 {
                     number++
                     earned += "Gold "+type+" "
                 } else {
                     print("Already earned "+self.interview+" Gold "+type+" badge")
                 }
-           case 15:
+           case 15..<20:
             if checkEarned(type, metal: "Platinum") == 1 {
                 number++
                 earned += "Platinum "+type+" "
             } else {
                 print("Already earned "+self.interview+" Platinum "+type+" badge")
                 }
-            case 20:
+            case 20..<2000:
                 if checkEarned(type, metal: "Diamond") == 1 {
                     number++
                     earned += "Diamond "+type+" "

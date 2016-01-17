@@ -578,7 +578,11 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     func logProgress() {
         //Log Activity for progress tracker to plist file
         let interviewProgress = progressDict.objectForKey(interview) as? NSMutableDictionary
-        var progressCount = interviewProgress?.objectForKey(question+" "+self.selectedAction) as! Int
+        var choice = self.selectedAction
+        if choice == "watchPractice" {
+            choice = "watchModel"
+        }
+        var progressCount = interviewProgress?.objectForKey(question+" "+choice) as! Int
         progressCount++
         if self.playAll {
             interviewProgress![self.selectedAction] = progressCount

@@ -186,13 +186,14 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="E4v-Sa-9Mg">
-                                            <rect key="frame" x="426" y="40" width="40" height="40"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="E4v-Sa-9Mg">
+                                            <rect key="frame" x="426" y="37" width="40" height="40"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="E4v-Sa-9Mg" secondAttribute="trailing" constant="19" id="A13-TS-of2"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="s5B-J5-dw4" secondAttribute="trailing" constant="-8" id="IB3-AU-D99"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="E4v-Sa-9Mg" secondAttribute="bottom" constant="-6" id="bTO-Za-8gA"/>
                                         <constraint firstItem="s5B-J5-dw4" firstAttribute="leading" secondItem="E4v-Sa-9Mg" secondAttribute="trailing" constant="8" id="fTT-dI-6qT"/>
                                         <constraint firstItem="E4v-Sa-9Mg" firstAttribute="top" secondItem="s5B-J5-dw4" secondAttribute="bottom" id="oiV-qc-wQE"/>
                                         <constraint firstItem="E4v-Sa-9Mg" firstAttribute="top" secondItem="uCG-Of-gAg" secondAttribute="topMargin" constant="32" id="qFs-Nm-gLC"/>
@@ -400,6 +401,6 @@
         <image name="circle" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xcV-zr-mvI"/>
+        <segue reference="ryg-nD-zU5"/>
     </inferredMetricsTieBreakers>
 </document>

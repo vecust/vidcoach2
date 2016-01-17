@@ -136,6 +136,7 @@
 		0C937B881C3D8BD1008327FD /* Retail Without ExperienceWhy Should We Hire YouAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937B081C3D8BD0008327FD /* Retail Without ExperienceWhy Should We Hire YouAnswer.mp4 */; };
 		0C937B891C3D8BD1008327FD /* Retail Without ExperienceWhy Should We Hire YouQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937B091C3D8BD0008327FD /* Retail Without ExperienceWhy Should We Hire YouQuestion.mp4 */; };
 		0C9CD4761C44808B00C0B4E5 /* Rewards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9CD4751C44808B00C0B4E5 /* Rewards.plist */; };
+		2C2AB26A1C4B4436007AA55B /* Earned.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C2AB2691C4B4436007AA55B /* Earned.plist */; };
 		2C367ADD1C3346ED007D67DB /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367ADC1C3346ED007D67DB /* QuestionTableViewCell.swift */; };
 		2C367ADF1C343660007D67DB /* PostPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C367ADE1C343660007D67DB /* PostPrompt.swift */; };
 		2C367AE11C343A92007D67DB /* PrePrompts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C367AE01C343A91007D67DB /* PrePrompts.plist */; };
@@ -302,6 +303,7 @@
 		0C937B091C3D8BD0008327FD /* Retail Without ExperienceWhy Should We Hire YouQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail Without ExperienceWhy Should We Hire YouQuestion.mp4"; path = "videos/Retail Without ExperienceWhy Should We Hire YouQuestion.mp4"; sourceTree = SOURCE_ROOT; };
 		0C9CD4751C44808B00C0B4E5 /* Rewards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Rewards.plist; sourceTree = "<group>"; };
 		0FA72EE8BC78C225A710B1D6 /* Pods_VidCoach2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VidCoach2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C2AB2691C4B4436007AA55B /* Earned.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Earned.plist; sourceTree = "<group>"; };
 		2C367ADC1C3346ED007D67DB /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		2C367ADE1C343660007D67DB /* PostPrompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPrompt.swift; sourceTree = "<group>"; };
 		2C367AE01C343A91007D67DB /* PrePrompts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrePrompts.plist; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				2C367AE21C344ECE007D67DB /* PostPrompts.plist */,
 				2C4FB6BC1C35B2E500643273 /* PromptSettings.plist */,
 				0C9CD4751C44808B00C0B4E5 /* Rewards.plist */,
+				2C2AB2691C4B4436007AA55B /* Earned.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				0C937B5B1C3D8BD1008327FD /* Retail With ExperienceAny QuestionsQuestion.mp4 in Resources */,
 				0C937B711C3D8BD1008327FD /* Retail With ExperienceWhat Did You EnjoyQuestion.mp4 in Resources */,
 				0C937B691C3D8BD1008327FD /* Retail With ExperienceResumeQuestion.mp4 in Resources */,
+				2C2AB26A1C4B4436007AA55B /* Earned.plist in Resources */,
 				0C937B1C1C3D8BD0008327FD /* GeneralAbout MeAnswer.mp4 in Resources */,
 				0C937B841C3D8BD1008327FD /* Retail Without ExperienceUpsellingAnswer.mp4 in Resources */,
 				0C937B7A1C3D8BD1008327FD /* Retail Without ExperienceExperienceAnswer.mp4 in Resources */,

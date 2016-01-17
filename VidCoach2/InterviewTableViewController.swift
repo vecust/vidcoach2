@@ -84,132 +84,20 @@ class InterviewTableViewController: UITableViewController {
         //TODO: Setup Info Pop Ups for tapping badges
         
         //Set up fire badge - practiced for 10 days straight
-        let fireKey = interviews[indexPath.row]+"Fire Badge"
-        if let fireDict = rewardsDict.objectForKey(fireKey) as! NSDictionary? {
-            let fireCount = fireDict.objectForKey("Count") as! Int
-            switch fireCount {
-            case 1..<5:
-                //bronze
-                cell.fireBadge.image = UIImage(named: "fireBronze")
-//                print(interviews[indexPath.row]+"Fire bronze badge!")
-            case 5..<10:
-                //silver
-                cell.fireBadge.image = UIImage(named: "fireSilver")
-//                print(interviews[indexPath.row]+"Fire silver badge!")
-            case 10..<15:
-                //gold
-                cell.fireBadge.image = UIImage(named: "fireGold")
-//                print(interviews[indexPath.row]+"Fire gold badge!")
-            case 15..<20:
-                //platinum
-                cell.fireBadge.image = UIImage(named: "firePlatinum")
-//                print(interviews[indexPath.row]+"Fire platinum badge!")
-            case 20..<1000:
-                //diamond
-                cell.fireBadge.image = UIImage(named: "fireDiamond")
-//                print(interviews[indexPath.row]+"Fire diamond badge!")
-            default:
-                //nothing for 0
-//                print("NO"+interviews[indexPath.row]+"Fire badge!")
-                cell.fireBadge.image = UIImage(named: "circle")
-            }
-        }
+        let fireBadge = setBadge("Fire", indexPath: indexPath)
+        cell.fireBadge.image = UIImage(named: fireBadge)
         
         //Set up TV badge - watched for 10 days straight
-        let tvKey = interviews[indexPath.row]+"TV Badge"
-        if let tvDict = rewardsDict.objectForKey(tvKey) as! NSDictionary? {
-            let tvCount = tvDict.objectForKey("Count") as! Int
-            switch tvCount {
-            case 1..<5:
-                //bronze
-                cell.tvBadge.image = UIImage(named: "tvBronze")
-//                print(interviews[indexPath.row]+"TV bronze badge!")
-            case 5..<10:
-                //silver
-                cell.tvBadge.image = UIImage(named: "tvSilver")
-//                print(interviews[indexPath.row]+"TV silver badge!")
-            case 10..<15:
-                //gold
-                cell.tvBadge.image = UIImage(named: "tvGold")
-//                print(interviews[indexPath.row]+"TV gold badge!")
-            case 15..<20:
-                //platinum
-                cell.tvBadge.image = UIImage(named: "tvPlatinum")
-//                print(interviews[indexPath.row]+"TV platinum badge!")
-            case 20..<1000:
-                //diamond
-                cell.tvBadge.image = UIImage(named: "tvDiamond")
-//                print(interviews[indexPath.row]+"TV diamond badge!")
-            default:
-                //nothing for 0
-//                print("NO"+interviews[indexPath.row]+"TV badge!")
-                cell.tvBadge.image = UIImage(named: "circle")
-            }
-        }
+        let tvBadge = setBadge("TV", indexPath: indexPath)
+        cell.tvBadge.image = UIImage(named: tvBadge)
         
         //Set up finish badge - completed watching a whole interview
-        let finishKey = interviews[indexPath.row]+"Finish Badge"
-        if let finishDict = rewardsDict.objectForKey(finishKey) as! NSDictionary? {
-            let finishCount = finishDict.objectForKey("Count") as! Int
-            switch finishCount {
-            case 1..<5:
-                //bronze
-                cell.finishBadge.image = UIImage(named: "finishBronze")
-//                print(interviews[indexPath.row]+"Finish bronze badge!")
-            case 5..<10:
-                //silver
-                cell.finishBadge.image = UIImage(named: "finishSilver")
-//                print(interviews[indexPath.row]+"TV silver badge!")
-            case 10..<15:
-                //gold
-                cell.finishBadge.image = UIImage(named: "finishGold")
-//                print(interviews[indexPath.row]+"TV gold badge!")
-            case 15..<20:
-                //platinum
-                cell.finishBadge.image = UIImage(named: "finishPlatinum")
-//                print(interviews[indexPath.row]+"TV platinum badge!")
-            case 20..<1000:
-                //diamond
-                cell.finishBadge.image = UIImage(named: "finishDiamond")
-//                print(interviews[indexPath.row]+"TV diamond badge!")
-            default:
-                //nothing for 0
-//                print("NO"+interviews[indexPath.row]+"TV badge!")
-                cell.finishBadge.image = UIImage(named: "circle")
-            }
-        }
-        
+        let finishBadge = setBadge("Finish", indexPath: indexPath)
+        cell.finishBadge.image = UIImage(named: finishBadge)
+    
         //Set up camera badge - completed practicing a whole interview
-        let cameraKey = interviews[indexPath.row]+"Camera Badge"
-        if let cameraDict = rewardsDict.objectForKey(cameraKey) as! NSDictionary? {
-                let cameraCount = cameraDict.objectForKey("Count") as! Int
-                switch cameraCount {
-                case 1..<5:
-                    //bronze
-                    cell.cameraBadge.image = UIImage(named: "cameraBronze")
-//                    print(interviews[indexPath.row]+"Camera bronze badge!")
-                case 5..<10:
-                    //silver
-                    cell.cameraBadge.image = UIImage(named: "cameraSilver")
-//                    print(interviews[indexPath.row]+"Camera silver badge!")
-                case 10..<15:
-                    //gold
-                    cell.cameraBadge.image = UIImage(named: "cameraGold")
-//                    print(interviews[indexPath.row]+"Camera gold badge!")
-                case 15..<20:
-                    //platinum
-                    cell.cameraBadge.image = UIImage(named: "cameraPlatinum")
-//                    print(interviews[indexPath.row]+"Camera platinum badge!")
-                case 20..<1000:
-                    //diamond
-                    cell.cameraBadge.image = UIImage(named: "cameraDiamond")
-//                    print(interviews[indexPath.row]+"Camera diamond badge!")
-                default:
-                    //nothing for 0
-//                    print("NO"+interviews[indexPath.row]+"Camera badge!")
-                    cell.cameraBadge.image = UIImage(named: "circle")
-                }
-        }
+        let cameraBadge = setBadge("Camera", indexPath: indexPath)
+        cell.cameraBadge.image = UIImage(named: cameraBadge)
         
         //Set up progress labels - shows number of times viewed and practiced
         let progressKey = interviews[indexPath.row]
@@ -220,6 +108,31 @@ class InterviewTableViewController: UITableViewController {
             cell.practiceProgress.text = String(practices)
         }
         return cell
+    }
+    
+    //This method helps set the badge type
+    func setBadge(badge: String, indexPath: NSIndexPath) -> String {
+        let key = interviews[indexPath.row]+badge+" Badge"
+        var setToBadge = String()
+        if let dict = rewardsDict.objectForKey(key) as! NSDictionary? {
+            let count = dict.objectForKey("Count") as! Int
+            switch count {
+            case 1..<5:
+                setToBadge = String(badge+"Bronze")
+            case 5..<10:
+                setToBadge = String(badge+"Silver")
+            case 10..<15:
+                setToBadge = String(badge+"Gold")
+            case 15..<20:
+                setToBadge = String(badge+"Platinum")
+            case 20..<1000:
+                setToBadge = String(badge+"Diamond")
+            default:
+                //nothing for 0
+                setToBadge = String("circle")
+            }
+        }
+        return setToBadge
     }
     
     //MARK: Navigation

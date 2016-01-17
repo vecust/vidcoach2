@@ -31,10 +31,13 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     var videoLogReference = Firebase(url: "https://vidcoach2.firebaseio.com/")
     var rewardsDict:NSMutableDictionary!
     var progressDict:NSMutableDictionary!
+    var earnedArray:NSMutableArray!
     var rewardsData:NSData!
     var progressData:NSData!
+    var earnedData:NSData!
     var pathForRewardsPlistFile:String!
     var pathForProgressPlistFile:String!
+    var pathForEarnedPlistFile:String!
 
     override func viewWillAppear(animated: Bool) {
         //Handle reward & progress retrieval from plist file. See preparePlistForUse() in AppDelegate.swift
@@ -61,10 +64,9 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         }catch{
             print("An error occured while reading rewards and progress plist")
         }
-        
+
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,8 +85,11 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().postNotificationName("checkBadge", object: nil)
+    }
 
-    /*
+/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -92,7 +97,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+*/    
     
     //MARK: Video Methods
     
@@ -210,14 +215,22 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
 
     //This function gets called when an answer video has ended.
     func answerVideoHasEnded(notification: NSNotification) {
-        //Log Progress
+        //Log Progress - counts how many times the user watched or practiced
         logProgress()
         
         //Log activity
         if self.playAll {
             self.logActivity(self.questions[self.videoIndex], type: "Answer")
+
+            //Log Finish badge - checks how consistently the user watched a whole interview if last video has ended
+            if self.videoIndex == questions.count-1 {
+                self.logBadge("Finish")
+            }
         } else {
             self.logActivity(self.question, type: "Answer")
+            
+            //Log TV badge - checks how consistently the user watched a single video
+            logBadge("TV")
         }
 
         if postPromptON { //If the post prompt setting is on, load the alert with the question and answer choices and present it.
@@ -316,6 +329,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             let yesAction = SimpleAlert.Action(title: "Yes", style: .Default, handler: { (action) -> Void in
                 if self.playAll { //Log activity at this point
                     self.logActivity(self.questions[self.videoIndex], type: "ReplayAll")
+                    
                     //Reset the counter if "All Questions" to start from the beginning of questions array.
                     self.videoIndex = 0
                 } else {
@@ -328,6 +342,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             
             //Set button to respond no to replaying the video. In this case, pop the current view and go back to the VideoViewController
             let noAction = SimpleAlert.Action(title: "No", style: .Default, handler: { (action) -> Void in
+//                self.performSegueWithIdentifier("videoDone", sender: self)
                 self.navigationController?.popViewControllerAnimated(true)
                 //Maybe call unwindToVideoView() here...
             })
@@ -368,8 +383,8 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             self.playSegment()
         })
         let noAction = SimpleAlert.Action(title: "No", style: .Default, handler: { (action) -> Void in
+//            self.performSegueWithIdentifier("videoDone", sender: self)
             self.navigationController?.popViewControllerAnimated(true)
-                //Maybe call unwindToVideoView() here...
         })
         
         replayAlert.addAction(yesAction)
@@ -456,26 +471,16 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         
         //Set up OK button of alert
         alert.addAction(SimpleAlert.Action(title: "OK", style: .Default, handler: { (action) -> Void in
-
+//            self.performSegueWithIdentifier("videoDone", sender: self)
             self.navigationController?.popViewControllerAnimated(true)
 
-            
-//            if !self.playAll { //Condition: practicing only one interview question.
-//                self.navigationController?.popViewControllerAnimated(true)
-//            } else { //Condition: Practicing all questions.
-//                //Increment counter
-//                self.videoIndex++
-//                if self.videoIndex != self.questions.count-1 {  //If we haven't reached the end, load next question to practice.
-//                                                                //Otherwise pop back to VideoViewController
-//                    self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
-//                } else {
-//                    self.navigationController?.popViewControllerAnimated(true)
-//                }
-//            }
         }))
         
-        //Log Progress
+        //Log Progress - counts how many times the user watched or practiced
         logProgress()
+        
+        //Log Fire badge - checks how consistently the user practiced any single video
+        logBadge("Fire")
         
         //Only present alert if in practice mode and practicing one interview question or practicing all questions and the last video has been played.
         if self.selectedAction == "practice" && (!self.playAll || self.videoIndex == questions.count) {
@@ -487,6 +492,9 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             if self.videoIndex != self.questions.count {
                 self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
             } else {
+                //Log Camera badge - checks how consistently the user practiced a whole interview
+                logBadge("Camera")
+                
                 self.presentViewController(alert, animated: true, completion: nil)
             }
         }
@@ -499,7 +507,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM.dd.yyyy ' ' HH:mm:ss zzz"
         let timeStamp = dateFormatter.stringFromDate(NSDate())
-        let post = ["device": deviceID, "timestamp": timeStamp, "mode": selectedAction, "video": interview+question+type]
+        let post = ["device": deviceID, "timestamp": timeStamp, "mode": selectedAction, "interview": interview, "question": question, "type": type]
         let postRef = self.videoLogReference.childByAutoId()
         postRef.setValue(post)
     }
@@ -509,8 +517,11 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         let interviewProgress = progressDict.objectForKey(interview) as? NSMutableDictionary
         var progressCount = interviewProgress?.objectForKey(question+" "+self.selectedAction) as! Int
         progressCount++
-        interviewProgress![question+" "+self.selectedAction] = progressCount
-        
+        if self.playAll {
+            interviewProgress![self.selectedAction] = progressCount
+        } else {
+            interviewProgress![question+" "+self.selectedAction] = progressCount
+        }
         do {
             let progressToBeSaved = try NSPropertyListSerialization.propertyListWithData(progressData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
             progressToBeSaved.setValue(interviewProgress, forKey: interview)
@@ -521,31 +532,49 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
 
     }
     //TODO: Test logFinishBadge
-    func logFinishBadge() {
+    //This method takes the badge type as a parameter. It checks to see if today's date is after the last day a video was viewed or practiced and updates the count accordingly in Rewards.plist
+    func logBadge(badge: String) {
         //Log to rewards when an interview has been completely viewed
-        var interviewComplete = rewardsDict.objectForKey(interview+"Finish Badge") as! Bool
-        interviewComplete = true
+        let interviewComplete = rewardsDict.objectForKey(interview+badge+" Badge") as! NSMutableDictionary!
+        var previousDate = interviewComplete.objectForKey("Date") as! NSDate
+        //print(previousDate)
+        var count = interviewComplete.objectForKey("Count") as! Int
+        
+        if count == 0 {
+            previousDate = NSDate()
+        }
+        
+        //print(badge+" previous count: "+String(count))
+        if daysInbetween(previousDate) <= 1 {
+            count++
+        } else if daysInbetween(previousDate) > 1 {
+            count = 0
+        }
+        interviewComplete["Count"] = count
+        interviewComplete["Date"] = NSDate()
         
         do {
             let finishBadgeToBeSaved = try NSPropertyListSerialization.propertyListWithData(rewardsData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
-            finishBadgeToBeSaved.setValue(interviewComplete, forKey: interview+"Finish Badge")
+            finishBadgeToBeSaved.setValue(interviewComplete, forKey: interview+badge+" Badge")
+            finishBadgeToBeSaved.writeToFile(pathForRewardsPlistFile, atomically: true)
         } catch {
-            print("An error occurred while writing finish badge to reward plist")
+            print("An error occurred while writing badge to reward plist")
         }
     }
     
-    //TODO: Test logCameraBadge
-    func logCameraBadge() {
-        //Log to rewards when an interview has been completely viewed
-        var interviewComplete = rewardsDict.objectForKey(interview+"Camera Badge") as! Bool
-        interviewComplete = true
+    //Helper method to count number of days between today and the last date a video was viewed or practiced
+    func daysInbetween(lastDate:NSDate) ->Int {
+        var count = 0
         
-        do {
-            let finishBadgeToBeSaved = try NSPropertyListSerialization.propertyListWithData(rewardsData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
-            finishBadgeToBeSaved.setValue(interviewComplete, forKey: interview+"Camera Badge")
-        } catch {
-            print("An error occurred while writing camera badge to reward plist")
-        }
+        let cal = NSCalendar.currentCalendar()
+        
+        let unit:NSCalendarUnit = .Day
+        
+        let components = cal.components(unit, fromDate: lastDate, toDate: NSDate(), options: .MatchLast)
+        
+        count = components.day
+        
+        return count
     }
 }
 

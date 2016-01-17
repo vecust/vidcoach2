@@ -29,10 +29,14 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
     var prePromptON = Bool()
     var postPromptON = Bool()
     var settingDict:NSMutableDictionary!
+    var badgeDict:NSMutableDictionary!
     var settingPath:String!
+    var badgesPath:String!
     var playAll = Bool()
     var questions = [String]()
-
+    var earnedArray:NSMutableArray!
+    var earnedData:NSData!
+    var pathForEarnedPlistFile:String!
     
     override func viewWillAppear(animated: Bool) {
         //Get prompt settings from plist file PromptSettings.plist
@@ -51,6 +55,15 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
             print("Error occured while reading from the prompt setting plist file")
         }
         
+        //Get badge data from plist file Rewards.plist
+        badgesPath = appDelegate.rewardsPlistPath
+        let badgeData:NSData = NSFileManager.defaultManager().contentsAtPath(badgesPath)!
+        do{
+            badgeDict = try NSPropertyListSerialization.propertyListWithData(badgeData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+        }catch{
+            print("Error occured while reading from the rewards plist file")
+        }
+
         //See if recorded video exists in the document directory. If the user selected "All Questions" in the previous view,
         //iterate over all questions to see if they all have a record. This check determines if the "Watch Practice" button
         //should be enabled or not.
@@ -86,6 +99,8 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "badgeAlert:", name: "checkBadge", object: nil)
         
         //Set question label
         interviewQuestion.text = question
@@ -190,7 +205,125 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
         self.saveSetting(prePromptON, key: "PrePrompt")
         self.saveSetting(postPromptON, key: "PostPrompt")
     }
+        
+    func badgeAlert(notification: NSNotification) {
+        getEarnedData()
+        
+        let types = ["Fire","TV","Finish","Camera"]
+        var number = 0
+        var count = 0
+        var earned = ""
+        
+        for type in types {
+            count = getBadgeCount(type)
+            switch count {
+            case 1:
+                if checkEarned(type, metal: "Bronze") == 1 {
+                    number++
+                    earned += "Bronze "+type+" "
+                } else {
+                    print("Already earned "+self.interview+" Bronze "+type+" badge")
+                }
+            case 5:
+                if checkEarned(type, metal: "Silver") == 1 {
+                    number++
+                    earned += "Silver "+type+" "
+                } else {
+                    print("Already earned "+self.interview+" Silver "+type+" badge")
+                }
+            case 10:
+                if checkEarned(type, metal: "Gold") == 1 {
+                    number++
+                    earned += "Gold "+type+" "
+                } else {
+                    print("Already earned "+self.interview+" Gold "+type+" badge")
+                }
+           case 15:
+            if checkEarned(type, metal: "Platinum") == 1 {
+                number++
+                earned += "Platinum "+type+" "
+            } else {
+                print("Already earned "+self.interview+" Platinum "+type+" badge")
+                }
+            case 20:
+                if checkEarned(type, metal: "Diamond") == 1 {
+                    number++
+                    earned += "Diamond "+type+" "
+                } else {
+                    print("Already earned "+self.interview+" Diamond "+type+" badge")
+                }
+            default:
+                print("No badge for "+type)
+            }
+        }
+        
+        var title = ""
+        if number == 1 {
+            title = "You earned a badge!"
+        } else if number > 1 {
+            title = "You earned badges!"
+        }
+        
+        if number > 0 {
+        let alert = SimpleAlert.Controller(title: title, message: earned, style: SimpleAlert.Controller.Style.Alert)
+        let okAction = SimpleAlert.Action(title: "OK", style: SimpleAlert.Action.Style.Default)
+        alert.addAction(okAction)
+        
+        presentViewController(alert, animated: true, completion: nil)
+        }
+    }
     
+    func getBadgeCount(badge: String) -> Int {
+        var count = 0
 
+        //Get badge data from plist file Rewards.plist
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        badgesPath = appDelegate.rewardsPlistPath
+        let badgeData:NSData = NSFileManager.defaultManager().contentsAtPath(badgesPath)!
+        do{
+            badgeDict = try NSPropertyListSerialization.propertyListWithData(badgeData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+        }catch{
+            print("Error occured while reading from the rewards plist file")
+        }
+        
+        let badge = badgeDict.objectForKey(interview+badge+" Badge") as! NSMutableDictionary!
+        count = badge.objectForKey("Count") as! Int
+        
+        return count
+    }
+
+    func getEarnedData() {
+        //Get earned data
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        pathForEarnedPlistFile = appDelegate.earnedPlistPath
+        
+        earnedData = NSFileManager.defaultManager().contentsAtPath(pathForEarnedPlistFile)!
+        
+        do{
+            earnedArray = try NSPropertyListSerialization.propertyListWithData(earnedData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableArray
+        }catch{
+            print("An error occured while reading rewards and progress plist")
+        }
+
+    }
+    
+    func checkEarned(type: String, metal: String) -> Int {
+        let check = interview+metal+type
+        if earnedArray.containsObject(check) {
+            return 0
+        } else {
+            do {
+                let earnedToBeSaved = try NSPropertyListSerialization.propertyListWithData(earnedData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableArray
+                earnedToBeSaved.addObject(check)
+                earnedToBeSaved.writeToFile(pathForEarnedPlistFile, atomically: true)
+            } catch {
+                print("An error occurred while writing to earned plist")
+            }
+
+            return 1
+        }
+
+    }
+    
 }
 

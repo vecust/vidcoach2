@@ -519,13 +519,13 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         alert.addAction(SimpleAlert.Action(title: "🙁", style: .Default, handler: { (action) -> Void in
             self.alertActionFaceButton("sad")
         }))
-                
-        //Log Progress - counts how many times the user watched or practiced
-        logProgress()
         
-        //Log Fire badge - checks how consistently the user practiced any single video
         if !self.playAll {
+            //Log Fire badge - checks how consistently the user practiced any single video
             logBadge("Fire")
+            
+            //Log Progress - counts how many times the user watched or practiced
+            logProgress()
         }
         
         //Only present alert if in practice mode and practicing one interview question or practicing all questions and the last video has been played.
@@ -541,7 +541,10 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             } else {
                 //Log Camera badge - checks how consistently the user practiced a whole interview
                 logBadge("Camera")
-                
+
+                //Log Progress - counts how many times the user watched or practiced
+                logProgress()
+
                 self.presentViewController(alert, animated: true, completion: nil)
             }
         }

@@ -524,7 +524,9 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         logProgress()
         
         //Log Fire badge - checks how consistently the user practiced any single video
-        logBadge("Fire")
+        if !self.playAll {
+            logBadge("Fire")
+        }
         
         //Only present alert if in practice mode and practicing one interview question or practicing all questions and the last video has been played.
         if self.selectedAction == "practice" && (!self.playAll || self.videoIndex == questions.count) {
@@ -533,7 +535,8 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         } else {
             self.logActivity(self.questions[self.videoIndex], type: "MadeRecording")
             self.videoIndex++
-            if self.videoIndex != self.questions.count {
+            if self.videoIndex < self.questions.count
+            {
                 self.loadVideos(self.interview+self.questions[self.videoIndex]+"Question", selector: "question")
             } else {
                 //Log Camera badge - checks how consistently the user practiced a whole interview
@@ -547,7 +550,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     func alertActionFaceButton(face:String) {
         let interviewFaces = self.facesDict.objectForKey(self.interview) as! NSMutableDictionary!
         if self.playAll {
-            interviewFaces[self.questions[self.videoIndex]] = face
+            interviewFaces["All Questions"] = face
         } else {
             interviewFaces[self.question] = face
         }

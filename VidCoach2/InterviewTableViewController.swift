@@ -16,7 +16,7 @@ class InterviewTableViewController: UITableViewController {
     // MARK: Properties
     let cellIdentifier = "InterviewTableViewCell"
     var interviews = [String]()
-    var rewardsDict:NSMutableDictionary!
+    var earnedArray:NSMutableArray!
     var progressDict:NSMutableDictionary!
     
     override func viewDidLoad() {
@@ -37,13 +37,13 @@ class InterviewTableViewController: UITableViewController {
         //Handle reward & progress retrieval from plist file. See preparePlistForUse() in AppDelegate.swift
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        //Get rewards data
-        let pathForRewardsPlistFile = appDelegate.rewardsPlistPath
+        //Get earned data
+        let pathForEarnedPlistFile = appDelegate.earnedPlistPath
         
-        let rewardsData:NSData = NSFileManager.defaultManager().contentsAtPath(pathForRewardsPlistFile)!
+        let earnedData:NSData = NSFileManager.defaultManager().contentsAtPath(pathForEarnedPlistFile)!
         
         do{
-            rewardsDict = try NSPropertyListSerialization.propertyListWithData(rewardsData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+            earnedArray = try NSPropertyListSerialization.propertyListWithData(earnedData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableArray
         }catch{
             print("An error occured while reading rewards and progress plist")
         }
@@ -102,8 +102,17 @@ class InterviewTableViewController: UITableViewController {
         //Set up progress labels - shows number of times viewed and practiced
         let progressKey = interviews[indexPath.row]
         if let progressData = progressDict.objectForKey(progressKey) as? NSDictionary {
-            let views = progressData.objectForKey("watchModel") as! Int!
-            let practices = progressData.objectForKey("practice") as! Int!
+            var views = 0
+            var practices = 0
+            for (question,count) in progressData {
+                let questionString = question as! String
+                if (questionString.rangeOfString("watchModel") != nil) {
+                    views += count as! Int
+                }
+                if (questionString.rangeOfString("practice") != nil) {
+                    practices += count as! Int
+                }
+            }
             cell.viewProgress.text = String(views)
             cell.practiceProgress.text = String(practices)
         }
@@ -112,26 +121,20 @@ class InterviewTableViewController: UITableViewController {
     
     //This method helps set the badge type
     func setBadge(badge: String, indexPath: NSIndexPath) -> String {
-        let key = interviews[indexPath.row]+badge+" Badge"
+        let metals = ["Bronze","Silver","Gold","Platinum","Diamond"]
+        let interview = interviews[indexPath.row]
         var setToBadge = String()
-        if let dict = rewardsDict.objectForKey(key) as! NSDictionary? {
-            let count = dict.objectForKey("Count") as! Int
-            switch count {
-            case 1..<5:
-                setToBadge = String(badge+"Bronze")
-            case 5..<10:
-                setToBadge = String(badge+"Silver")
-            case 10..<15:
-                setToBadge = String(badge+"Gold")
-            case 15..<20:
-                setToBadge = String(badge+"Platinum")
-            case 20..<1000:
-                setToBadge = String(badge+"Diamond")
-            default:
-                //nothing for 0
-                setToBadge = String("circle")
+
+        for metal in metals {
+            if earnedArray.containsObject(interview+metal+badge) {
+                setToBadge = badge+metal
+                break
+            } else {
+                setToBadge = "circle"
             }
+            
         }
+        
         return setToBadge
     }
     

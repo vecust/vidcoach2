@@ -5,44 +5,44 @@
 	<key>General</key>
 	<dict>
 		<key>All Questions</key>
-		<string>meh</string>
+		<string></string>
 		<key>Greeting</key>
-		<string>smile</string>
+		<string></string>
 		<key>Resume</key>
-		<string>sad</string>
+		<string></string>
 		<key>About Me</key>
-		<string>meh</string>
+		<string></string>
 		<key>Strengths</key>
-		<string>smile</string>
+		<string></string>
 		<key>Why Should We Hire You</key>
-		<string>sad</string>
+		<string></string>
 		<key>Questions</key>
-		<string>meh</string>
+		<string></string>
 		<key>Farewell</key>
-		<string>smile</string>
+		<string></string>
 	</dict>
 	<key>Hospitality</key>
 	<dict>
 		<key>All Questions</key>
-		<string>smile</string>
+		<string></string>
 		<key>Greeting</key>
-		<string>meh</string>
+		<string></string>
 		<key>Resume</key>
-		<string>sad</string>
+		<string></string>
 		<key>About Me</key>
-		<string>smile</string>
+		<string></string>
 		<key>Customer Service</key>
-		<string>meh</string>
+		<string></string>
 		<key>Unhappy Customer</key>
-		<string>sad</string>
+		<string></string>
 		<key>Positive Change</key>
-		<string>smile</string>
+		<string></string>
 		<key>Why Should We Hire You</key>
-		<string>meh</string>
+		<string></string>
 		<key>Any Questions</key>
-		<string>sad</string>
+		<string></string>
 		<key>Farewell</key>
-		<string>smile</string>
+		<string></string>
 	</dict>
 	<key>Healthcare</key>
 	<dict>

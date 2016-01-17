@@ -31,13 +31,16 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     var videoLogReference = Firebase(url: "https://vidcoach2.firebaseio.com/")
     var rewardsDict:NSMutableDictionary!
     var progressDict:NSMutableDictionary!
+    var facesDict:NSMutableDictionary!
     var earnedArray:NSMutableArray!
     var rewardsData:NSData!
     var progressData:NSData!
     var earnedData:NSData!
+    var facesData:NSData!
     var pathForRewardsPlistFile:String!
     var pathForProgressPlistFile:String!
     var pathForEarnedPlistFile:String!
+    var pathForfacesPlistFile:String!
 
     override func viewWillAppear(animated: Bool) {
         //Handle reward & progress retrieval from plist file. See preparePlistForUse() in AppDelegate.swift
@@ -61,6 +64,17 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         
         do{
             progressDict = try NSPropertyListSerialization.propertyListWithData(progressData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+        }catch{
+            print("An error occured while reading rewards and progress plist")
+        }
+
+        //Get faces data
+        pathForfacesPlistFile = appDelegate.facesPlistPath
+        
+        facesData = NSFileManager.defaultManager().contentsAtPath(pathForfacesPlistFile)!
+        
+        do{
+            facesDict = try NSPropertyListSerialization.propertyListWithData(facesData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
         }catch{
             print("An error occured while reading rewards and progress plist")
         }
@@ -342,9 +356,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             
             //Set button to respond no to replaying the video. In this case, pop the current view and go back to the VideoViewController
             let noAction = SimpleAlert.Action(title: "No", style: .Default, handler: { (action) -> Void in
-//                self.performSegueWithIdentifier("videoDone", sender: self)
                 self.navigationController?.popViewControllerAnimated(true)
-                //Maybe call unwindToVideoView() here...
             })
         
             answerAlert.addAction(yesAction)
@@ -383,7 +395,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
             self.playSegment()
         })
         let noAction = SimpleAlert.Action(title: "No", style: .Default, handler: { (action) -> Void in
-//            self.performSegueWithIdentifier("videoDone", sender: self)
             self.navigationController?.popViewControllerAnimated(true)
         })
         
@@ -391,10 +402,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         replayAlert.addAction(noAction)
         
         presentViewController(replayAlert, animated: true, completion: nil)
-    }
-    
-    func unwindToVideoView() {
-        //TODO: Use this function to create and present award alert (if awards were achieved) in the VideoViewController (going back)
     }
     
     //This function is called to shuffle the answer choices for post prompts.
@@ -455,7 +462,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     func videoWasSavedSuccessfully(videoPath: String, didFinishSavingWithError error: NSError!, context: UnsafeMutablePointer<()>) {
         //print("Video saved")
         var title = "Practice Complete!"
-        var message = "Video was saved"
+        var message = "How do you feel?"
         
         if let saveError = error {
             title = "Error"
@@ -469,13 +476,16 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         //Present alert validating that video was saved.
         let alert = SimpleAlert.Controller(title: title, message: message, style: .Alert)
         
-        //Set up OK button of alert
-        alert.addAction(SimpleAlert.Action(title: "OK", style: .Default, handler: { (action) -> Void in
-//            self.performSegueWithIdentifier("videoDone", sender: self)
-            self.navigationController?.popViewControllerAnimated(true)
-
+        alert.addAction(SimpleAlert.Action(title: "😀", style: .Default, handler: { (action) -> Void in
+            self.alertActionFaceButton("smile")
         }))
-        
+        alert.addAction(SimpleAlert.Action(title: "😐", style: .Default, handler: { (action) -> Void in
+            self.alertActionFaceButton("meh")
+        }))
+        alert.addAction(SimpleAlert.Action(title: "🙁", style: .Default, handler: { (action) -> Void in
+            self.alertActionFaceButton("sad")
+        }))
+                
         //Log Progress - counts how many times the user watched or practiced
         logProgress()
         
@@ -498,6 +508,25 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
                 self.presentViewController(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    func alertActionFaceButton(face:String) {
+        let interviewFaces = self.facesDict.objectForKey(self.interview) as! NSMutableDictionary!
+        if self.playAll {
+            interviewFaces[self.questions[self.videoIndex]] = face
+        } else {
+            interviewFaces[self.question] = face
+        }
+        do {
+            let faceToBeSaved = try NSPropertyListSerialization.propertyListWithData(self.facesData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+            faceToBeSaved.setValue(interviewFaces, forKey: self.interview)
+            faceToBeSaved.writeToFile(self.pathForfacesPlistFile, atomically: true)
+        } catch {
+            print("An error occurred while writing badge to faces plist")
+        }
+        
+        self.navigationController?.popViewControllerAnimated(true)
+
     }
     
     //MARK: Logging Methods
@@ -531,7 +560,6 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         }
 
     }
-    //TODO: Test logFinishBadge
     //This method takes the badge type as a parameter. It checks to see if today's date is after the last day a video was viewed or practiced and updates the count accordingly in Rewards.plist
     func logBadge(badge: String) {
         //Log to rewards when an interview has been completely viewed

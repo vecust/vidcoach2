@@ -32,18 +32,21 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
     var rewardsDict:NSMutableDictionary!
     var progressDict:NSMutableDictionary!
     var facesDict:NSMutableDictionary!
+    var dayOneDict:NSMutableDictionary!
     var earnedArray:NSMutableArray!
     var rewardsData:NSData!
     var progressData:NSData!
     var earnedData:NSData!
     var facesData:NSData!
+    var dayOneData:NSData!
     var pathForRewardsPlistFile:String!
     var pathForProgressPlistFile:String!
     var pathForEarnedPlistFile:String!
     var pathForfacesPlistFile:String!
+    var pathForDayOnePlistFile:String!
 
     override func viewWillAppear(animated: Bool) {
-        //Handle reward & progress retrieval from plist file. See preparePlistForUse() in AppDelegate.swift
+        //Handle data retrieval from plist files. See preparePlistForUse() in AppDelegate.swift
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         //Get rewards data
@@ -54,7 +57,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         do{
             rewardsDict = try NSPropertyListSerialization.propertyListWithData(rewardsData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
         }catch{
-            print("An error occured while reading rewards and progress plist")
+            print("An error occured while reading rewards plist")
         }
         
         //Get progress data
@@ -65,7 +68,7 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         do{
             progressDict = try NSPropertyListSerialization.propertyListWithData(progressData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
         }catch{
-            print("An error occured while reading rewards and progress plist")
+            print("An error occured while reading progress plist")
         }
 
         //Get faces data
@@ -76,7 +79,18 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         do{
             facesDict = try NSPropertyListSerialization.propertyListWithData(facesData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
         }catch{
-            print("An error occured while reading rewards and progress plist")
+            print("An error occured while reading faces plist")
+        }
+
+        //Get dayOne data
+        pathForDayOnePlistFile = appDelegate.dayOnePlistPath
+        
+        dayOneData = NSFileManager.defaultManager().contentsAtPath(pathForDayOnePlistFile)!
+        
+        do{
+            dayOneDict = try NSPropertyListSerialization.propertyListWithData(dayOneData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+        }catch{
+            print("An error occured while reading dayOne plist")
         }
 
     }
@@ -617,7 +631,10 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         }
         
         //print(badge+" previous count: "+String(count))
-        if daysInbetween(previousDate) <= 1 {
+        let dayOne = dayOneDict.objectForKey("dayOne") as? NSDate
+        if daysInbetween(previousDate) == 1 {
+            count++
+        } else if daysInbetween(dayOne!) == 0 && count == 0 {
             count++
         } else if daysInbetween(previousDate) > 1 {
             count = 0

@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var progressPlistPath:String = String()
     var facesPlistPath:String = String()
     var earnedPlistPath:String = String()
+    var dayOnePlistPath:String = String()
+    var dayOneDict:NSMutableDictionary!
 
     //get and set plist files
     func preparePlistForUse(){
@@ -74,7 +76,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
+        dayOnePlistPath = rootPath.stringByAppendingString("/dayOne.plist")
+        if !NSFileManager.defaultManager().fileExistsAtPath(dayOnePlistPath){
+            let dayOnePlistInBundle = NSBundle.mainBundle().pathForResource("dayOne", ofType: "plist") as String!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(dayOnePlistInBundle, toPath: dayOnePlistPath)
+            }catch{
+                print("Error occured while copying file to document \(error)")
+            }
+        }
 
+        //Get and set dayOne data
+        let dayOneData = NSFileManager.defaultManager().contentsAtPath(dayOnePlistPath)!
+        
+        do{
+            dayOneDict = try NSPropertyListSerialization.propertyListWithData(dayOneData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+        }catch{
+            print("An error occured while reading dayOne plist")
+        }
+        
+        let dayOne = dayOneDict?.objectForKey("dayOne") as! NSDate
+
+        if daysInbetween(dayOne) == 0 {
+            dayOneDict?.setValue(NSDate(), forKey: "dayOne")
+        }
+
+        do {
+            let dayToBeSaved = try NSPropertyListSerialization.propertyListWithData(dayOneData, options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves, format: nil) as! NSMutableDictionary
+            dayToBeSaved.setDictionary(dayOneDict as [NSObject : AnyObject])
+            dayToBeSaved.writeToFile(dayOnePlistPath, atomically: true)
+        } catch {
+            print("An error occurred while writing to dayOne plist")
+        }
+
+    }
+    
+    //Helper method to count number of days between today and the last date a video was viewed or practiced
+    func daysInbetween(lastDate:NSDate) ->Int {
+        var count = 0
+        
+        let cal = NSCalendar.currentCalendar()
+        
+        let unit:NSCalendarUnit = .Day
+        
+        let programmedComponents = NSDateComponents()
+        programmedComponents.year = 1970
+        programmedComponents.month = 1
+        programmedComponents.day = 1
+        
+        let programmedDate = cal.dateFromComponents(programmedComponents)
+        
+        let components = cal.components(unit, fromDate: lastDate, toDate: programmedDate!, options: .MatchLast)
+        
+        count = components.day
+        
+        return count
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

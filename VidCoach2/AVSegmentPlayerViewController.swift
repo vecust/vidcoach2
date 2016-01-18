@@ -631,13 +631,10 @@ class AVSegmentPlayerViewController: AVPlayerViewController, AVPlayerViewControl
         }
         
         //print(badge+" previous count: "+String(count))
-        let dayOne = dayOneDict.objectForKey("dayOne") as? NSDate
         if daysInbetween(previousDate) == 1 {
             count++
-        } else if daysInbetween(dayOne!) == 0 && count == 0 {
-            count++
-        } else if daysInbetween(previousDate) > 1 {
-            count = 0
+        } else {
+            count = 1
         }
         interviewComplete["Count"] = count
         interviewComplete["Date"] = NSDate()

@@ -218,38 +218,38 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
                     number++
                     earned += "Bronze "+type+" "
                 } else {
-                    print("Already earned "+self.interview+" Bronze "+type+" badge")
+                    break
                 }
             case 5..<10:
                 if checkEarned(type, metal: "Silver") == 1 {
                     number++
                     earned += "Silver "+type+" "
                 } else {
-                    print("Already earned "+self.interview+" Silver "+type+" badge")
+                    break
                 }
             case 10..<15:
                 if checkEarned(type, metal: "Gold") == 1 {
                     number++
                     earned += "Gold "+type+" "
                 } else {
-                    print("Already earned "+self.interview+" Gold "+type+" badge")
+                    break
                 }
            case 15..<20:
             if checkEarned(type, metal: "Platinum") == 1 {
                 number++
                 earned += "Platinum "+type+" "
             } else {
-                print("Already earned "+self.interview+" Platinum "+type+" badge")
+                break
                 }
             case 20..<2000:
                 if checkEarned(type, metal: "Diamond") == 1 {
                     number++
                     earned += "Diamond "+type+" "
                 } else {
-                    print("Already earned "+self.interview+" Diamond "+type+" badge")
+                    break
                 }
             default:
-                print("No badge for "+type)
+                break
             }
         }
         

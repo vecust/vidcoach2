@@ -106,7 +106,7 @@
 		0C937B6A1C3D8BD1008327FD /* Retail With ExperienceSchool ValuesAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AEA1C3D8BD0008327FD /* Retail With ExperienceSchool ValuesAnswer.mp4 */; };
 		0C937B6B1C3D8BD1008327FD /* Retail With ExperienceSchool ValuesQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AEB1C3D8BD0008327FD /* Retail With ExperienceSchool ValuesQuestion.mp4 */; };
 		0C937B6C1C3D8BD1008327FD /* Retail With ExperienceTell Me a TimeAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AEC1C3D8BD0008327FD /* Retail With ExperienceTell Me a TimeAnswer.mp4 */; };
-		0C937B6D1C3D8BD1008327FD /* Retail With ExperienceTell Me a TimeQuesiton.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AED1C3D8BD0008327FD /* Retail With ExperienceTell Me a TimeQuesiton.mp4 */; };
+		0C937B6D1C3D8BD1008327FD /* Retail With ExperienceTell Me a TimeQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AED1C3D8BD0008327FD /* Retail With ExperienceTell Me a TimeQuestion.mp4 */; };
 		0C937B6E1C3D8BD1008327FD /* Retail With ExperienceUpsellingAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AEE1C3D8BD0008327FD /* Retail With ExperienceUpsellingAnswer.mp4 */; };
 		0C937B6F1C3D8BD1008327FD /* Retail With ExperienceUpsellingQuestion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AEF1C3D8BD0008327FD /* Retail With ExperienceUpsellingQuestion.mp4 */; };
 		0C937B701C3D8BD1008327FD /* Retail With ExperienceWhat Did You EnjoyAnswer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C937AF01C3D8BD0008327FD /* Retail With ExperienceWhat Did You EnjoyAnswer.mp4 */; };
@@ -273,7 +273,7 @@
 		0C937AEA1C3D8BD0008327FD /* Retail With ExperienceSchool ValuesAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail With ExperienceSchool ValuesAnswer.mp4"; path = "videos/Retail With ExperienceSchool ValuesAnswer.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937AEB1C3D8BD0008327FD /* Retail With ExperienceSchool ValuesQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail With ExperienceSchool ValuesQuestion.mp4"; path = "videos/Retail With ExperienceSchool ValuesQuestion.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937AEC1C3D8BD0008327FD /* Retail With ExperienceTell Me a TimeAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail With ExperienceTell Me a TimeAnswer.mp4"; path = "videos/Retail With ExperienceTell Me a TimeAnswer.mp4"; sourceTree = SOURCE_ROOT; };
-		0C937AED1C3D8BD0008327FD /* Retail With ExperienceTell Me a TimeQuesiton.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail With ExperienceTell Me a TimeQuesiton.mp4"; path = "videos/Retail With ExperienceTell Me a TimeQuesiton.mp4"; sourceTree = SOURCE_ROOT; };
+		0C937AED1C3D8BD0008327FD /* Retail With ExperienceTell Me a TimeQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail With ExperienceTell Me a TimeQuestion.mp4"; path = "videos/Retail With ExperienceTell Me a TimeQuestion.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937AEE1C3D8BD0008327FD /* Retail With ExperienceUpsellingAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail With ExperienceUpsellingAnswer.mp4"; path = "videos/Retail With ExperienceUpsellingAnswer.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937AEF1C3D8BD0008327FD /* Retail With ExperienceUpsellingQuestion.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail With ExperienceUpsellingQuestion.mp4"; path = "videos/Retail With ExperienceUpsellingQuestion.mp4"; sourceTree = SOURCE_ROOT; };
 		0C937AF01C3D8BD0008327FD /* Retail With ExperienceWhat Did You EnjoyAnswer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Retail With ExperienceWhat Did You EnjoyAnswer.mp4"; path = "videos/Retail With ExperienceWhat Did You EnjoyAnswer.mp4"; sourceTree = SOURCE_ROOT; };
@@ -475,7 +475,7 @@
 				0C937AEA1C3D8BD0008327FD /* Retail With ExperienceSchool ValuesAnswer.mp4 */,
 				0C937AEB1C3D8BD0008327FD /* Retail With ExperienceSchool ValuesQuestion.mp4 */,
 				0C937AEC1C3D8BD0008327FD /* Retail With ExperienceTell Me a TimeAnswer.mp4 */,
-				0C937AED1C3D8BD0008327FD /* Retail With ExperienceTell Me a TimeQuesiton.mp4 */,
+				0C937AED1C3D8BD0008327FD /* Retail With ExperienceTell Me a TimeQuestion.mp4 */,
 				0C937AEE1C3D8BD0008327FD /* Retail With ExperienceUpsellingAnswer.mp4 */,
 				0C937AEF1C3D8BD0008327FD /* Retail With ExperienceUpsellingQuestion.mp4 */,
 				0C937AF01C3D8BD0008327FD /* Retail With ExperienceWhat Did You EnjoyAnswer.mp4 */,
@@ -786,7 +786,7 @@
 				0C9CD4761C44808B00C0B4E5 /* Rewards.plist in Resources */,
 				0C937B1B1C3D8BD0008327FD /* Food ServiceWhy Should We Hire YouQuestion.mp4 in Resources */,
 				0C937B421C3D8BD0008327FD /* HealthcareTell Me a TimeAnswer.mp4 in Resources */,
-				0C937B6D1C3D8BD1008327FD /* Retail With ExperienceTell Me a TimeQuesiton.mp4 in Resources */,
+				0C937B6D1C3D8BD1008327FD /* Retail With ExperienceTell Me a TimeQuestion.mp4 in Resources */,
 				2C367AE11C343A92007D67DB /* PrePrompts.plist in Resources */,
 				0C937B251C3D8BD0008327FD /* GeneralResumeQuestion.mp4 in Resources */,
 				0C937B3A1C3D8BD0008327FD /* HealthcareNights and WeekendsAnswer.mp4 in Resources */,

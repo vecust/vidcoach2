@@ -159,6 +159,9 @@
 		2CAF7C3E1C31A78100FC81E9 /* InterviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3D1C31A78100FC81E9 /* InterviewTableViewCell.swift */; };
 		2CAF7C401C31B89600FC81E9 /* InterviewCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF7C3F1C31B89600FC81E9 /* InterviewCellInfo.swift */; };
 		2CB07EC91C4C5DAE00356939 /* dayOne.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB07EC81C4C5DAE00356939 /* dayOne.plist */; };
+		2CB07ECB1C4D976400356939 /* BadgeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB07ECA1C4D976400356939 /* BadgeTableViewController.swift */; };
+		2CB07ECD1C4D977C00356939 /* BadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB07ECC1C4D977C00356939 /* BadgeTableViewCell.swift */; };
+		2CB07ED11C4D9C1E00356939 /* Badges.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CB07ED01C4D9C1E00356939 /* Badges.plist */; };
 		2CF85FF41C44A567006B2D3A /* interviews.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF85FF31C44A567006B2D3A /* interviews.plist */; };
 		5EB8FDFF213ED9D886DD8E9E /* Pods_VidCoach2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA72EE8BC78C225A710B1D6 /* Pods_VidCoach2.framework */; };
 /* End PBXBuildFile section */
@@ -331,6 +334,9 @@
 		2CAF7C3D1C31A78100FC81E9 /* InterviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewTableViewCell.swift; sourceTree = "<group>"; };
 		2CAF7C3F1C31B89600FC81E9 /* InterviewCellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewCellInfo.swift; sourceTree = "<group>"; };
 		2CB07EC81C4C5DAE00356939 /* dayOne.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dayOne.plist; sourceTree = "<group>"; };
+		2CB07ECA1C4D976400356939 /* BadgeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeTableViewController.swift; sourceTree = "<group>"; };
+		2CB07ECC1C4D977C00356939 /* BadgeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeTableViewCell.swift; sourceTree = "<group>"; };
+		2CB07ED01C4D9C1E00356939 /* Badges.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Badges.plist; sourceTree = "<group>"; };
 		2CBA1CC91C421FF900943B1C /* VidCoach2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VidCoach2-Bridging-Header.h"; sourceTree = "<group>"; };
 		2CF85FF31C44A567006B2D3A /* interviews.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = interviews.plist; sourceTree = "<group>"; };
 		7B043CEE2DDC1CB01B649EC4 /* Pods-VidCoach2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidCoach2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VidCoach2/Pods-VidCoach2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -367,6 +373,7 @@
 				2C367AE21C344ECE007D67DB /* PostPrompts.plist */,
 				2C4FB6BC1C35B2E500643273 /* PromptSettings.plist */,
 				0C9CD4751C44808B00C0B4E5 /* Rewards.plist */,
+				2CB07ED01C4D9C1E00356939 /* Badges.plist */,
 				2C2AB2691C4B4436007AA55B /* Earned.plist */,
 				2CB07EC81C4C5DAE00356939 /* dayOne.plist */,
 			);
@@ -535,6 +542,8 @@
 				2CAF7C0C1C2C780200FC81E9 /* AppDelegate.swift */,
 				2CAF7C3F1C31B89600FC81E9 /* InterviewCellInfo.swift */,
 				2CAF7C101C2C780200FC81E9 /* Main.storyboard */,
+				2CB07ECA1C4D976400356939 /* BadgeTableViewController.swift */,
+				2CB07ECC1C4D977C00356939 /* BadgeTableViewCell.swift */,
 				2CAF7C371C2D0B2A00FC81E9 /* InterviewTableViewController.swift */,
 				2CAF7C3D1C31A78100FC81E9 /* InterviewTableViewCell.swift */,
 				2CAF7C3B1C318EFC00FC81E9 /* QuestionTableViewController.swift */,
@@ -722,6 +731,7 @@
 				0C937B1C1C3D8BD0008327FD /* GeneralAbout MeAnswer.mp4 in Resources */,
 				0C937B841C3D8BD1008327FD /* Retail Without ExperienceUpsellingAnswer.mp4 in Resources */,
 				0C937B7A1C3D8BD1008327FD /* Retail Without ExperienceExperienceAnswer.mp4 in Resources */,
+				2CB07ED11C4D9C1E00356939 /* Badges.plist in Resources */,
 				2C367AE31C344ECE007D67DB /* PostPrompts.plist in Resources */,
 				0C937B5C1C3D8BD1008327FD /* Retail With ExperienceCoworkersAnswer.mp4 in Resources */,
 				0C937B301C3D8BD0008327FD /* HealthcareExperienceAnswer.mp4 in Resources */,
@@ -873,6 +883,8 @@
 				2C367B3A1C3497A0007D67DB /* AVSegmentPlayerViewController.swift in Sources */,
 				2CAF7C381C2D0B2A00FC81E9 /* InterviewTableViewController.swift in Sources */,
 				2CAF7C3C1C318EFC00FC81E9 /* QuestionTableViewController.swift in Sources */,
+				2CB07ECB1C4D976400356939 /* BadgeTableViewController.swift in Sources */,
+				2CB07ECD1C4D977C00356939 /* BadgeTableViewCell.swift in Sources */,
 				2CAF7C0F1C2C780200FC81E9 /* VideoViewController.swift in Sources */,
 				2CAF7C301C2CD14500FC81E9 /* Video.swift in Sources */,
 				2CAF7C3E1C31A78100FC81E9 /* InterviewTableViewCell.swift in Sources */,

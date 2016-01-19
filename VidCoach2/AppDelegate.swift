@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var earnedPlistPath:String = String()
     var dayOnePlistPath:String = String()
     var dayOneDict:NSMutableDictionary!
+    var badgesPlistPath:String = String()
 
     //get and set plist files
     func preparePlistForUse(){
@@ -81,6 +82,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let dayOnePlistInBundle = NSBundle.mainBundle().pathForResource("dayOne", ofType: "plist") as String!
             do {
                 try NSFileManager.defaultManager().copyItemAtPath(dayOnePlistInBundle, toPath: dayOnePlistPath)
+            }catch{
+                print("Error occured while copying file to document \(error)")
+            }
+        }
+
+        badgesPlistPath = rootPath.stringByAppendingString("/Badges.plist")
+        if !NSFileManager.defaultManager().fileExistsAtPath(badgesPlistPath){
+            let badgesPlistInBundle = NSBundle.mainBundle().pathForResource("Badges", ofType: "plist") as String!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(badgesPlistInBundle, toPath: badgesPlistPath)
             }catch{
                 print("Error occured while copying file to document \(error)")
             }

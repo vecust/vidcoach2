@@ -308,7 +308,7 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func checkEarned(type: String, metal: String) -> Int {
-        let check = interview+metal+type
+        let check = interview+" "+type+" "+metal
         if earnedArray.containsObject(check) {
             return 0
         } else {

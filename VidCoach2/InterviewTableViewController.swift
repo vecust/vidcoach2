@@ -83,19 +83,19 @@ class InterviewTableViewController: UITableViewController {
         cell.interviewNameLabel.text = interviews[indexPath.row]
         //TODO: Setup Info Pop Ups for tapping badges
         
-        //Set up fire badge - practiced for 10 days straight
+        //Set up fire badge - practiced for n days straight
         let fireBadge = setBadge("Fire", indexPath: indexPath)
         cell.fireBadge.image = UIImage(named: fireBadge)
         
-        //Set up TV badge - watched for 10 days straight
+        //Set up TV badge - watched for n days straight
         let tvBadge = setBadge("TV", indexPath: indexPath)
         cell.tvBadge.image = UIImage(named: tvBadge)
         
-        //Set up finish badge - completed watching a whole interview
+        //Set up finish badge - completed watching a whole interview n days straight
         let finishBadge = setBadge("Finish", indexPath: indexPath)
         cell.finishBadge.image = UIImage(named: finishBadge)
     
-        //Set up camera badge - completed practicing a whole interview
+        //Set up camera badge - completed practicing a whole interview n days straight
         let cameraBadge = setBadge("Camera", indexPath: indexPath)
         cell.cameraBadge.image = UIImage(named: cameraBadge)
         
@@ -126,7 +126,7 @@ class InterviewTableViewController: UITableViewController {
         var setToBadge = String()
 
         for metal in metals {
-            if earnedArray.containsObject(interview+metal+badge) {
+            if earnedArray.containsObject(interview+" "+badge+" "+metal) {
                 setToBadge = badge+metal
                 break
             } else {

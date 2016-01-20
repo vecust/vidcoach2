@@ -94,11 +94,15 @@ class BadgeTableViewController: UITableViewController {
             prefix = badgeName.stringByReplacingOccurrencesOfString(prefix2, withString: "")
             badgeName = prefix.stringByReplacingOccurrencesOfString(" ", withString: "")
             cell.badgeImage.image = UIImage(named: badgeName)
+            cell.badgeLabel.textColor = UIColor.blackColor()
+            cell.backgroundColor = UIColor(red: 161.0/255.0, green: 212.0/255.0, blue: 144.0/255.0, alpha: 1.0)
+            cell.badgeInfo.backgroundColor = UIColor(red: 161.0/255.0, green: 212.0/255.0, blue: 144.0/255.0, alpha: 1.0)
         } else {
             cell.badgeLabel.textColor = UIColor.lightGrayColor()
             cell.badgeInfo.textColor = UIColor.lightGrayColor()
             cell.badgeImage.image = UIImage(named: "circle")
-
+            cell.backgroundColor = UIColor.whiteColor()
+            cell.badgeInfo.backgroundColor = UIColor.whiteColor()
         }
         
         return cell

@@ -87,14 +87,18 @@ class BadgeTableViewController: UITableViewController {
         
         if earnedArray.containsObject(badgesArray[indexPath.row].objectForKey("Title")!) {
             var badgeName = badgesArray[indexPath.row].objectForKey("Title") as! String
-            let rangeOfSpace = badgeName.rangeOfString(" ")
-            let prefix = String(badgeName.characters.prefixUpTo(rangeOfSpace!.startIndex))
-            badgeName = badgeName.stringByReplacingOccurrencesOfString(prefix, withString: "")
-            badgeName = badgeName.stringByReplacingOccurrencesOfString(" ", withString: "")
+            let rangeOfSpace = badgeName.rangeOfString(" ",options: NSStringCompareOptions.BackwardsSearch)
+            var prefix = String(badgeName.characters.prefixUpTo(rangeOfSpace!.startIndex))
+            let rangeOfSpace2 = prefix.rangeOfString(" ",options: NSStringCompareOptions.BackwardsSearch)
+            let prefix2 = String(prefix.characters.prefixUpTo(rangeOfSpace2!.startIndex))
+            prefix = badgeName.stringByReplacingOccurrencesOfString(prefix2, withString: "")
+            badgeName = prefix.stringByReplacingOccurrencesOfString(" ", withString: "")
             cell.badgeImage.image = UIImage(named: badgeName)
         } else {
             cell.badgeLabel.textColor = UIColor.lightGrayColor()
             cell.badgeInfo.textColor = UIColor.lightGrayColor()
+            cell.badgeImage.image = UIImage(named: "circle")
+
         }
         
         return cell
